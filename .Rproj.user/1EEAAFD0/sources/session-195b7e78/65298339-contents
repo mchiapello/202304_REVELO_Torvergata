@@ -36,14 +36,10 @@ website:
     contents: 
       - section: "Workshop"
         contents: 
-          - href: materials/01-intro-quarto.qmd
+          - href: materials/01-Day01.qmd
             text: "Intro to Quarto"
-          - href: materials/02-authoring.qmd
+          - href: materials/02-Day02.qmd
             text: "Authoring Quarto"
-          - href: materials/07-plots-tables.qmd
-            text: "Plots and Tables"
-          - href: materials/04-static-documents.qmd
-            text: "Static Documents"
 
 format:
   html:

@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with Quarto"
-author: "Tom Mock"
+title: "Introduzione all'analisi di RNASeq"
+author: "Marco Chiapello"
 format: html
 editor_options: 
   chunk_output_type: inline
@@ -58,10 +58,9 @@ online resources.
 
 | Activity                                              |
 |:------------------------------------------------------|
-| [Intro to Quarto](materials/01-intro-quarto.html) |
-| [Authoring Quarto](materials/02-authoring.html)  |
-| [Plots and Tables](materials/07-plots-tables.html)  |
-| [Static Documents](materials/04-static-documents.html)  |
+| [Intro to Quarto](materials/01-Day01.html) |
+| [Authoring Quarto](materials/02-Day02.html)  |
+
 
 ## Instructor
 

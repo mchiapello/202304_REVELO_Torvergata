@@ -12,14 +12,16 @@
     "properties": {
         "chunk_output_type": "inline",
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "58,57",
+        "scrollLine": "38"
     },
     "folds": "",
-    "lastKnownWriteTime": 1661368495,
+    "lastKnownWriteTime": 1675175562,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1661368495,
+    "last_content_update": 1675175562560,
     "read_only": false,
     "read_only_alternatives": []
 }
