@@ -1,78 +1,97 @@
 ---
-title: "Introduzione all'analisi di RNASeq"
+title: "Introduzione all'analisi di RNASeq con R"
 author: "Marco Chiapello"
 format: html
 editor_options: 
   chunk_output_type: inline
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
+### Programma del corso
 
-:::{.callout-tip}
+#### Primo giorno
 
-## Pre Work
+| Orario     | Tema                  |
+|------------|-----------------------|
+| 10 - 10:30 | Introduzione al corso |
+|            |                       |
+|            |                       |
 
-- Install latest version of RStudio, [`v2022.07.1` or later](https://www.rstudio.com/products/rstudio/download/#download)
 
-- For ALL hands-on materials, please clone <https://github.com/jthomasmock/quarto-workshop.git> via RStudio 
-- Alternatively, you can use RStudio Cloud which has the workshop materials pre-installed: <https://rstudio.cloud/content/4332583>
 
-- Install these R packages:
+#### Secondo giorno
 
-```{r pkg-list}
-#| eval: false
-pkg_list <- c(
-  "tidyverse", "gt", "gtExtras", "reactable", 
-  "ggiraph",  "here", "quarto", "rmarkdown", 
-  "gtsummary", "palmerpenguins", "fs", "skimr"
-  )
-install.packages(pkg_list)
+| Orario     | Tema                  |
+|------------|-----------------------|
+| 10 - 10:30 | Introduzione al corso |
+|            |                       |
+|            |                       |
+
+
+### Come installare i software necessari al corso
+
+Per questo corso ci serviranno diversi software. Alcuni dei quali possono essere
+usati indistintamente su diversi sistemi operativi, altri invece no. Di seguito troverete
+le istruzioni per installare i software necessari sul vostro computer.
+
+#### R
+
+Per installare R cliccate sul seguente [link](https://cran.r-project.org) e seguite le istruzioni per il vostro sistema operativo.
+
+#### RStudio
+
+Per installare RStudio cliccate sul seguente [link](https://posit.co/download/rstudio-desktop/) e seguite le istruzioni per il vostro sistema operativo.
+
+#### Conda
+
+##### Mac OS
+
+Scaricare lo script miniconda dal seguente [link](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh)
+
+Dopo aver aperto il terminale, incollate i seguenti comandi
+
+```
+cd ~/Downloads
+bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda
+source $HOME/miniconda/bin/activate
+conda init zsh
 ```
 
-:::
+#### Windows OS
 
-:::{.callout-caution collapse="true"}
+We will first install Miniconda and then add three new locations to your system environment path for conda to be recognized as a command in your Command Prompt. 
 
-## How to clone a Github repo
+Installeremo Miniconda e poi faremo delle piccole modifiche per permettere al Command prompt di riconoscere conda.
 
-1. Navigate to <https://github.com/jthomasmock/quarto-workshop>
+1. Download the Miniconda executable (.exe) from here and double click the .exe to run the setup guide
+1. Click "Next >" to continue
+1. Click "I Agree"
+1. Verify that the installation type "Just Me (recommended)" is selected and then click "Next >"
+1. Use the default destination folder which should resemble C:\Users\yourname\Miniconda3. We will need the path to this destination folder soon so copy it to your clipboard and then click "Next >"
+1. Check "Register Miniconda3 as my default Python 3.9" and then click "Install"
+1. Using the search box in the toolbar at the bottom of your screen, search for "environment variables" and then click on "Edit the system environment variables"
+1. Click "Environment Variables..."
+1. Under "System variables" click on "Path" so that row is highlighted in blue and click "Edit..."
+1. Click "New"
+1. In the box that appears, paste the file path that you copied in step 5. It should look like C:\Users\yourname\Miniconda3\
+1. Click "New"
+1. Paste the file path that you copied in step 5 but modify it so that it looks like C:\Users\yourname\Miniconda3\Scripts\
+1. Click "New"
+1. Paste the file path that you copied in step 5 but modify it so that it looks like C:\Users\yourname\Miniconda3\Library\bin\
+1. Click "OK" to close the "Edit environment variable" window
+1. Click "OK" to close the "Environment Variables" window
+1. Click "OK" to close the "System Properties" window
+    
+### Docente
 
-1. Click on the green "Code" button and copy the url under the HTTPS tab <https://github.com/jthomasmock/quarto-workshop.git>
-
-1. In RStudio, use File > New Project > Version Control > From Git > and then paste the URL into the source repo box and then click enter!
-
-![](materials/images/clone-repo.gif)
-
-:::
-
-## Overview
-
-This workshop is designed for those who have no or little prior
-experience with Quarto. Quarto is the
-next generation of RMarkdown for publishing, including dynamic and
-static documents and multi-lingual programming language support. With Quarto 
-you can create documents, books, presentations, blogs or other
-online resources. 
-
-
-### Schedule
-
-| Activity                                              |
-|:------------------------------------------------------|
-| [Intro to Quarto](materials/01-Day01.html) |
-| [Authoring Quarto](materials/02-Day02.html)  |
-
-
-## Instructor
-
-Tom Mock, PhD is the Customer Enablement Lead at RStudio, helping
-RStudio's customers be as successful as possible. He is deeply involved
-in the global data science community, sharing tips on `#RStats` Twitter
-(find him at @thomas_mock), as co-founder of `#TidyTuesday`, a weekly
-Data Science learning challenge, and presenting on various Data Science
-topics on YouTube or at conferences.
-
-------------------------------------------------------------------------
-
-![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is
-licensed under a [Creative Commons Attribution 4.0 International
-License](https://creativecommons.org/licenses/by/4.0/).
+Marco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R
+e Bioconductor. Dal 2016 è un istruttore certificato per
+l'organizzazione internazionale [The
+Carpentries](https://carpentries.org) con la quale ha insegnato negli
+ultimi anni più di 10 corsi in varie università Europee di analisi dati
+con R. Dal 2015 insegna il corso PhD ToolBox presso l'Università degli
+Studi di Torino. Attualmente è Application Engineer presso [Agilent
+Technologies](https://www.agilent.com) nella divisione "Diagnostics &
+Genomics".

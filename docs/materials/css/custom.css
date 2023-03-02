@@ -1,0 +1,26 @@
+.white{
+  color: white;
+}
+
+.icon {
+  font-size: 200px;
+}
+
+.tit {
+  text-align: center;
+  font-size: 200px;
+}
+
+.center {
+  margin: auto;
+  width: 100%
+}
+
+p span.p-span-center{
+  display: block;
+  text-align: center;
+}
+
+.tcenter {
+  text-align: center;
+}

@@ -49,11 +49,18 @@ library(gtsummary)
 
 ## We assume
 
+
 `r fa("r-project")` You know R
 
 `r fa("markdown")` You know a little bit of Markdown
 
 <img src="https://raw.githubusercontent.com/quarto-dev/quarto-web/main/favicon.png" style="display: inline-block; margin: 0; margin-bottom: -2px; height: 35px;"/></img> You want to learn about Quarto, the next-generation of RMarkdown
+
+```{r}
+qr <- qrcode::qr_code("https://forms.gle/BfLtXGdTy8zPHE1A6")
+plot(qr)
+```
+
 
 . . .
 

@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Introduzione all’analisi di RNASeq",
+    "title": "Introduzione all’analisi di RNASeq con R",
     "section": "",
-    "text": "Pre Work\n\n\n\n\nInstall latest version of RStudio, v2022.07.1 or later\nFor ALL hands-on materials, please clone https://github.com/jthomasmock/quarto-workshop.git via RStudio\nAlternatively, you can use RStudio Cloud which has the workshop materials pre-installed: https://rstudio.cloud/content/4332583\nInstall these R packages:\n\n\npkg_list <- c(\n  \"tidyverse\", \"gt\", \"gtExtras\", \"reactable\", \n  \"ggiraph\",  \"here\", \"quarto\", \"rmarkdown\", \n  \"gtsummary\", \"palmerpenguins\", \"fs\", \"skimr\"\n  )\ninstall.packages(pkg_list)"
+    "text": "Programma del corso\n\nPrimo giorno\n\n\n\nOrario\nTema\n\n\n\n\n10 - 10:30\nIntroduzione al corso\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecondo giorno\n\n\n\nOrario\nTema\n\n\n\n\n10 - 10:30\nIntroduzione al corso\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCome installare i software necessari al corso\nPer questo corso ci serviranno diversi software. Alcuni dei quali possono essere usati indistintamente su diversi sistemi operativi, altri invece no. Di seguito troverete le istruzioni per installare i software necessari sul vostro computer.\n\nR\nPer installare R cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nRStudio\nPer installare RStudio cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nConda\n\nMac OS\nScaricare lo script miniconda dal seguente link\nDopo aver aperto il terminale, incollate i seguenti comandi\ncd ~/Downloads\nbash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda\nsource $HOME/miniconda/bin/activate\nconda init zsh\n\n\n\nWindows OS\nWe will first install Miniconda and then add three new locations to your system environment path for conda to be recognized as a command in your Command Prompt.\nInstalleremo Miniconda e poi faremo delle piccole modifiche per permettere al Command prompt di riconoscere conda.\n\nDownload the Miniconda executable (.exe) from here and double click the .exe to run the setup guide\nClick “Next >” to continue\nClick “I Agree”\nVerify that the installation type “Just Me (recommended)” is selected and then click “Next >”\nUse the default destination folder which should resemble C:. We will need the path to this destination folder soon so copy it to your clipboard and then click “Next >”\nCheck “Register Miniconda3 as my default Python 3.9” and then click “Install”\nUsing the search box in the toolbar at the bottom of your screen, search for “environment variables” and then click on “Edit the system environment variables”\nClick “Environment Variables…”\nUnder “System variables” click on “Path” so that row is highlighted in blue and click “Edit…”\nClick “New”\nIn the box that appears, paste the file path that you copied in step 5. It should look like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “OK” to close the “Edit environment variable” window\nClick “OK” to close the “Environment Variables” window\nClick “OK” to close the “System Properties” window\n\n\n\n\nDocente\nMarco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R e Bioconductor. Dal 2016 è un istruttore certificato per l’organizzazione internazionale The Carpentries con la quale ha insegnato negli ultimi anni più di 10 corsi in varie università Europee di analisi dati con R. Dal 2015 insegna il corso PhD ToolBox presso l’Università degli Studi di Torino. Attualmente è Application Engineer presso Agilent Technologies nella divisione “Diagnostics & Genomics”."
   },
   {
     "objectID": "index.html#overview",
@@ -18,7 +18,7 @@
     "href": "index.html#instructor",
     "title": "Introduzione all’analisi di RNASeq",
     "section": "Instructor",
-    "text": "Instructor\nTom Mock, PhD is the Customer Enablement Lead at RStudio, helping RStudio’s customers be as successful as possible. He is deeply involved in the global data science community, sharing tips on #RStats Twitter (find him at @thomas_mock), as co-founder of #TidyTuesday, a weekly Data Science learning challenge, and presenting on various Data Science topics on YouTube or at conferences.\n\n This work is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Instructor\nMarco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R e Bioconductor. Dal 2016 è un istruttore certificato per l’organizzazione internazionale The Carpentries con la quale ha insegnato negli ultimi anni più di 10 corsi in varie università Europee di analisi dati con R. Dal 2015 insegna il corso PhD ToolBox presso l’Università degli Studi di Torino. Attualmente è Application Engineer presso Agilent Technologies nella divisione “Diagnostics & Genomics”."
   },
   {
     "objectID": "materials/01-intro-quarto.html#TitleSlide",
@@ -2214,7 +2214,7 @@
   {
     "objectID": "materials/test-layout.html",
     "href": "materials/test-layout.html",
-    "title": "Get Started with Quarto",
+    "title": "Introduzione all'analisi di RNASeq",
     "section": "",
     "text": "Excited\n\n\n\n\n\n\n\nSleeping\n\n\n\n\n\n\n\n\n\nStill Excited\n\n\n\n\n\n\n\nStill sleeping\n\n\n\n\n\n\nTwo states of Howard, twice"
   },
@@ -2258,7 +2258,7 @@
     "href": "materials/01-Day01.html#we-assume",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "We assume",
-    "text": "We assume\n You know R\n You know a little bit of Markdown\n You want to learn about Quarto, the next-generation of RMarkdown\n\n\nWe’ll teach you\n\nQuarto syntax and formats\nMore Markdown\nEven more R along the way!"
+    "text": "We assume\n You know R\n You know a little bit of Markdown\n You want to learn about Quarto, the next-generation of RMarkdown\n\nqr <- qrcode::qr_code(\"https://forms.gle/BfLtXGdTy8zPHE1A6\")\nplot(qr)\n\n\n\n\n\n\nWe’ll teach you\n\nQuarto syntax and formats\nMore Markdown\nEven more R along the way!"
   },
   {
     "objectID": "materials/01-Day01.html#section-1",
@@ -2524,7 +2524,7 @@
     "href": "materials/01-Day01.html#code",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Code",
-    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```\n\n\n\n\n\nFigure 1: Temperature and ozone level."
+    "text": "Code\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```\n\n\n\n\nFigure 1: Temperature and ozone level."
   },
   {
     "objectID": "materials/01-Day01.html#code-more-than-just-r",
@@ -2615,7 +2615,7 @@
     "href": "materials/02-Day02.html#divs-and-spans-1",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Divs and spans",
-    "text": "Divs and spans\nA fenced div always starts and ends with equal/matching ::::\n\n\nMinimum and typical :::\n::: <- Starts\nContent\n::: <- Ends\n\nAny number can be used: ::::::\n:::::: <- Starts\nContent\n:::::: <- Ends\n\n\n\n\nYou can also nest fenced div, just make sure to match start -> end\n\n:::: {.columns}\n::: {.column}\ncontent\n:::\n\n::: {.column}\ncontent 2\n:::\n::::"
+    "text": "Divs and spans\nA fenced div always starts and ends with equal/matching ::::\n\n\nMinimum and typical :::\n::: <- Starts\nContent\n::: <- Ends\n\nAny number can be used: ::::::\n:::::: <- Starts\nContent\n:::::: <- Ends\n\n\n\nYou can also nest fenced div, just make sure to match start -> end\n\n:::: {.columns}\n::: {.column}\ncontent\n:::\n\n::: {.column}\ncontent 2\n:::\n::::"
   },
   {
     "objectID": "materials/02-Day02.html#why-instead-of-div",
@@ -2629,7 +2629,7 @@
     "href": "materials/02-Day02.html#callout-blocks",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Callout Blocks",
-    "text": "Callout Blocks\n:::{.callout-note}\nNote that there are five types of callouts, including: \n`note`, `tip`, `warning`, `caution`, and `important`.\n:::\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, tip, warning, caution, and important.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nCallouts provide a simple way to attract attention, for example, to this warning.\n\n\n\n\n\n\n\n\nThis is important\n\n\n\nDanger, callouts will really improve your writing.\n\n\n\n\n\n\n\n\nTip with caption\n\n\n\n\n\n\n\n\n\n\n\n\nCaution, under construction\n\n\n\nHere is something under construction"
+    "text": "Callout Blocks\n:::{.callout-note}\nNote that there are five types of callouts, including: \n`note`, `tip`, `warning`, `caution`, and `important`.\n:::\n\n\n\n\n\n\nNote\n\n\nNote that there are five types of callouts, including: note, tip, warning, caution, and important.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nCallouts provide a simple way to attract attention, for example, to this warning.\n\n\n\n\n\n\n\n\n\nThis is important\n\n\nDanger, callouts will really improve your writing.\n\n\n\n\n\n\n\n\n\nTip with caption\n\n\n\n\n\n\n\n\n\n\n\n\nCaution, under construction\n\n\nHere is something under construction"
   },
   {
     "objectID": "materials/02-Day02.html#callout-markdown-syntax",
@@ -2678,7 +2678,7 @@
     "href": "materials/02-Day02.html#spans",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Spans",
-    "text": "Spans\nWhereas a ::: fenced div is useful for application across a paragraph of text or set of images, a [span]{.class} is useful for application to a single item/string within a sentence.\n\nMaybe a footnote1\n\n\nOr a magically appearing word with an additional point after\n\n\nOr a magically [appearing word]{.fragment} [with an additional point after]{.fragment}"
+    "text": "Spans\nWhereas a ::: fenced div is useful for application across a paragraph of text or set of images, a [span]{.class} is useful for application to a single item/string within a sentence.\n\nMaybe a footnote1\n\n\nOr a magically appearing word with an additional point after\n\n\nOr a magically [appearing word]{.fragment} [with an additional point after]{.fragment}\n\nMaybe a footnote^[This is important text]"
   },
   {
     "objectID": "materials/02-Day02.html#choose-your-engine",
@@ -2748,42 +2748,42 @@
     "href": "materials/02-Day02.html#quarto-chunk-options",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Quarto chunk options",
-    "text": "Quarto chunk options\n\n```{r}\n#| code-line-numbers: \"|3-8\"\n#| warning: false\n#| fig-cap: \"Air Quality\"\n#| fig-align: left\n#| fig-alt: |\n#|   \"A scatterplot with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\n\nlibrary(ggplot2)\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n\n\n\nAir Quality"
+    "text": "Quarto chunk options\n\n```{r}\n#| code-line-numbers: \"|3-8\"\n#| warning: false\n#| fig-cap: \"Air Quality\"\n#| fig-align: left\n#| fig-alt: |\n#|   \"A scatterplot with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\n\nlibrary(ggplot2)\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n\nAir Quality"
   },
   {
     "objectID": "materials/02-Day02.html#code-in-chunk-option",
     "href": "materials/02-Day02.html#code-in-chunk-option",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Code in chunk option",
-    "text": "Code in chunk option\nYou can also execute code inside a chunk option via the !expr syntax:\n\n```{r}\n#| code-line-numbers: \"|3\"\n#| fig-cap: !expr glue::glue(\"The mean temperature was {mean(airquality$Temp) |> round()}\")\n#| fig-alt: |\n#|   \"A scatterplot with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 37 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 37 rows containing missing values (`geom_point()`).\n\n\n\n\n\nThe mean temperature was 78"
+    "text": "Code in chunk option\nYou can also execute code inside a chunk option via the !expr syntax:\n\n```{r}\n#| code-line-numbers: \"|3\"\n#| fig-cap: !expr glue::glue(\"The mean temperature was {mean(airquality$Temp) |> round()}\")\n#| fig-alt: |\n#|   \"A scatterplot with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 37 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 37 rows containing missing values (`geom_point()`).\n\n\n\nThe mean temperature was 78"
   },
   {
     "objectID": "materials/02-Day02.html#quarto-and-rmarkdown",
     "href": "materials/02-Day02.html#quarto-and-rmarkdown",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Quarto and RMarkdown",
-    "text": "Quarto and RMarkdown\n\nBasic RMarkdown documents that render to static HTML and PDF are the most transferable directly to Quarto\n\n\n\n\n\nR Markdown\ntitle: \"My Document\"\noutput:\n  html_document:\n    toc: true\n    number_sections: true\n    css: styles.css\n\n\n\nQuarto\ntitle: \"My Document\"\nformat:\n  html:\n    toc: true\n    number-sections: true\n    css: styles.css\n\n\n\n\n\n\nNote that the YAML for Quarto:\n\nWill follow a word-word syntax\n\nInstead of using output: html_document, you’ll use format: html\n\n\nOne source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _)."
+    "text": "Quarto and RMarkdown\n\nBasic RMarkdown documents that render to static HTML and PDF are the most transferable directly to Quarto\n\n\n\n\nR Markdown\ntitle: \"My Document\"\noutput:\n  html_document:\n    toc: true\n    number_sections: true\n    css: styles.css\n\nQuarto\ntitle: \"My Document\"\nformat:\n  html:\n    toc: true\n    number-sections: true\n    css: styles.css\n\n\n\n\n\nNote that the YAML for Quarto:\n\nWill follow a word-word syntax\n\nInstead of using output: html_document, you’ll use format: html\n\n\nOne source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _)."
   },
   {
     "objectID": "materials/02-Day02.html#section",
     "href": "materials/02-Day02.html#section",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "",
-    "text": "Converting RMarkdown -> Quarto\n\n\nOption 1: Change .rmd -> .qmd - this will ALWAYS use Quarto for rendering\nOption 2: Change YAML’s output: html_document -> format: html - uses Quarto\n\n\n\n\n\nConverting knitr chunks\n\nknitr dev version as of 2022-08-06 has: knitr::convert_chunk_header(\"doc.qmd\", output = identity)\n\n\n\n\n\nknitr::convert_chunk_header() converts:\n\nfig.width=1 syntax to\n#| fig-width: 1\nacross all code chunks in a entire document\n\n\n\n\n\nBut again - you don’t have to convert syntax of all your old documents, can use quarto render at terminal or use R + quarto::quarto_render() to render existing RMarkdown docs via Quarto"
+    "text": "Converting RMarkdown -> Quarto\n\n\nOption 1: Change .rmd -> .qmd - this will ALWAYS use Quarto for rendering\nOption 2: Change YAML’s output: html_document -> format: html - uses Quarto\n\n\n\n\n\nConverting knitr chunks\n\nknitr dev version as of 2022-08-06 has: knitr::convert_chunk_header(\"doc.qmd\", output = identity)\n\n\n\n\nknitr::convert_chunk_header() converts:\n\nfig.width=1 syntax to\n#| fig-width: 1\nacross all code chunks in a entire document\n\n\n\n\n\n\nBut again - you don’t have to convert syntax of all your old documents, can use quarto render at terminal or use R + quarto::quarto_render() to render existing RMarkdown docs via Quarto"
   },
   {
     "objectID": "materials/02-Day02.html#remember-the-layout",
     "href": "materials/02-Day02.html#remember-the-layout",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Remember the ::: {layout}?",
-    "text": "Remember the ::: {layout}?\nYou can do similar things with chunk options and plots from code!\n\n\n```{r}\n#| code-line-numbers: \"|4\"\n#| output-location: fragment\n#| layout-ncol: 2\n#| fig-cap:\n#|   - \"Speed and Stopping Distances of Cars\"\n#|   - \"Engine displacement and fuel efficiency in Cars\"\ncars |> \n  ggplot(aes(x = speed, y = dist)) +\n  geom_point()\nmtcars |> \n  ggplot(aes(x = disp, y = mpg)) +\n  geom_point()\n```\n\n\n\n\n\n\nSpeed and Stopping Distances of Cars\n\n\n\n\n\n\n\nEngine displacement and fuel efficiency in Cars"
+    "text": "Remember the ::: {layout}?\nYou can do similar things with chunk options and plots from code!\n\n\n```{r}\n#| code-line-numbers: \"|4\"\n#| output-location: fragment\n#| layout-ncol: 2\n#| fig-cap:\n#|   - \"Speed and Stopping Distances of Cars\"\n#|   - \"Engine displacement and fuel efficiency in Cars\"\ncars |> \n  ggplot(aes(x = speed, y = dist)) +\n  geom_point()\nmtcars |> \n  ggplot(aes(x = disp, y = mpg)) +\n  geom_point()\n```\n\n\n\n\n\n\n\n\n\n\nSpeed and Stopping Distances of Cars\n\n\n\n\n\n\n\nEngine displacement and fuel efficiency in Cars"
   },
   {
     "objectID": "materials/02-Day02.html#chunk-option-layouts",
     "href": "materials/02-Day02.html#chunk-option-layouts",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Chunk option layouts",
-    "text": "Chunk option layouts\n\n```{r}\n#| code-line-numbers: \"|7\"\n#| output-location: fragment\n#| fig-cap:\n#|   - \"Speed and Stopping Distances of Cars\"\n#|   - \"Engine displacement and fuel efficiency in Cars\"\n#| layout: \"[[40,-20,40]]\"\n#| fig-height: 4\n#| fig-format: retina\ncars |> \n  ggplot(aes(x = speed, y = dist)) +\n  geom_point()\nmtcars |> \n  ggplot(aes(x = disp, y = mpg)) +\n  geom_point()\n```\n\n\n\n\n\n\nSpeed and Stopping Distances of Cars\n\n\n\n\n \n\n\n\n\n\nEngine displacement and fuel efficiency in Cars"
+    "text": "Chunk option layouts\n\n```{r}\n#| code-line-numbers: \"|7\"\n#| output-location: fragment\n#| fig-cap:\n#|   - \"Speed and Stopping Distances of Cars\"\n#|   - \"Engine displacement and fuel efficiency in Cars\"\n#| layout: \"[[40,-20,40]]\"\n#| fig-height: 4\n#| fig-format: retina\ncars |> \n  ggplot(aes(x = speed, y = dist)) +\n  geom_point()\nmtcars |> \n  ggplot(aes(x = disp, y = mpg)) +\n  geom_point()\n```\n\n\n\n\n\n\n\n\n\n\nSpeed and Stopping Distances of Cars\n\n\n\n\n \n\n\n\n\n\nEngine displacement and fuel efficiency in Cars"
   },
   {
     "objectID": "materials/02-Day02.html#html-appearance",
@@ -2839,7 +2839,7 @@
     "href": "materials/02-Day02.html#quarto-projects-3",
     "title": "Introduzione all'analisi di RNASeq",
     "section": "Quarto Projects",
-    "text": "Quarto Projects\n\nBooks, Websites, Blogs are a Quarto project\nWant to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!\nAdd to your calendar: rstd.io/quarto-blog"
+    "text": "Quarto Projects\n\nBooks, Websites, Blogs are a Quarto project\nWant to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!\nAdd to your calendar: rstd.io/quarto-blog\n\n\n\n\n\n\njthomasmock.github.io/quarto-r-medicine"
   },
   {
     "objectID": "materials/01-Day01.html#TitleSlide",
@@ -2847,5 +2847,54 @@
     "title": "Introduzione all'analisi di RNASeq",
     "section": "",
     "text": "Quarto Workshop\n\nTom Mock, RStudio PBC\n jthomasmock.github.io/quarto-r-medicine\n2022-08-09\n\n\nYou are sneaky!"
+  },
+  {
+    "objectID": "materials/02-Day02.html#quarto-anatomy",
+    "href": "materials/02-Day02.html#quarto-anatomy",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "Quarto, anatomy",
+    "text": "Quarto, anatomy\n\nMetadata: YAML\nText: Markdown\nCode: knitr or jupyter\n\n\nAdd it all together, and you have beautiful, powerful, and useful outputs, all with plain text input!"
+  },
+  {
+    "objectID": "materials/02-Day02.html#literate-programming",
+    "href": "materials/02-Day02.html#literate-programming",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "Literate programming",
+    "text": "Literate programming\n\nLiterate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - Wikipedia\n\n---\ntitle: \"ggplot2 demo\"\ndate: \"5/22/2021\"\nformat: html\n---\n\n## Air Quality\n\nThere is a relationship between temperature and the ozone level.\n\n```{r}\n#| label: fig-airquality\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```"
+  },
+  {
+    "objectID": "materials/M1_intro.html#TitleSlide",
+    "href": "materials/M1_intro.html#TitleSlide",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "Introduzione al Corso\nIntroduzione all’analisi RNASeq in R\nDipartimento di Biomedicina e Prevenzione\n \nMarco Chiapello, Revelo Datalab\n2023-03-31"
+  },
+  {
+    "objectID": "materials/M1_intro.html#prova",
+    "href": "materials/M1_intro.html#prova",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "Prova",
+    "text": "Prova\n\ndfj;sdljf;\nfhlsdhfso\nR is free software and comes with ABSOLUTELY NO WARRANTY.\n\n\n\n\nhome page"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section",
+    "href": "materials/M1_intro.html#section",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "Code of Conduct"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-1",
+    "href": "materials/M1_intro.html#section-1",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "We are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity.\nBy participating in this course, participants accept the Code of Conduct.\nAny form of behaviour to exclude, intimidate, or cause discomfort is a violation of the Code of Conduct. In order to foster a positive and professional learning environment we encourage the following kinds of behaviours in all platforms and events:\n\n\nUse welcoming and inclusive language\n\n\n\n\nBe respectful of different viewpoints and experiences\n\n\n\n\nGracefully accept constructive criticism\n\n\n\n\nFocus on what is best for the community\n\n\n\n\nShow courtesy and respect towards other community members"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-3",
+    "href": "materials/M1_intro.html#section-3",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "Chi sei?\n\n\n\n Cosa hai studiato?\n\n\n\n Quali sono i tuoi obiettivi?\n\n\n\n Quali sono le aspettative per il corso?"
   }
 ]
