@@ -84,6 +84,10 @@ Installeremo Miniconda e poi faremo delle piccole modifiche per permettere al Co
 1. Click "OK" to close the "Environment Variables" window
 1. Click "OK" to close the "System Properties" window
     
+    
+#### Slack
+Seguire il [link](https://join.slack.com/t/2023-rnaseq-course1/shared_invite/zt-1qbyk926t-ReFgoXM3CN4EKfzE50IKpQ) per iscriversi al canale Slack del corso
+
 ### Docente
 
 Marco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R

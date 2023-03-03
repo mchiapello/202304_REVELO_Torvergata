@@ -24,3 +24,9 @@ p span.p-span-center{
 .tcenter {
   text-align: center;
 }
+
+.p-img-center img {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Introduzione all’analisi di RNASeq con R",
     "section": "",
-    "text": "Programma del corso\n\nPrimo giorno\n\n\n\nOrario\nTema\n\n\n\n\n10 - 10:30\nIntroduzione al corso\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecondo giorno\n\n\n\nOrario\nTema\n\n\n\n\n10 - 10:30\nIntroduzione al corso\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCome installare i software necessari al corso\nPer questo corso ci serviranno diversi software. Alcuni dei quali possono essere usati indistintamente su diversi sistemi operativi, altri invece no. Di seguito troverete le istruzioni per installare i software necessari sul vostro computer.\n\nR\nPer installare R cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nRStudio\nPer installare RStudio cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nConda\n\nMac OS\nScaricare lo script miniconda dal seguente link\nDopo aver aperto il terminale, incollate i seguenti comandi\ncd ~/Downloads\nbash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda\nsource $HOME/miniconda/bin/activate\nconda init zsh\n\n\n\nWindows OS\nWe will first install Miniconda and then add three new locations to your system environment path for conda to be recognized as a command in your Command Prompt.\nInstalleremo Miniconda e poi faremo delle piccole modifiche per permettere al Command prompt di riconoscere conda.\n\nDownload the Miniconda executable (.exe) from here and double click the .exe to run the setup guide\nClick “Next >” to continue\nClick “I Agree”\nVerify that the installation type “Just Me (recommended)” is selected and then click “Next >”\nUse the default destination folder which should resemble C:. We will need the path to this destination folder soon so copy it to your clipboard and then click “Next >”\nCheck “Register Miniconda3 as my default Python 3.9” and then click “Install”\nUsing the search box in the toolbar at the bottom of your screen, search for “environment variables” and then click on “Edit the system environment variables”\nClick “Environment Variables…”\nUnder “System variables” click on “Path” so that row is highlighted in blue and click “Edit…”\nClick “New”\nIn the box that appears, paste the file path that you copied in step 5. It should look like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “OK” to close the “Edit environment variable” window\nClick “OK” to close the “Environment Variables” window\nClick “OK” to close the “System Properties” window\n\n\n\n\nDocente\nMarco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R e Bioconductor. Dal 2016 è un istruttore certificato per l’organizzazione internazionale The Carpentries con la quale ha insegnato negli ultimi anni più di 10 corsi in varie università Europee di analisi dati con R. Dal 2015 insegna il corso PhD ToolBox presso l’Università degli Studi di Torino. Attualmente è Application Engineer presso Agilent Technologies nella divisione “Diagnostics & Genomics”."
+    "text": "Programma del corso\n\nPrimo giorno\n\n\n\nOrario\nTema\n\n\n\n\n10 - 10:30\nIntroduzione al corso\n\n\n\n\n\n\n\n\n\n\n\n\n\nSecondo giorno\n\n\n\nOrario\nTema\n\n\n\n\n10 - 10:30\nIntroduzione al corso\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCome installare i software necessari al corso\nPer questo corso ci serviranno diversi software. Alcuni dei quali possono essere usati indistintamente su diversi sistemi operativi, altri invece no. Di seguito troverete le istruzioni per installare i software necessari sul vostro computer.\n\nR\nPer installare R cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nRStudio\nPer installare RStudio cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nConda\n\nMac OS\nScaricare lo script miniconda dal seguente link\nDopo aver aperto il terminale, incollate i seguenti comandi\ncd ~/Downloads\nbash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda\nsource $HOME/miniconda/bin/activate\nconda init zsh\n\n\n\nWindows OS\nWe will first install Miniconda and then add three new locations to your system environment path for conda to be recognized as a command in your Command Prompt.\nInstalleremo Miniconda e poi faremo delle piccole modifiche per permettere al Command prompt di riconoscere conda.\n\nDownload the Miniconda executable (.exe) from here and double click the .exe to run the setup guide\nClick “Next >” to continue\nClick “I Agree”\nVerify that the installation type “Just Me (recommended)” is selected and then click “Next >”\nUse the default destination folder which should resemble C:. We will need the path to this destination folder soon so copy it to your clipboard and then click “Next >”\nCheck “Register Miniconda3 as my default Python 3.9” and then click “Install”\nUsing the search box in the toolbar at the bottom of your screen, search for “environment variables” and then click on “Edit the system environment variables”\nClick “Environment Variables…”\nUnder “System variables” click on “Path” so that row is highlighted in blue and click “Edit…”\nClick “New”\nIn the box that appears, paste the file path that you copied in step 5. It should look like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “OK” to close the “Edit environment variable” window\nClick “OK” to close the “Environment Variables” window\nClick “OK” to close the “System Properties” window\n\n\n\nSlack\nSeguire il link per iscriversi al canale Slack del corso\n\n\n\nDocente\nMarco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R e Bioconductor. Dal 2016 è un istruttore certificato per l’organizzazione internazionale The Carpentries con la quale ha insegnato negli ultimi anni più di 10 corsi in varie università Europee di analisi dati con R. Dal 2015 insegna il corso PhD ToolBox presso l’Università degli Studi di Torino. Attualmente è Application Engineer presso Agilent Technologies nella divisione “Diagnostics & Genomics”."
   },
   {
     "objectID": "index.html#overview",
@@ -2896,5 +2896,33 @@
     "title": "Introduzione all'analisi di RNASeq",
     "section": "",
     "text": "Chi sei?\n\n\n\n Cosa hai studiato?\n\n\n\n Quali sono i tuoi obiettivi?\n\n\n\n Quali sono le aspettative per il corso?"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-5",
+    "href": "materials/M1_intro.html#section-5",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "Website\n\n\n\n\n\n\n\n\nhttp://bit.ly/3ZcDcj9"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-6",
+    "href": "materials/M1_intro.html#section-6",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "Agenda\n\n\nPrimo Giorno Introduzione all’RNASeq\n\n\nOrari\n9:30 : Introduzione al Corso\n10:00: Riepilogo R\n10:45: Pausa\n11:00: Introduzione all’RNASeq\n12:30: Pausa pranzo\n13:30: Software and code\n13:45: Pausa\n15:00: DEMO\n16:30: Considerazioni finali\n\n\nSecondo Giorno Espessione Differenziale\n\n\nOrari\n9:30 : Introduzione a DESEQ2\n10:45: Pausa\n11:00: Live Code\n12:30: Pausa pranzo\n13:30: Live Code\n13:45: Pausa\n15:00: Capstone exercise\n16:30: Considerazioni finali"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-7",
+    "href": "materials/M1_intro.html#section-7",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "Feedbacks\n\nImmediati\n\nSticky notes\n\nFormative assessment\n\nVeloci questionari o esercizi\n\nAlla fine di ogni modulo\n\nSticky notes"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-8",
+    "href": "materials/M1_intro.html#section-8",
+    "title": "Introduzione all'analisi di RNASeq",
+    "section": "",
+    "text": "Strumenti\n\nWebsite\nSlack\n\nStrumento di comunicazione\n\n\n \nEntrambi rimarranno online per sempre"
   }
 ]
