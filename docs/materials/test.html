@@ -8,11 +8,10 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
-<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet"><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.335">
 
-  <title>Analisi di dati di trascrittomica con R – m1_intro</title>
+  <title>Analisi di dati di trascrittomica con R – test</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -322,6 +321,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -339,166 +341,59 @@
 <p><span style="font-size: 30px;font-weight: bold;">2023-03-31</span></p>
 </div>
 </section>
-<section>
-<section id="section" class="title-slide slide level1 center" data-background-image="images/back001.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h1></h1>
-<p><span class="tit p-span-center">Code of Conduct</span></p>
-<p><span class="icon p-span-center"><i class="fa-solid fa-people-group"></i></span></p>
-</section>
-<section id="section-1" class="slide level2" data-background-image="images/back001.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h2></h2>
-<div style="font-size: 40px; text-align: justify">
-<p>We are dedicated to providing a <span class="rn">welcoming</span> and <span class="rn">supportive</span> environment for all people, <span class="rn" data-rn-type="box" data-rn-color="black">regardless of background or identity</span>.</p>
-<p>By participating in this course, <span class="rn">participants accept the Code of Conduct</span>.</p>
-<p>Any form of behaviour to <span class="rn" data-rn-color="orange">exclude</span>, <span class="rn" data-rn-color="orange">intimidate</span>, or <span class="rn" data-rn-color="orange">cause discomfort</span> is a violation of the Code of Conduct. In order to foster a <span class="rn" data-rn-color="green">positive and professional learning environment</span> we encourage the following kinds of behaviours in all platforms and events:</p>
-<div class="fragment fade-up">
-<ul>
-<li>Use welcoming and inclusive language</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Be respectful of different viewpoints and experiences</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Gracefully accept constructive criticism</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Focus on what is best for the community</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Show courtesy and respect towards other community members</li>
-</ul>
-</div>
-</div>
-</section></section>
-<section>
-<section id="section-2" class="title-slide slide level1 center" data-background-image="images/back002.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h1></h1>
-<p><span class="tit p-span-center">Presentiamoci</span></p>
-<p><span class="icon p-span-center"><i class="fa-solid fa-id-card"></i></span></p>
-</section>
-<section id="section-3" class="slide level2" data-background-image="images/back002.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h2></h2>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start;">
-<p><i class="fa-solid fa-1"></i> Chi sei?</p>
-</div>
-<p><br></p>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start; margin-left: 200px">
-<p><i class="fa-solid fa-2"></i> Cosa hai studiato?</p>
-</div>
-<p><br></p>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start;">
-<p><i class="fa-solid fa-3"></i> Quali sono i tuoi obiettivi?</p>
-</div>
-<p><br></p>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start; margin-left: 200px">
-<p><i class="fa-solid fa-4"></i> Quali sono le aspettative per il corso?</p>
-</div>
-</section></section>
-<section>
-<section id="section-4" class="title-slide slide level1 center" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h1></h1>
-<p><span class="tit p-span-center">Com’è strutturato il corso</span></p>
-</section>
-<section id="section-5" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Website</span></p>
-<div class="fragment fade-down p-img-center">
-<div class="cell quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="M1_intro_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<p><span class="p-span-center" style="font-size: 100px; font-weight: bold;">http://bit.ly/3ZcDcj9</span></p>
-</div>
-</section>
-<section id="section-6" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Agenda</span></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="p-span-center">Primo Giorno</span> <span class="p-span-center">Introduzione all’RNASeq</span></p>
-<p><br></p>
-<div class="fragment fade-rigth" data-fragment-index="1">
-<p><span style="font-weight: bold;">Orari</span><br>
-9:30 : Introduzione al Corso<br>
-10:00: Riepilogo R<br>
-10:45: Pausa<br>
-11:00: Introduzione all’RNASeq</p>
-<p>12:30: Pausa pranzo</p>
-<p>13:30: Software and code<br>
-14:45: Pausa<br>
-15:00: DEMO<br>
-16:30: Considerazioni finali</p>
-</div>
-</div><div class="column" style="width:50%;">
-<p><span class="p-span-center">Secondo Giorno</span> <span class="p-span-center">Espessione Differenziale</span></p>
-<p><br></p>
-<div class="fragment fade-rigth" data-fragment-index="2">
-<p><span style="font-weight: bold;">Orari</span><br>
-9:30 : Introduzione a DESEQ2<br>
-10:45: Pausa<br>
-11:00: Live Code</p>
-<p>12:30: Pausa pranzo</p>
-<p>13:30: Live Code<br>
-14:45: Pausa<br>
-15:00: Capstone exercise<br>
-16:30: Considerazioni finali</p>
-</div>
-</div>
-</div>
-</section>
-<section id="section-7" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Feedbacks</span></p>
-<ul>
-<li><p><span style="font-size: 70px">Immediati</span></p>
-<ul>
-<li>Sticky notes</li>
-</ul></li>
-<li><p><span style="font-size: 70px">Formative assessment</span></p>
-<ul>
-<li>Veloci questionari o esercizi</li>
-</ul></li>
-<li><p><span style="font-size: 70px">Alla fine di ogni modulo</span></p>
-<ul>
-<li>Sticky notes</li>
-</ul></li>
-</ul>
-</section>
-<section id="section-8" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Strumenti</span></p>
-<ul>
-<li><p><span style="font-size: 70px">Website</span></p></li>
-<li><p><span style="font-size: 70px">Slack</span></p>
-<ul>
-<li>Strumento di comunicazione</li>
-</ul></li>
-</ul>
-<p><br> <br></p>
-<p><span class="p-span-center rn" style="font-size: 70px">Entrambi rimarranno online per sempre</span></p>
-</section></section>
-<section id="section-9" class="title-slide slide level1 center" data-background-image="images/qmark.jpg" data-background-size="cover" data-background-opacity="0.7">
-<h1></h1>
-<div style="position: absolute; left: 980px; top: 450px;">
-<p><span style="font-size: 130px; font-weight: bold; color: white">Domande?</span></p>
-</div>
-</section>
+<section id="section" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+  A[qmd] --&gt; B(Knitr)
+  A[qmd] --&gt; C(Jupyter)
+  B(Knitr) --&gt; D[md]
+  C(Jupyter) --&gt; D[md]
+  D[md] --&gt; E(pandoc)
+  E(pandoc) --&gt; F(HTML)
+  E(pandoc) --&gt; G(PDF)
+  E(pandoc) --&gt; H(Word)
+  E(pandoc) --&gt; I{and more}
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
 
-<section id="section-10" class="title-slide slide level1 center" data-background-image="images/notice001.png" data-background-size="cover" data-background-opacity="0.3">
-<h1></h1>
-<div class="fragment fade-in">
-<p><span class="tit p-span-center">Tutto in questo corso è stato fatto in R</span></p>
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<div style="margin-top: 100px;">
+<p>Animating content</p>
+</div>
+</section>
+<section id="section-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="margin-top: 200px; font-size: 3em; color: red;">
+<p>Animating content</p>
+</div>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
+  A[qmd] --&gt; B(Knitr)
+  A[qmd] --&gt; C(Jupyter)
+  B(Knitr) --&gt; D[md]
+  C(Jupyter) --&gt; D[md]
+  D[md] --&gt; E(pandoc)
+  E(pandoc) --&gt; G(PDF)
+  E(pandoc) --&gt; H(Word)
+  E(pandoc) --&gt; I{and more}
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
 </div>
 
 
@@ -530,7 +425,7 @@
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': false,
+'controlsAuto': true,
 'previewLinksAuto': false,
 'smaller': false,
 'pdfSeparateFragments': false,
@@ -541,7 +436,7 @@
 'smaller': false,
  
         // Display controls in the bottom right corner
-        controls: true,
+        controls: false,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide

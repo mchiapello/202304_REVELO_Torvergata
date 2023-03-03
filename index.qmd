@@ -11,13 +11,27 @@ editor:
 
 ### Programma del corso
 
+Il corso si terrà in:
+
+Dipartimento di Biomedicina e Prevenzione
+Università di Roma Tor Vergata
+Edificio E Nord 2 piano aula 290
+Via Montpellier 1
+00133 Rome
+
 #### Primo giorno
 
 | Orario     | Tema                  |
 |------------|-----------------------|
-| 10 - 10:30 | Introduzione al corso |
-|            |                       |
-|            |                       |
+|9:30| Introduzione al Corso   |
+|10:00| Riepilogo R             |
+|10:45| Pausa                   |
+|11:00| Introduzione all'RNASeq|
+|12:30| Pausa pranzo            |
+|13:30| Software and code       |
+|14:45| Pausa                   |
+|15:00| DEMO                    |
+|16:30| Considerazioni finali   | 
 
 
 
@@ -25,9 +39,14 @@ editor:
 
 | Orario     | Tema                  |
 |------------|-----------------------|
-| 10 - 10:30 | Introduzione al corso |
-|            |                       |
-|            |                       |
+|9:30  | Introduzione a DESEQ2  | 
+|10:45 | Pausa                  | 
+|11:00 | Live Code|
+|12:30 | Pausa pranzo           | 
+|13:30 | Live Code       |
+|14:45 | Pausa                  | 
+|15:00 | Capstone exercise      |              
+|16:30 | Considerazioni finali  |
 
 
 ### Come installare i software necessari al corso

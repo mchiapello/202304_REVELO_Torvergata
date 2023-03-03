@@ -9,6 +9,7 @@ format:
     footer: "[home page](https://mchiapello.github.io/202304_REVELO_Torvergata/)"
     css: ["css/theme.css", "css/custom.css"]
     theme: simple
+    controls: true
 editor: source
 filters:
   - roughnotation
@@ -150,7 +151,7 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 
 
 13:30: Software and code       
-13:45: Pausa                   
+14:45: Pausa                   
 15:00: DEMO                    
 16:30: Considerazioni finali   
 
@@ -174,7 +175,7 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 
 
 13:30: Live Code       
-13:45: Pausa                   
+14:45: Pausa                   
 15:00: Capstone exercise                    
 16:30: Considerazioni finali   
 :::
