@@ -6,7 +6,7 @@ project:
     - "!materials/workshop/"
 
 website:
-  title: "Introduzione all'analisi di RNASeq"
+  title: "Analisi di dati di trascrittomica con R"
   twitter-card:
     card-style: summary_large_image
     description: "Corso Revelo - Analisi di dati di trascrittomica con R"
@@ -30,14 +30,6 @@ website:
   sidebar: 
     style: docked
     contents: 
-      - section: "Corso"
-        contents: 
-          - href: materials/01-Day01_RiepilogoR.qmd
-            text: "Riepilogo R"
-          - href: materials/01-Day01.qmd
-            text: "Primo giorno"
-          - href: materials/02-Day02.qmd
-            text: "Secondo giorno"
       - section: "Materiale aggiuntivo"
         contents: 
           - href: materials/test-layout.qmd
