@@ -41,6 +41,7 @@ library(gtsummary)
 [2023-03-31]{style="font-size: 30px;font-weight: bold;"}
 :::
 
+
 #  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
 
 [Code of Conduct]{.tit .p-span-center}
@@ -214,3 +215,14 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 
 
 #  {background-image="images/qmark.jpg" background-size="cover" background-opacity="0.7"}
+
+
+::: {style="position: absolute; left: 980px; top: 450px;"}
+[Domande?]{style="font-size: 130px; font-weight: bold; color: white"}
+:::
+
+# {background-image="images/notice001.png" background-size="cover" background-opacity="0.3"}
+
+:::{.fragment .fade-in}
+[Tutto in questo corso è stato fatto in R]{.tit .p-span-center}
+:::
