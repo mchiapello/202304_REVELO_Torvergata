@@ -1,0 +1,229 @@
+---
+format: 
+  revealjs:
+    navigation-mode: vertical
+    slide-number: false
+    width: 1600
+    height: 900
+    logo: "images/revelo.png"
+    footer: "[home page](https://mchiapello.github.io/202304_REVELO_Torvergata/)"
+    css: ["css/theme.css", "css/custom.css"]
+    theme: simple
+    controls: true
+editor: source
+filters:
+  - roughnotation
+editor_options: 
+  chunk_output_type: inline
+---
+
+##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+```{r setup, include=FALSE}
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+```
+
+::: {style="position: absolute; left: 480px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;"}
+[Introduzione al Corso]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px"}
+
+[Introduzione all'analisi RNASeq in R]{style="font-size: 40px;font-weight: bold;"}
+
+[Dipartimento di Biomedicina e Prevenzione]{style="font-size: 40px;font-weight: bold;"}
+
+<br> <br>
+
+[Marco Chiapello, Revelo Datalab]{style="font-size: 40px; font-weight: bold;"}
+
+[2023-03-31]{style="font-size: 30px;font-weight: bold;"}
+:::
+
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+[Code of Conduct]{.tit .p-span-center}
+
+[{{< fa people-group >}}]{.icon .p-span-center}
+
+##  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+::: {style="font-size: 40px; text-align: justify"}
+We are dedicated to providing a [welcoming]{.rn} and [supportive]{.rn} environment for all people, [regardless of background or identity]{.rn rn-type="box" rn-color="black"}.
+
+By participating in this course, [participants accept the Code of Conduct]{.rn}.
+
+Any form of behaviour to [exclude]{.rn rn-color="orange"}, [intimidate]{.rn rn-color="orange"}, or [cause discomfort]{.rn rn-color="orange"} is a violation of the Code of Conduct. In order to foster a [positive and professional learning environment]{.rn rn-color="green"} we encourage the following kinds of behaviours in all platforms and events:
+
+::: {.fragment .fade-up}
+-   Use welcoming and inclusive language
+:::
+
+::: {.fragment .fade-up}
+-   Be respectful of different viewpoints and experiences
+:::
+
+::: {.fragment .fade-up}
+-   Gracefully accept constructive criticism
+:::
+
+::: {.fragment .fade-up}
+-   Focus on what is best for the community
+:::
+
+::: {.fragment .fade-up}
+-   Show courtesy and respect towards other community members
+:::
+:::
+
+#  {background-image="images/back002.jpg" background-size="cover" background-opacity="0.3"}
+
+[Presentiamoci]{.tit .p-span-center}
+
+[{{< fa id-card >}}]{.icon .p-span-center}
+
+##  {background-image="images/back002.jpg" background-size="cover" background-opacity="0.3"}
+
+::: {.fragment .fade-down style="font-size: 100px; text-align: start;"}
+{{< fa 1 >}} Chi sei?
+:::
+
+<br>
+
+::: {.fragment .fade-down style="font-size: 100px; text-align: start; margin-left: 200px"}
+{{< fa 2 >}} Cosa hai studiato?
+:::
+
+<br>
+
+::: {.fragment .fade-down style="font-size: 100px; text-align: start;"}
+{{< fa 3 >}} Quali sono i tuoi obiettivi?
+:::
+
+<br>
+
+::: {.fragment .fade-down style="font-size: 100px; text-align: start; margin-left: 200px"}
+{{< fa 4 >}} Quali sono le aspettative per il corso?
+:::
+
+#  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Com'è strutturato il corso]{.tit .p-span-center}
+
+##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Website]{.p-span-center style="font-size: 100px"}
+
+::: {.fragment .fade-down .p-img-center}
+```{r}
+#| echo: false
+#| layout-ncol: 1
+plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
+```
+
+[http://bit.ly/3ZcDcj9]{.p-span-center style="font-size: 100px; font-weight: bold;"}
+:::
+
+##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Agenda]{.p-span-center style="font-size: 100px"}
+
+::: columns
+::: {.column width="50%"}
+[Primo Giorno]{.p-span-center}
+[Introduzione all'RNASeq]{.p-span-center}
+
+<br>
+
+:::{.fragment .fade-rigth fragment-index=1}
+
+[Orari]{style="font-weight: bold;"}    
+9:30 : Introduzione al Corso   
+10:00: Riepilogo R             
+10:45: Pausa                   
+11:00: Introduzione all'RNASeq
+
+
+12:30: Pausa pranzo            
+
+
+13:30: Software and code       
+14:45: Pausa                   
+15:00: DEMO                    
+16:30: Considerazioni finali   
+
+:::
+:::
+
+::: {.column width="50%"}
+[Secondo Giorno]{.p-span-center}
+[Espessione Differenziale]{.p-span-center}
+
+<br>
+
+:::{.fragment .fade-rigth fragment-index=2}
+[Orari]{style="font-weight: bold;"}    
+9:30 : Introduzione a DESEQ2   
+10:45: Pausa                   
+11:00: Live Code
+
+
+12:30: Pausa pranzo            
+
+
+13:30: Live Code       
+14:45: Pausa                   
+15:00: Capstone exercise                    
+16:30: Considerazioni finali   
+:::
+:::
+:::
+
+##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Feedbacks]{.p-span-center style="font-size: 100px"}
+
+- [Immediati]{style="font-size: 70px"}
+
+  - Sticky notes
+
+- [Formative assessment]{style="font-size: 70px"}
+
+  - Veloci questionari o esercizi
+
+- [Alla fine di ogni modulo]{style="font-size: 70px"}
+
+  - Sticky notes
+
+##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Strumenti]{.p-span-center style="font-size: 100px"}
+
+- [Website]{style="font-size: 70px"}
+  
+- [Slack]{style="font-size: 70px"}
+
+  - Strumento di comunicazione
+  
+<br>
+<br>
+
+
+[Entrambi rimarranno online per sempre]{.p-span-center style="font-size: 70px" .rn}
+
+
+#  {background-image="images/qmark.jpg" background-size="cover" background-opacity="0.7"}
+
+
+::: {style="position: absolute; left: 980px; top: 450px;"}
+[Domande?]{style="font-size: 130px; font-weight: bold; color: white"}
+:::
+
+# {background-image="images/notice001.png" background-size="cover" background-opacity="0.3"}
+
+:::{.fragment .fade-in}
+[Tutto in questo corso è stato fatto in R]{.tit .p-span-center}
+:::

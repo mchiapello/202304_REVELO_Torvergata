@@ -1,0 +1,263 @@
+---
+format: 
+  revealjs:
+    navigation-mode: vertical
+    slide-number: false
+    width: 1600
+    height: 900
+    logo: "images/revelo.png"
+    footer: "[home page](https://mchiapello.github.io/202304_REVELO_Torvergata/)"
+    css: ["css/theme.css", "css/custom.css"]
+    theme: simple
+    controls: true
+editor: source
+filters:
+  - roughnotation
+editor_options: 
+  chunk_output_type: inline
+---
+
+##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+```{r setup, include=FALSE}
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+```
+
+::: {style="position: absolute; left: 180px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;"}
+[Introduzione all'RNASeq]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px"}
+
+[Introduzione all'analisi RNASeq in R]{style="font-size: 40px;font-weight: bold;"}
+
+[Dipartimento di Biomedicina e Prevenzione]{style="font-size: 40px;font-weight: bold;"}
+
+<br> <br>
+
+[Marco Chiapello, Revelo Datalab]{style="font-size: 40px; font-weight: bold;"}
+
+[2023-03-31]{style="font-size: 30px;font-weight: bold;"}
+:::
+
+#  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+[How many samples do I need?]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 80px; text-align: center"}
+Power analysis
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 80px; text-align: center"}
+Power analysis
+:::
+
+-   **Type I error**: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 80px; text-align: center"}
+Power analysis
+:::
+
+-   **Type I error**: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.
+
+-   **Type II error**: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 80px; text-align: center"}
+Power analysis
+:::
+
+-   **Type I error**: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.
+
+-   **Type II error**: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.
+
+-   **Effect size**: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2.
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 80px; text-align: center"}
+Power analysis
+:::
+
+-   **Type I error**: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.
+
+-   **Type II error**: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.
+
+-   **Effect size**: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2.
+
+-   **Sample size**: the quantity you want to calculate.
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+#### Let's say we want:
+
+-   Type I error of 5%. (α=0.05)
+-   Type II error of 0.2. (Power=1−β=0.8)
+-   Effect size of 2. (d=2)
+
+::: {.fragment .fade-in}
+```{r}
+#| echo: TRUE
+#| code-line-numbers: "1|3|4|5|1-7"
+library("pwr")
+
+pwr.t.test(d = 2,
+           power = .8,
+           sig.level = .05,
+           type = "two.sample",
+           alternative = "two.sided")
+```
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+#### Let's say we want:
+
+-   Effect size of 1. (d=1)
+
+::: {.fragment .fade-in}
+```{r}
+#| echo: TRUE
+library("pwr")
+
+pwr.t.test(d = 1,
+           power = .8,
+           sig.level = .05,
+           type = "two.sample",
+           alternative = "two.sided")
+```
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+[Power analysis for RNA-seq]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 60px; text-align:center"}
+**General Considerations**
+:::
+
+<br>
+
+::: {style="font-size: 60px"}
+RNA-seq experiments often suffer from a low statistical power
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 60px; text-align:center"}
+**General Considerations**
+:::
+
+<br>
+
+::: {style="font-size: 60px"}
+RNA-seq experiments often suffer from a low statistical power
+:::
+
+<br>
+
+::: {style="font-size: 60px"}
+Low power can lead to a lack of reproducibility of the research findings
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {style="font-size: 60px; text-align:center"}
+**General Considerations**
+:::
+
+<br>
+
+::: {style="font-size: 60px"}
+RNA-seq experiments often suffer from a low statistical power
+:::
+
+<br>
+
+::: {style="font-size: 60px"}
+Low power can lead to a lack of reproducibility of the research findings
+:::
+
+<br>
+
+::: {style="font-size: 60px"}
+The number of replicates is one of the critical parameter related to the power of an analysis
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+[Replicates]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+![Klaus B., EMBO J (2015) 34: 2727-2730](images/image-259602676.png)
+
+::: notes
+-   Technical replicates: use the same biological sample to repeat the technical or experimental steps in order to accurately measure technical variation and remove it during analysis.
+
+-   Biological replicates use different biological samples of the same condition to measure the biological variation between samples
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+[Do we need technical replicates?]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+[No]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+[No]{.tit .p-span-center}
+
+::: callout-important
+[With the current RNA-Seq technologies, technical variation is much lower than biological variation and]{.f40}[technical replicates are unneccessary]{.rn}
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+[Do we need biological replicates?]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+[YES]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+[YES]{.tit .p-span-center}
+
+::: callout-important
+[Biological replicates are absolutely essential for ]{.f40}[differential expression analysis]{.rn}
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+[YES]{.tit .p-span-center}
+
+::: callout-important
+[For differential expression analysis, the more biological replicates, the better the estimates of biological variation and the more precise our estimates of the mean expression levels]{.f40}
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+
+::: {.f40 .tcenter .fragment}
+Biological replicates are of greater importance than sequencing depth
+:::
+
+![Liu, Y., et al., Bioinformatics (2014) 30(3): 301--304](images/image-154795781.png){width="auto" height="700"}
+
+:::{.notes}
+[Cosa vedete? Come interpretate il grafico]{style="font-size: 50px; color: red"}
+:::
+
