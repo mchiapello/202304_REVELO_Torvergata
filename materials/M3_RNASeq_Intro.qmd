@@ -10,12 +10,17 @@ format:
     css: ["css/theme.css", "css/custom.css"]
     theme: simple
     controls: true
+mainfont: "Times New Roman"
 editor: source
 filters:
   - roughnotation
 editor_options: 
   chunk_output_type: inline
 ---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
+</style>
 
 ##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
 
@@ -26,10 +31,15 @@ library(quarto)
 library(gt)
 library(gtExtras)
 library(gtsummary)
+
+# font-family: 'Architects Daughter', cursive;
+# font-family: 'Julius Sans One', sans-serif;
+# font-family: 'Montserrat', san  s-serif;
+# font-family: 'Rock Salt', cursive;
 ```
 
 ::: {style="position: absolute; left: 180px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;"}
-[Introduzione all'RNASeq]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px"}
+[Introduzione all'RNASeq]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px; font-family: 'Architects Daughter', cursive;"}
 
 [Introduzione all'analisi RNASeq in R]{style="font-size: 40px;font-weight: bold;"}
 
@@ -238,7 +248,7 @@ The number of replicates is one of the critical parameter related to the power o
 [YES]{.tit .p-span-center}
 
 ::: callout-important
-[Biological replicates are absolutely essential for ]{.f40}[differential expression analysis]{.rn}
+[Biological replicates are absolutely essential for [differential expression analysis]{.rn}]{.f40}
 :::
 
 ##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
@@ -249,7 +259,7 @@ The number of replicates is one of the critical parameter related to the power o
 [For differential expression analysis, the more biological replicates, the better the estimates of biological variation and the more precise our estimates of the mean expression levels]{.f40}
 :::
 
-##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate="true"}
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
 ::: {.f40 .tcenter .fragment}
 Biological replicates are of greater importance than sequencing depth
@@ -259,5 +269,246 @@ Biological replicates are of greater importance than sequencing depth
 
 :::{.notes}
 [Cosa vedete? Come interpretate il grafico]{style="font-size: 50px; color: red"}
+
+Note that an increase in the number of replicates tends to return more DE genes than increasing the sequencing depth. 
 :::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+:::{style="font-size: 60px; text-align: center"}
+**Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq**
+:::
+
+<br>
+
+:::{.callout-important}
+However, guidelines depend on the experiment performed and the desired analysis.
+:::
+
+:::{.fragment .fade-in fragment-index=1}
+Here some examples: 
+:::
+
+:::{.fragment .fade-in fragment-index=1}
+:::{style="font-size: 30px"}
+**General gene-level differential expression**    
+    - ENCODE guidelines suggest 30 million SE reads per sample (stranded).    
+    - 15 million reads per sample is often sufficient, if there are a good number of replicates (>3).    
+    - Spend money on more biological replicates, if possible.    
+    - Generally recommended to have read length >= 50 bp    
+:::
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+:::{style="font-size: 60px; text-align: center"}
+**Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq**
+:::
+
+<br>
+
+:::{.callout-important}
+However, guidelines depend on the experiment performed and the desired analysis.
+:::
+
+Here some examples: 
+
+:::{style="font-size: 30px"}
+**Gene-level differential expression with detection of lowly-expressed genes**     
+    - Similarly benefits from replicates more than sequencing depth.     
+    - Sequence deeper with at least 30-60 million reads depending on level of expression (start with 30 million with a good number of replicates).
+    - Generally recommended to have read length >= 50 bp     
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+:::{style="font-size: 60px; text-align: center"}
+**Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq**
+:::
+
+<br>
+
+:::{.callout-important}
+However, guidelines depend on the experiment performed and the desired analysis.
+:::
+
+Here some examples: 
+
+:::{style="font-size: 30px"}
+**Isoform-level differential expression**    
+    - Of known isoforms, suggested to have a depth of at least 30 million reads per sample and paired-end reads.    
+    - Of novel isoforms should have more depth (> 60 million reads per sample).    
+    - Choose biological replicates over paired/deeper sequencing.    
+    - Generally recommended to have read length >= 50 bp, but longer is better as the reads will be more likely to cross exon junctions    
+    - Perform careful QC of RNA quality. Be careful to use high quality preparation methods and restrict analysis to high quality RIN # samples.    
+:::
+
+
+## {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animtate="true"}
+
+:::{style="font-size: 60px; text-align: center"}
+**Principles of a good experimental design**
+:::
+
+:::{.fragment .fade-in fragment-index=1}
+**Randomization** 
+
+This should remove undesired and sometimes unknown bias coming from an unidentified source of variation (e.g. different temperatures in the same greehouse).
+:::
+
+:::{.fragment .fade-in fragment-index=2}
+
+**Replication** 
+
+By repeating the same minimal experiment more than once, you can estimate the error due to the experimenter manipulation and your treatment effect.
+
+:::
+
+:::{.fragment .fade-in fragment-index=3}
+
+**Blocking** 
+
+Can help to reduce variability unexplained in one’s model. If your group consist of male and female individual, there is a chance that they will not respond in the same way to a given treatment. Therefore, “sex” should be a blocking factor in this case. 
+
+:::
+
+#  {background-image="images/app001.jpg" background-size="cover" background-opacity="0.2"}
+
+[Applications]{.tit .p-span-center}
+
+
+##  {background-image="images/app001.jpg" background-size="cover" background-opacity="0.2"}
+
+::: {style="font-size: 80px; text-align: center"}
+Diagnostics and disease profiling
+:::
+
+<br>
+<br>
+
+:::{.fragment .fade-down}
+::: {style="font-size: 60px"}
+
+1. Transcriptional start sites
+
+1. Uncovered alternative promoter usage
+
+1. Novel splicing alterations
+:::
+:::
+
+::: footer
+Lowe et al., 2017
+:::
+
+:::{.notes}
+RNA-Seq approaches have allowed for the large-scale identification of
+:::
+
+##  {background-image="images/app001.jpg" background-size="cover" background-opacity="0.2"}
+
+::: {style="font-size: 80px; text-align: center"}
+Human and pathogen transcriptomes
+:::
+
+<br>
+<br>
+
+:::{.fragment .fade-down}
+::: {style="font-size: 60px"}
+
+1. Quantifying gene expression changes
+
+1. Identifying novel virulence factors
+
+1. Predicting antibiotic resistance
+
+1. Unveiling host-pathogen immune interactions
+:::
+:::
+
+::: footer
+Lowe et al., 2017
+:::
+
+:::{.notes}
+A **primary aim** of this technology is to develop **individualised treatment**
+
+RNA-Seq of human pathogens has become an established method for
+:::
+
+
+##  {background-image="images/app001.jpg" background-size="cover" background-opacity="0.2"}
+
+::: {style="font-size: 80px; text-align: center"}
+Responses to environment
+:::
+
+<br>
+
+
+:::{.fragment .fade-down}
+::: {style="font-size: 60px"}
+
+1. Transcriptomics allows for the identification of genes and pathways that respond to biotic and abiotic environmental stresses
+
+1. The nontargeted nature of transcriptomics allows for the identification of novel transcriptional networks in complex systems
+
+1. [RNA-virus identification for pathogen containment]{.rn}
+:::
+:::
+
+::: footer
+Lowe et al., 2017
+:::
+
+
+##  {background-image="images/app001.jpg" background-size="cover" background-opacity="0.2"}
+
+::: {style="font-size: 80px; text-align: center"}
+Gene function annotation
+:::
+
+
+:::{.fragment .fade-down}
+::: {style="font-size: 60px"}
+
+1. All transcriptomic techniques have been particularly useful in identifying the functions of genes and identifying those responsible for particular phenotypes
+
+1. Assembly of RNA-Seq reads is not dependent on a reference genome, and it is so ideal for gene expression studies of nonmodel organisms
+
+1. RNA-Seq can also be used to identify previously unknown protein coding regions in existing sequenced genomes
+:::
+:::
+
+::: footer
+Lowe et al., 2017
+:::
+
+##  {background-image="images/app001.jpg" background-size="cover" background-opacity="0.2"}
+
+::: {style="font-size: 80px; text-align: center"}
+Noncoding RNA
+:::
+
+<br>
+
+:::{.fragment .fade-down}
+::: {style="font-size: 60px"}
+
+1. RNASeq is applicable to noncoding RNAs that are not translated into a protein, but instead, have direct functions
+
+1. Many of these noncoding RNAs affect disease states, including cancer, cardiovascular, and neurological diseases
+:::
+:::
+
+::: footer
+Lowe et al., 2017
+:::
+
+:::{.notes}
+Transcriptomics is most commonly applied to the mRNA content of the cell, However
+:::
+
+
 
