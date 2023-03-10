@@ -52,6 +52,56 @@ library(gtsummary)
 [2023-03-31]{style="font-size: 30px;font-weight: bold;"}
 :::
 
+#  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[The history of sequencing]{.tit .p-span-center}
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+
+<br>
+<br>
+
+::: {.p-img-center}
+
+```{r}
+#| echo: false
+#| layout-ncol: 1
+plot(qrcode::qr_code("https://forms.gle/t9vmzx6o2sedBNaB7"))
+```
+
+:::
+
+
+#  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+[RNASeq history - needed?]{.tit .p-span-center}
+
+#  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+[RNASeq pipeline]{.tit .p-span-center}
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::: {style="font-size: 80px; text-align: center"}
+In vivo
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::: {style="font-size: 80px; text-align: center"}
+In vitro
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::: {style="font-size: 80px; text-align: center"}
+In silico
+:::
+
+
+
+
 #  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
 [How many samples do I need?]{.tit .p-span-center}

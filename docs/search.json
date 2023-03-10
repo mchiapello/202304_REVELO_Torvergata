@@ -2923,7 +2923,7 @@
     "href": "materials/M1_intro.html#section-8",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Strumenti\n\nWebsite\nSlack\n\nStrumento di comunicazione\n\n\n \nEntrambi rimarranno online per sempre"
+    "text": "Approach\n\n\nOpen source tools\nSupporting community\nYour laptop is everything you need\nConstant feedback\nAsk questions"
   },
   {
     "objectID": "materials/test.html#TitleSlide",
@@ -2993,35 +2993,35 @@
     "href": "materials/M3_RNASeq_Intro.html#section-1",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Power analysis"
+    "text": "In vivo"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-3",
     "href": "materials/M3_RNASeq_Intro.html#section-3",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Power analysis\n\n\nType I error: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.\nType II error: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments."
+    "text": "In vivo"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-4",
     "href": "materials/M3_RNASeq_Intro.html#section-4",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Power analysis\n\n\nType I error: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.\nType II error: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.\nEffect size: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2."
+    "text": "In vivo"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-5",
     "href": "materials/M3_RNASeq_Intro.html#section-5",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Power analysis\n\n\nType I error: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.\nType II error: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.\nEffect size: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2.\nSample size: the quantity you want to calculate."
+    "text": "In vitro"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-6",
     "href": "materials/M3_RNASeq_Intro.html#section-6",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Let’s say we want:\n\nType I error of 5%. (α=0.05)\nType II error of 0.2. (Power=1−β=0.8)\nEffect size of 2. (d=2)\n\n\n\nlibrary(\"pwr\")\n\npwr.t.test(d = 2,\n           power = .8,\n           sig.level = .05,\n           type = \"two.sample\",\n           alternative = \"two.sided\")\n\n\n     Two-sample t test power calculation \n\n              n = 5.089995\n              d = 2\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
+    "text": "In silico"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-2",
@@ -3035,174 +3035,251 @@
     "href": "materials/M3_RNASeq_Intro.html#section-7",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Let’s say we want:\n\nEffect size of 1. (d=1)\n\n\n\nlibrary(\"pwr\")\n\npwr.t.test(d = 1,\n           power = .8,\n           sig.level = .05,\n           type = \"two.sample\",\n           alternative = \"two.sided\")\n\n\n     Two-sample t test power calculation \n\n              n = 16.71472\n              d = 1\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
+    "text": "Power analysis"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-9",
     "href": "materials/M3_RNASeq_Intro.html#section-9",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "General Considerations\n\n\n\nRNA-seq experiments often suffer from a low statistical power"
+    "text": "Power analysis\n\n\nType I error: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments."
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-8",
     "href": "materials/M3_RNASeq_Intro.html#section-8",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Power analysis for RNA-seq"
+    "text": "Power analysis"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-10",
     "href": "materials/M3_RNASeq_Intro.html#section-10",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "General Considerations\n\n\n\nRNA-seq experiments often suffer from a low statistical power\n\n\n\nLow power can lead to a lack of reproducibility of the research findings"
+    "text": "Power analysis\n\n\nType I error: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.\nType II error: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments."
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-11",
     "href": "materials/M3_RNASeq_Intro.html#section-11",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "General Considerations\n\n\n\nRNA-seq experiments often suffer from a low statistical power\n\n\n\nLow power can lead to a lack of reproducibility of the research findings\n\n\n\nThe number of replicates is one of the critical parameter related to the power of an analysis"
+    "text": "Power analysis\n\n\nType I error: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.\nType II error: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.\nEffect size: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2."
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-12",
     "href": "materials/M3_RNASeq_Intro.html#section-12",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Replicates"
+    "text": "Power analysis\n\n\nType I error: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.\nType II error: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.\nEffect size: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2.\nSample size: the quantity you want to calculate."
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-13",
     "href": "materials/M3_RNASeq_Intro.html#section-13",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Klaus B., EMBO J (2015) 34: 2727-2730\n\nTechnical replicates: use the same biological sample to repeat the technical or experimental steps in order to accurately measure technical variation and remove it during analysis.\nBiological replicates use different biological samples of the same condition to measure the biological variation between samples"
+    "text": "Let’s say we want:\n\nType I error of 5%. (α=0.05)\nType II error of 0.2. (Power=1−β=0.8)\nEffect size of 2. (d=2)\n\n\n\nlibrary(\"pwr\")\n\npwr.t.test(d = 2,\n           power = .8,\n           sig.level = .05,\n           type = \"two.sample\",\n           alternative = \"two.sided\")\n\n\n     Two-sample t test power calculation \n\n              n = 5.089995\n              d = 2\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-14",
     "href": "materials/M3_RNASeq_Intro.html#section-14",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Do we need technical replicates?"
+    "text": "Let’s say we want:\n\nEffect size of 1. (d=1)\n\n\n\nlibrary(\"pwr\")\n\npwr.t.test(d = 1,\n           power = .8,\n           sig.level = .05,\n           type = \"two.sample\",\n           alternative = \"two.sided\")\n\n\n     Two-sample t test power calculation \n\n              n = 16.71472\n              d = 1\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-15",
     "href": "materials/M3_RNASeq_Intro.html#section-15",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "No"
+    "text": "Power analysis for RNA-seq"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-16",
     "href": "materials/M3_RNASeq_Intro.html#section-16",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "No\n\n\n\n\n\n\nImportant\n\n\nWith the current RNA-Seq technologies, technical variation is much lower than biological variation andtechnical replicates are unneccessary"
+    "text": "General Considerations\n\n\n\nRNA-seq experiments often suffer from a low statistical power"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-17",
     "href": "materials/M3_RNASeq_Intro.html#section-17",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Do we need biological replicates?"
+    "text": "General Considerations\n\n\n\nRNA-seq experiments often suffer from a low statistical power\n\n\n\nLow power can lead to a lack of reproducibility of the research findings"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-18",
     "href": "materials/M3_RNASeq_Intro.html#section-18",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "YES"
+    "text": "General Considerations\n\n\n\nRNA-seq experiments often suffer from a low statistical power\n\n\n\nLow power can lead to a lack of reproducibility of the research findings\n\n\n\nThe number of replicates is one of the critical parameter related to the power of an analysis"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-19",
     "href": "materials/M3_RNASeq_Intro.html#section-19",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "YES\n\n\n\n\n\n\nImportant\n\n\nBiological replicates are absolutely essential for differential expression analysis"
+    "text": "Replicates"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-20",
     "href": "materials/M3_RNASeq_Intro.html#section-20",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "YES\n\n\n\n\n\n\nImportant\n\n\nFor differential expression analysis, the more biological replicates, the better the estimates of biological variation and the more precise our estimates of the mean expression levels"
+    "text": "Klaus B., EMBO J (2015) 34: 2727-2730\n\nTechnical replicates: use the same biological sample to repeat the technical or experimental steps in order to accurately measure technical variation and remove it during analysis.\nBiological replicates use different biological samples of the same condition to measure the biological variation between samples"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-21",
     "href": "materials/M3_RNASeq_Intro.html#section-21",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Biological replicates are of greater importance than sequencing depth\n\n\n\n\nLiu, Y., et al., Bioinformatics (2014) 30(3): 301–304\n\n\n\nCosa vedete? Come interpretate il grafico\nNote that an increase in the number of replicates tends to return more DE genes than increasing the sequencing depth."
+    "text": "Do we need technical replicates?"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-22",
     "href": "materials/M3_RNASeq_Intro.html#section-22",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq\n\n\n\n\n\n\n\n\nImportant\n\n\nHowever, guidelines depend on the experiment performed and the desired analysis.\n\n\n\n\nHere some examples:\n\n\n\nGeneral gene-level differential expression\n- ENCODE guidelines suggest 30 million SE reads per sample (stranded).\n- 15 million reads per sample is often sufficient, if there are a good number of replicates (>3).\n- Spend money on more biological replicates, if possible.\n- Generally recommended to have read length >= 50 bp"
+    "text": "No"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-23",
     "href": "materials/M3_RNASeq_Intro.html#section-23",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq\n\n\n\n\n\n\n\n\nImportant\n\n\nHowever, guidelines depend on the experiment performed and the desired analysis.\n\n\n\nHere some examples:\n\nGene-level differential expression with detection of lowly-expressed genes\n- Similarly benefits from replicates more than sequencing depth.\n- Sequence deeper with at least 30-60 million reads depending on level of expression (start with 30 million with a good number of replicates). - Generally recommended to have read length >= 50 bp"
+    "text": "No\n\n\n\n\n\n\nImportant\n\n\nWith the current RNA-Seq technologies, technical variation is much lower than biological variation andtechnical replicates are unneccessary"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-24",
     "href": "materials/M3_RNASeq_Intro.html#section-24",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq\n\n\n\n\n\n\n\n\nImportant\n\n\nHowever, guidelines depend on the experiment performed and the desired analysis.\n\n\n\nHere some examples:\n\nIsoform-level differential expression\n- Of known isoforms, suggested to have a depth of at least 30 million reads per sample and paired-end reads.\n- Of novel isoforms should have more depth (> 60 million reads per sample).\n- Choose biological replicates over paired/deeper sequencing.\n- Generally recommended to have read length >= 50 bp, but longer is better as the reads will be more likely to cross exon junctions\n- Perform careful QC of RNA quality. Be careful to use high quality preparation methods and restrict analysis to high quality RIN # samples."
+    "text": "Do we need biological replicates?"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-25",
     "href": "materials/M3_RNASeq_Intro.html#section-25",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Principles of a good experimental design\n\n\nRandomization\nThis should remove undesired and sometimes unknown bias coming from an unidentified source of variation (e.g. different temperatures in the same greehouse).\n\n\nReplication\nBy repeating the same minimal experiment more than once, you can estimate the error due to the experimenter manipulation and your treatment effect.\n\n\nBlocking\nCan help to reduce variability unexplained in one’s model. If your group consist of male and female individual, there is a chance that they will not respond in the same way to a given treatment. Therefore, “sex” should be a blocking factor in this case."
+    "text": "YES"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-26",
     "href": "materials/M3_RNASeq_Intro.html#section-26",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Principles of a good experimental design"
+    "text": "YES\n\n\n\n\n\n\nImportant\n\n\nBiological replicates are absolutely essential for differential expression analysis"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-27",
     "href": "materials/M3_RNASeq_Intro.html#section-27",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Diagnostics and disease profiling\n\n \n\n\n\nTranscriptional start sites\nUncovered alternative promoter usage\nNovel splicing alterations\n\n\n\n\nLowe et al., 2017\n\n\nRNA-Seq approaches have allowed for the large-scale identification of"
+    "text": "YES\n\n\n\n\n\n\nImportant\n\n\nFor differential expression analysis, the more biological replicates, the better the estimates of biological variation and the more precise our estimates of the mean expression levels"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-28",
     "href": "materials/M3_RNASeq_Intro.html#section-28",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Human and pathogen transcriptomes\n\n \n\n\n\nQuantifying gene expression changes\nIdentifying novel virulence factors\nPredicting antibiotic resistance\nUnveiling host-pathogen immune interactions\n\n\n\n\nLowe et al., 2017\n\n\nA primary aim of this technology is to develop individualised treatment\nRNA-Seq of human pathogens has become an established method for"
+    "text": "Biological replicates are of greater importance than sequencing depth\n\n\n\n\nLiu, Y., et al., Bioinformatics (2014) 30(3): 301–304\n\n\n\nCosa vedete? Come interpretate il grafico\nNote that an increase in the number of replicates tends to return more DE genes than increasing the sequencing depth."
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-29",
     "href": "materials/M3_RNASeq_Intro.html#section-29",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Responses to environment\n\n\n\n\n\nTranscriptomics allows for the identification of genes and pathways that respond to biotic and abiotic environmental stresses\nThe nontargeted nature of transcriptomics allows for the identification of novel transcriptional networks in complex systems\nRNA-virus identification for pathogen containment\n\n\n\n\nLowe et al., 2017"
+    "text": "Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq\n\n\n\n\n\n\n\n\nImportant\n\n\nHowever, guidelines depend on the experiment performed and the desired analysis.\n\n\n\n\nHere some examples:\n\n\n\nGeneral gene-level differential expression\n- ENCODE guidelines suggest 30 million SE reads per sample (stranded).\n- 15 million reads per sample is often sufficient, if there are a good number of replicates (>3).\n- Spend money on more biological replicates, if possible.\n- Generally recommended to have read length >= 50 bp"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-30",
     "href": "materials/M3_RNASeq_Intro.html#section-30",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Gene function annotation\n\n\n\n\nAll transcriptomic techniques have been particularly useful in identifying the functions of genes and identifying those responsible for particular phenotypes\nAssembly of RNA-Seq reads is not dependent on a reference genome [104], and it is so ideal for gene expression studies of nonmodel organisms\nRNA-Seq can also be used to identify previously unknown protein coding regions in existing sequenced genomes\n\n\n\n\nLowe et al., 2017"
+    "text": "Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq\n\n\n\n\n\n\n\n\nImportant\n\n\nHowever, guidelines depend on the experiment performed and the desired analysis.\n\n\n\nHere some examples:\n\nGene-level differential expression with detection of lowly-expressed genes\n- Similarly benefits from replicates more than sequencing depth.\n- Sequence deeper with at least 30-60 million reads depending on level of expression (start with 30 million with a good number of replicates). - Generally recommended to have read length >= 50 bp"
   },
   {
     "objectID": "materials/M3_RNASeq_Intro.html#section-31",
     "href": "materials/M3_RNASeq_Intro.html#section-31",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Noncoding RNA\n\n\n\n\nRNASeq is applicable to noncoding RNAs that are not translated into a protein, but instead, have direct functions\nMany of these noncoding RNAs affect disease states, including cancer, cardiovascular, and neurological diseases\n\n\n\n\nLowe et al., 2017\n\n\nTranscriptomics is most commonly applied to the mRNA content of the cell, However\n\n\n\n\nhome page"
+    "text": "Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq\n\n\n\n\n\n\n\n\nImportant\n\n\nHowever, guidelines depend on the experiment performed and the desired analysis.\n\n\n\nHere some examples:\n\nIsoform-level differential expression\n- Of known isoforms, suggested to have a depth of at least 30 million reads per sample and paired-end reads.\n- Of novel isoforms should have more depth (> 60 million reads per sample).\n- Choose biological replicates over paired/deeper sequencing.\n- Generally recommended to have read length >= 50 bp, but longer is better as the reads will be more likely to cross exon junctions\n- Perform careful QC of RNA quality. Be careful to use high quality preparation methods and restrict analysis to high quality RIN # samples."
+  },
+  {
+    "objectID": "materials/M3_RNASeq_Intro.html#section-33",
+    "href": "materials/M3_RNASeq_Intro.html#section-33",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Diagnostics and disease profiling\n\n \n\n\n\nTranscriptional start sites\nUncovered alternative promoter usage\nNovel splicing alterations\n\n\n\n\nLowe et al., 2017\n\n\nRNA-Seq approaches have allowed for the large-scale identification of"
+  },
+  {
+    "objectID": "materials/M3_RNASeq_Intro.html#section-34",
+    "href": "materials/M3_RNASeq_Intro.html#section-34",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Diagnostics and disease profiling\n\n \n\n\n\nTranscriptional start sites\nUncovered alternative promoter usage\nNovel splicing alterations\n\n\n\n\nLowe et al., 2017\n\n\nRNA-Seq approaches have allowed for the large-scale identification of"
+  },
+  {
+    "objectID": "materials/M3_RNASeq_Intro.html#section-35",
+    "href": "materials/M3_RNASeq_Intro.html#section-35",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Human and pathogen transcriptomes\n\n \n\n\n\nQuantifying gene expression changes\nIdentifying novel virulence factors\nPredicting antibiotic resistance\nUnveiling host-pathogen immune interactions\n\n\n\n\nLowe et al., 2017\n\n\nA primary aim of this technology is to develop individualised treatment\nRNA-Seq of human pathogens has become an established method for"
+  },
+  {
+    "objectID": "materials/M3_RNASeq_Intro.html#section-36",
+    "href": "materials/M3_RNASeq_Intro.html#section-36",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Responses to environment\n\n\n\n\n\nTranscriptomics allows for the identification of genes and pathways that respond to biotic and abiotic environmental stresses\nThe nontargeted nature of transcriptomics allows for the identification of novel transcriptional networks in complex systems\nRNA-virus identification for pathogen containment\n\n\n\n\nLowe et al., 2017"
+  },
+  {
+    "objectID": "materials/M3_RNASeq_Intro.html#section-37",
+    "href": "materials/M3_RNASeq_Intro.html#section-37",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Gene function annotation\n\n\n\n\nAll transcriptomic techniques have been particularly useful in identifying the functions of genes and identifying those responsible for particular phenotypes\nAssembly of RNA-Seq reads is not dependent on a reference genome, and it is so ideal for gene expression studies of nonmodel organisms\nRNA-Seq can also be used to identify previously unknown protein coding regions in existing sequenced genomes\n\n\n\n\nLowe et al., 2017"
+  },
+  {
+    "objectID": "materials/M3_RNASeq_Intro.html#section-32",
+    "href": "materials/M3_RNASeq_Intro.html#section-32",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Principles of a good experimental design\n\n\nRandomization\nThis should remove undesired and sometimes unknown bias coming from an unidentified source of variation (e.g. different temperatures in the same greehouse).\n\n\nReplication\nBy repeating the same minimal experiment more than once, you can estimate the error due to the experimenter manipulation and your treatment effect.\n\n\nBlocking\nCan help to reduce variability unexplained in one’s model. If your group consist of male and female individual, there is a chance that they will not respond in the same way to a given treatment. Therefore, “sex” should be a blocking factor in this case."
+  },
+  {
+    "objectID": "materials/M3_RNASeq_Intro.html#section-38",
+    "href": "materials/M3_RNASeq_Intro.html#section-38",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Noncoding RNA\n\n\n\n\n\nRNASeq is applicable to noncoding RNAs that are not translated into a protein, but instead, have direct functions\nMany of these noncoding RNAs affect disease states, including cancer, cardiovascular, and neurological diseases\n\n\n\n\nLowe et al., 2017\n\n\nTranscriptomics is most commonly applied to the mRNA content of the cell, However\n\n\n\n\nhome page"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-9",
+    "href": "materials/M1_intro.html#section-9",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Feedbacks\n\nImmediati\n\nSticky notes\n\nFormative assessment\n\nVeloci questionari o esercizi\n\nAlla fine di ogni modulo\n\nSticky notes"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-10",
+    "href": "materials/M1_intro.html#section-10",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Domande\n \n\n\n\n\n\n\n\nDon Lorenzo Milani\n\n\nOgni parola che non capisci oggi è un calcio in culo domani"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-11",
+    "href": "materials/M1_intro.html#section-11",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Strumenti\n\nWebsite\nSlack\n\nStrumento di comunicazione\n\n\n \nEntrambi rimarranno online per sempre"
+  },
+  {
+    "objectID": "materials/M1_intro.html#section-13",
+    "href": "materials/M1_intro.html#section-13",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Goals\n\n\n\n\nBecome a better data scientist\n\n\n\n\n\n\nLeanr best practices for working with R/Bioconductor\n\n\n\n\n\n\nUnderstand how to do RNASeq bulk data analysis\n\n\n\n\n\n\nDevelop a lightweight and reusable RNASeq pipeline"
   }
 ]

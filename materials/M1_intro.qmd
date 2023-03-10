@@ -14,8 +14,13 @@ editor: source
 filters:
   - roughnotation
 editor_options: 
+
   chunk_output_type: inline
 ---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
+</style>
 
 ##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
 
@@ -182,6 +187,28 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 :::
 :::
 
+#  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Teaching system]{.tit .p-span-center}
+
+[{{< fa chalkboard-user >}}]{.icon .p-span-center}
+
+##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Approach]{.p-span-center style="font-size: 100px"}
+
+:::{style="font-size: 70px"}
+1. Open source tools
+
+1. Supporting community
+
+1. Your laptop is everything you need
+
+1. [Constant feedback]{.rn rn-index=1}
+
+1. [Ask questions]{.rn rn-index=1}
+:::
+
 ##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
 
 [Feedbacks]{.p-span-center style="font-size: 100px"}
@@ -200,6 +227,21 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 
 ##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
 
+[Domande]{.p-span-center style="font-size: 100px"}
+
+<br>
+<br>
+
+::::{style="font-size: 100px; font-family: 'Julius Sans One', sans-serif;"}
+:::{.callout-tip}
+## Don Lorenzo Milani
+
+**Ogni parola che non capisci oggi è un calcio in culo domani**
+:::
+::::
+
+##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
 [Strumenti]{.p-span-center style="font-size: 100px"}
 
 - [Website]{style="font-size: 70px"}
@@ -214,6 +256,44 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 
 [Entrambi rimarranno online per sempre]{.p-span-center style="font-size: 70px" .rn}
 
+#  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Goals]{.tit .p-span-center}
+
+[{{< fa bullseye >}}]{.icon .p-span-center}
+
+
+##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+
+[Goals]{.p-span-center style="font-size: 100px"}
+
+::::{style="font-size: 60px; font-family: 'Julius Sans One', sans-serif;"}
+
+:::{.fragment .fade-in fragment-index=1}
+::: {.fragment .semi-fade-out fragment-index=2}
+1. Become a better data scientist
+:::
+:::
+
+:::{.fragment .fade-in fragment-index=2}
+::: {.fragment .semi-fade-out fragment-index=3}
+1. Leanr best practices for working with R/Bioconductor
+:::
+:::
+
+:::{.fragment .fade-in fragment-index=3}
+::: {.fragment .semi-fade-out fragment-index=4}
+1. Understand how to do RNASeq bulk data analysis
+:::
+:::
+
+:::{.fragment .fade-in fragment-index=4}
+::: {.fragment .semi-fade-out fragment-index=5}
+1. Develop a lightweight and reusable RNASeq pipeline
+:::
+:::
+
+::::
 
 #  {background-image="images/qmark.jpg" background-size="cover" background-opacity="0.7"}
 
@@ -222,8 +302,14 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 [Domande?]{style="font-size: 130px; font-weight: bold; color: white"}
 :::
 
-# {background-image="images/notice001.png" background-size="cover" background-opacity="0.3"}
+# {background-image="images/notice001.jpg" background-size="cover" background-opacity="0.8"}
 
 :::{.fragment .fade-in}
-[Tutto in questo corso è stato fatto in R]{.tit .p-span-center}
+:::{style="color: white; font-family: 'Rock Salt', cursive; font-size: 60px"}
+Tutto 
+
+in questo corso 
+
+è stato fatto in [R]{style="font-size: 80px"}
+:::
 :::
