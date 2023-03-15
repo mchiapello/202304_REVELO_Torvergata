@@ -631,8 +631,135 @@ La luce generata, solo in seguito alla incorporazione del nucleotide corretto,vi
 
 [Sequence by synthesis]{.subtit}
 
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="1"}
+
+:::{.notes}
+Birthplace of high-throughput sequencing
+:::
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Sequence by synthesis - History]{.subtit}
+
 <br>
 
+[1997]{style="font-family: 'Rock Salt', cursive;font-size: 60px"}: [Evolution of a Novel Approach to Sequencing]{style="font-size: 70px"}
+
+:::{.p-img-center}
+![](images/bk.jpg){width=600}
+:::
+
+:::{.tcenter}
+Shankar Balasubramanian and David Klenerman
+:::
+
+
+:::{.notes}
+- Cambridge scientists Shankar Balasubramanian, Ph.D. and David Klenerman, Ph.D. were using fluorescently labeled nucleotides to observe the motion of a polymerase at the single molecule level as it synthesized DNA immobilized to a surface
+
+- during the summer of 1997 sparked ideas surrounding the use of clonal arrays and massively parallel sequencing of short reads using solid phase sequencing by reversible terminators
+
+- This technology was subsequently referred to as sequencing by synthesis technology, or SBS. This became the basis of an innovative DNA sequencing approach.
+:::
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Sequence by synthesis - History]{.subtit}
+
+<br>
+
+[1998]{style="font-family: 'Rock Salt', cursive;font-size: 60px"}: [Formation of Solexa]{style="font-size: 70px"}
+
+:::{.p-img-center}
+![](images/solexa.png){width=600}
+:::
+
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Sequence by synthesis - History]{.subtit}
+
+<br>
+
+[2004]{style="font-family: 'Rock Salt', cursive;font-size: 60px"}: [Molecular Clustering Technology Integration]{style="font-size: 70px"}
+
+:::{.p-img-center}
+![](images/polony.jpg){width=800}
+:::
+
+:::{.tcenter}
+Cluster generation (also known as “bridge amplification”)
+:::
+
+
+:::{.notes}
+- Solexa acquired molecular clustering technology from Manteia. 
+
+- The amplification of single DNA molecules into clusters enhanced the fidelity and accuracy of gene calling, while reducing the cost of the system optics through generation of a stronger signal.
+:::
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Sequence by synthesis - History]{.subtit}
+
+<br>
+
+[2005]{style="font-family: 'Rock Salt', cursive;font-size: 60px"}: [phiX-174 Genome Sequencing]{style="font-size: 70px"}
+
+:::{.fragment}
+[2005]{style="font-family: 'Rock Salt', cursive;font-size: 60px"}: [Integration of Lynx Therapeutics]{style="font-size: 70px"}
+:::
+
+:::{.fragment}
+[2007]{style="font-family: 'Rock Salt', cursive;font-size: 60px"}: [Illumina Acquires Solexa]{style="font-size: 70px"}
+
+::::{.columns}
+
+:::{.column width="45%"}
+:::{.p-img-center}
+![](images/ga.jpg){width=500}
+:::
+
+:::
+
+:::{.column width="10%"}
+:::
+
+:::{.column width="45%"}
+:::{.p-img-center}
+![](images/moore.png){width=500}
+:::
+
+:::
+
+::::
+
+:::
+
+
+:::{.notes}
+- The Solexa team sequenced the complete genome of the bacteriophage phiX-174, the same genome Sanger first sequenced using his method
+
+- However, the SBS technology generated significantly more sequencing data, delivering over 3 million bases from a single run.
+
+---
+
+- Solexa acquired instrumentation company Lynx Therapeutics, transforming the successful Solexa prototype into a commercial sequencing instrument: Genome Analyzer
+
+---
+
+- Solexa was acquired by Illumina
+
+- Next-generation sequencing (NGS) data output has increased at a rate that outpaces Moore's law, more than doubling each year
+:::
+
+
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Sequence by synthesis - Process]{.subtit}
+
+{{< video https://www.youtube.com/embed/fCd6B5HRaZ8 width="100%" height="85%" >}}
 
 
 ##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
@@ -644,6 +771,38 @@ La luce generata, solo in seguito alla incorporazione del nucleotide corretto,vi
 :::{.callout-important appearance="default"}
 [Third-generation methods allow direct sequencing of single DNA molecules]{style="font-size: 50px; font-family: 'Julius Sans One', sans-serif"}
 :::
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Third generation NGS]{.subtit}
+
+<br>
+
+Third-generation NGS platforms:
+
+1. Single-molecule real-time sequencing
+
+1. Nanopore sequencing
+
+:::{.notes}
+1. Pacific Biosciences in 2011
+
+1. Oxford Nanopore Technologies on 2014
+:::
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[SMRS]{.subtit}
+
+
+{{< video https://www.youtube.com/embed/_lD8JyAbwEo width="100%" height="85%" >}}
+
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Nanopore sequencing]{.subtit}
+
+
+{{< video https://www.youtube.com/embed/CGWZvHIi3i0 width="100%" height="85%" >}}
 
 
 #  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
