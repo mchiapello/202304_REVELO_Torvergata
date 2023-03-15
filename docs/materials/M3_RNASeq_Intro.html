@@ -391,14 +391,11 @@
     <div class="slides">
 
 
-<section class="slide level2">
-
+<section id="TitleSlide" class="slide level2" data-menu-title="TitleSlide" data-background-image="images/back001.jpg" data-background-size="cover" data-background-opacity="0.3">
+<h2></h2>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
 </style>
-</section>
-<section id="TitleSlide" class="slide level2" data-menu-title="TitleSlide" data-background-image="images/back001.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h2></h2>
 <div style="position: absolute; left: 180px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;">
 <p><span style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px; font-family: 'Architects Daughter', cursive;">Introduzione all’RNASeq</span></p>
 <p><span style="font-size: 40px;font-weight: bold;">Introduzione all’analisi RNASeq in R</span></p>
@@ -415,6 +412,11 @@
 </section>
 <section id="section-1" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+</section>
+<section id="section-2" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
 <p><br> <br></p>
 <div class="p-img-center">
 <div class="cell quarto-layout-panel">
@@ -425,47 +427,683 @@
 </div>
 </div>
 </div>
-</section></section>
-<section id="section-2" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
-<h1></h1>
-<p><span class="tit p-span-center">RNASeq history - needed?</span></p>
 </section>
+<section id="section-3" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1953</span>: <span style="font-size: 70px">The structure of the DNA double helix was discovered</span></p>
+<div class="p-img-center">
+<p><img data-src="images/wcf.jpg"></p>
+</div>
+<div class="tcenter">
+<p>James Watson, Francis Crick and Rosalind Franklin</p>
+</div>
+<aside class="notes">
+<p>The structure of the DNA double helix was discovered in 1953 by <strong>James Watson and Francis Crick</strong>.</p>
+<p><strong>Rosalind Franklin</strong> was an English X-ray crystallographer who also <strong>contributed</strong> a great deal and was central to the understanding of the molecular structures of DNA.</p>
+<p>Watson and Crick received a <strong>Nobel Prize in 1962</strong></p>
+<p>Franklin had passed away before her work was fully appreciated, and so she is now often referred to as ‘the dark lady of DNA’.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-4" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1964</span>: <span style="font-size: 70px">Robert Holley, the first person to sequence a tRNA molecule</span></p>
+<div class="p-img-center">
+<p><img data-src="images/rwh.jpg" width="300"></p>
+</div>
+<div class="tcenter">
+<p>Robert W. Holley</p>
+</div>
+<aside class="notes">
+<p><strong>Nobel Prize</strong> in Physiology or Medicine in <strong>1968</strong> (with Har Gobind Khorana and Marshall Warren Nirenberg) for describing the structure of alanine transfer RNA, linking DNA and protein synthesis.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-5" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1972</span>: <span style="font-size: 70px">Paul Berg developed the first technology that permitted the isolation of defined DNA fragments</span></p>
+<div class="p-img-center">
+<p><img data-src="images/pb.jpg" width="300"></p>
+</div>
+<div class="tcenter">
+<p>Paul Berg</p>
+</div>
+<aside class="notes">
+<p>Morto il 15 febbraio 2023</p>
+<p>leading to the <strong>development of modern genetic engineering</strong>. Before this, only phages or virus DNA was available for sequencing.</p>
+<p><strong>Nobel Prize</strong> in Chemistry in 1980, along with Walter Gilbert and Frederick Sanger.</p>
+<p>The award recognized their contributions to basic <strong>research involving nucleic acids</strong>, especially recombinant DNA.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-6" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1973</span>: <span style="font-size: 70px">Walter Gilbert published the first nucleotide sequence</span></p>
+<div class="p-img-center">
+<p><img data-src="images/wg.jpg" width="300"></p>
+</div>
+<div class="tcenter">
+<p>Walter Gilbert</p>
+</div>
+<aside class="notes">
+<p>consisting of 24 base pairs of the DNA lac operator.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-7" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 40px">1973</span>: <span style="font-size: 50px">Walter Gilbert produced ‘DNA sequencing by chemical degradation’.</span></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 40px">1973</span>: <span style="font-size: 50px">Frederick Sanger was the first to sequence the complete DNA genome of a bacteriophage, called phi X174</span></p>
+<div class="p-img-center quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="images/wg.jpg" width="300"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="images/fs.jpg" width="300"></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Sanger developed ‘DNA sequencing with chain-terminating inhibitors’.</p>
+<p>Frederick Sanger was the first to sequence the complete DNA genome of a bacteriophage, called phi X174. He also developed ‘DNA sequencing with chain-terminating inhibitors’.</p>
+<p>Gilbert, Frederick Sanger and Paul Berg were awarded the 1980 Nobel Prize in Chemistry</p>
+<p>Gilbert and Sanger were recognized for their pioneering work in devising methods for determining the sequence of nucleotides in a nucleic acid.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-8" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1983</span>: <span style="font-size: 70px">DNA amplification technique was developed</span></p>
+<div class="p-img-center">
+<p><img data-src="images/km.jpg" width="300"></p>
+</div>
+<div class="tcenter">
+<p>Kary Mullis</p>
+</div>
+<aside class="notes">
+<p>1993 <strong>Nobel Prize</strong> for Chemistry in recognition of his role in the invention of the polymerase chain reaction (PCR) technique</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-9" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1986</span>: <span style="font-size: 70px">Leroy Hood announced the invention of the first semi-automated DNA sequencing machine</span></p>
+<div class="p-img-center">
+<p><img data-src="images/lh.jpg" width="400"></p>
+</div>
+<div class="tcenter">
+<p>Leroy Hood</p>
+</div>
+<aside class="notes">
+<p>Hood improved the existing Sanger method of enzymatic sequencing, which was becoming the laboratory standard</p>
+<p>fluorescent dyes</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-10" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1987</span>: <span style="font-size: 70px">Applied Biosystems produced the first automated sequencing machine, called ABI370.</span></p>
+<div class="p-img-center">
+<p><img data-src="images/373.jpg" width="600"></p>
+</div>
+<div class="tcenter">
+<p>Applied Biosystems 370A Prototype Automated DNA Gene Sequencer,</p>
+</div>
+<aside class="notes">
+<p>This was a significant advance for several scientific research projects, including mapping the human genome.</p>
+<p>The system relied on Sanger’s dideoxy sequencing method and fluorescent dyes</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-11" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1990</span>: <span style="font-size: 70px">The Human Genome Project formally began</span></p>
+<div class="p-img-center">
+<p><img data-src="images/hp.jpg" width="600"></p>
+</div>
+<div class="tcenter">
+<p>Early days: a DNA-sequencing lab in 1994</p>
+</div>
+<aside class="notes">
+<p>It was expected to take around 15 years.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-12" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">1998</span>: <span style="font-size: 70px">‘Method of nucleic acid amplification’ was developed</span></p>
+<div class="p-img-center">
+<p><img data-src="images/impr.png" width="800"></p>
+</div>
+<div class="tcenter">
+<p><span style="font-size: 30px">Patent: https://patents.google.com/patent/WO1998044151A1/en</span></p>
+</div>
+<aside class="notes">
+<p>This was one of the major milestones in developing NGS technologies.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-13" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<p><span style="font-family: 'Rock Salt', cursive;font-size: 60px">2000</span>: <span style="font-size: 70px">A ‘rough draft’ of the human genome was finished by the Human Genome Project</span></p>
+<div class="p-img-center">
+<p><img data-src="images/hgc.jpeg" width="700"></p>
+</div>
+<div class="tcenter">
+<p><span style="font-size: 20px">Wadman, M. ‘Rough draft’ of human genome wins researchers’ backing. Nature 393, 399–400 (1998). https://doi.org/10.1038/30790</span></p>
+</div>
+<aside class="notes">
 
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-14" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Key moments for DNA sequencing:</span></p>
+<p><br></p>
+<div class="p-img-center">
+<p><img data-src="images/over.png"></p>
+</div>
+<div class="tcenter">
+<p><span style="font-size: 30px">A timeline illustrating the milestones in major genome assembly achievements [Formenti et al., 2020]</span></p>
+</div>
+<aside class="notes">
+<p>The background colour indicates what type of sequencing was used: Red represents early sequencing methods, yellow is Sanger-based shotgun methods, green is NGS and blue represents third-generation sequencing.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
-<section id="section-3" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-15" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h1></h1>
+<p><span class="tit p-span-center">History of NGS platforms</span></p>
+</section>
+<section id="section-16" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">First generation NGS</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p>The technology was based on:</p>
+<ul>
+<li><p>the chain-termination method</p></li>
+<li><p>the chain-degradation method</p></li>
+</ul>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<div class="p-img-center">
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="M3_RNASeq_Intro_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>the chain-termination method developed by Sanger in 1975</p></li>
+<li><p>the chain-degradation method invented by Gilbert in 1977</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-17" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Chain-degradation method</span></p>
+<div class="p-img-center">
+<p><img data-src="images/mg.png" width="500"></p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Gilbert sequencing requires radioactive labeling at one 5′ end of the DNA fragment to be sequenced</p></li>
+<li><p>Chemical treatment generates breaks at a small proportion of one or two of the four nucleotide bases in each of four reactions (G, A+G, C, C+T)</p></li>
+<li><p>with the improvement of the chain-termination method (see below), Gilbert sequencing has fallen out</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-18" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Chain-termination method</span></p>
+<p><br></p>
+<div class="p-img-center">
+<p><img data-src="images/sanger1.png" width="1500"></p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Dideoxynucleotide triphosphates (ddNTPs) lack the 3’-OH group of dNTPs that is essential for polymerase-mediated strand elongation in a PCR</p></li>
+<li><p>radioactive labels, which were unstable, posed a health hazard, and required separate gels for each of the four DNA bases</p></li>
+<li><p>The synthesis of the complementary DNA strand starts at the specific priming site and ends with the incorporation of a chain-terminating ddNTP that is randomly introduced instead of its corresponding dNTP</p></li>
+<li><p>When these fragments are separated on a suitable gel matrix the sequence information can be obtained from the migration order of the bands (bottom to top)</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-19" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Chain-termination method</span></p>
+<p><br></p>
+<div class="p-img-center">
+<p><img data-src="images/sanger2.png" width="1500"></p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Leroy Hood developed chemistry that used fluorescent dyes of different colors—one for each of the four DNA bases. This system of “color-coding” eliminated the need to run several reactions in overlapping gels</p></li>
+<li><p>Hood integrated laser and computer technology, eliminating the tedious process of information-gathering by hand.</p></li>
+<li><p>fluorescently labeled ddATP, ddCTP, ddGTP and ddUTP</p></li>
+<li><p>Subsequent fluorescent visualization of the product reveals the incorporated nucleotide and hence the sequence</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-20" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Chain-termination method</span></p>
+<div class="columns f40">
+<div class="column" style="width:40%;">
+<p><strong>Advantages</strong></p>
+<ol type="1">
+<li><p>Gold standard method for accurate detection of single nucleotide variants and small insertions/deletions</p></li>
+<li><p>Cost effective where single samples need to be tested very urgently</p></li>
+<li><p>Less reliant on computational tools than NGS</p></li>
+<li><p>Longer fragments (up to approximately 1000bp) can be sequenced than in short read NGS</p></li>
+</ol>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<p><strong>Limitations</strong></p>
+<ol type="1">
+<li><p>Limited throughput</p></li>
+<li><p>Not cost effective for sequencing many genes in parallel</p></li>
+<li><p>Can require a larger amount of input DNA than NGS</p></li>
+<li><p>Sanger methods can only sequence short pieces of DNA–about 300 to 1000 base pairs.</p></li>
+<li><p>The quality of a Sanger sequence is often not very good in the first 15 to 40 bases because that is where the primer binds.</p></li>
+<li><p>Sequence quality degrades after 700 to 900 bases</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="section-21" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">First generation NGS</span></p>
+<p><br></p>
+<p>The main advantages of first-generation NGS technologies are:</p>
+<ul>
+<li><p>Have a good overall sequence output</p></li>
+<li><p>A high accuracy of 99.99%</p></li>
+<li><p>Preparing nucleic acids of the ideal size is relatively easy</p></li>
+</ul>
+<aside class="notes">
+<p>Questi metodi non erano high througput!!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-22" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Second generation NGS</span></p>
+<p><br></p>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><span style="font-size: 50px; font-family: 'Julius Sans One', sans-serif">Second-generation NGS machines immediately began to drive the ‘genomics revolution’ by massively increased throughput by parallelizing many reactions</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-23" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Second generation NGS</span></p>
+<p><br></p>
+<p>Second-generation sequencing platforms:</p>
+<ol type="1">
+<li><p>SOLiD: Sequencing by Oligonucleotide Ligation and Detection</p></li>
+<li><p>454 GS FLX+: It uses pyrosequencing chemistry</p></li>
+<li><p>NextSeq 550Dx: Sequence by synthesis</p></li>
+</ol>
+<aside class="notes">
+<ol type="1">
+<li><p>SOLiD: Life Technologies in 2006</p></li>
+<li><p>454: Roche in 2011</p></li>
+<li><p>NextSeq 550Dx: Illumina in 2017</p></li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-24" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Sequence by Ligation</span></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="r-stack p-img-center">
+<p><img data-src="images/lig1.png" width="900"></p>
+<p><img data-src="images/lig2.png" class="fragment" width="900"></p>
+</div>
+</div><div class="column" style="width:45%;">
+<p><br></p>
+<div class="fragment">
+<ul>
+<li><p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"></path></svg> Considered to be one of the most accurate second-generation sequencing technologies</p></li>
+<li><p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg> it can take up to seven days to complete a single run and its short read length of 35 bp</p></li>
+<li><p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg> Thermo Fisher Scientific shut down all SOLiD sequencing platforms in 2016</p></li>
+</ul>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Fluorescently labeled molecules called 8-mers</p></li>
+<li><p>8-mers are short ssDNA fragments where:</p>
+<ul>
+<li>the first and second nucleotides are the next two nucleotides of the elongating DNA strand<br>
+</li>
+<li>the third-to-fifth nucleotides are degenerate<br>
+</li>
+<li>the sixth to eighth nucleotides are inosine bases, where the eighth inosine base is attached to a characteristic fluorescent dye</li>
+</ul></li>
+</ul>
+<p>A. The addition of primer and 8-mers, where if the first two nucleotides are complementary, DNA ligase ligates it to the primer.<br>
+B. Unbound 8-mers are washed away, and a laser excites the fluorescent tag on the 8-mer to emit a detectable light signal that is captured<br>
+C. A-B is repeated until the end of the DNA fragment.<br>
+D. The newly synthesized DNA strand is melted off, and A-C is repeated using a primer with a length of N-1, N-2, and N-3</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-25" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Pyrosequencing</span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="p-img-center">
+<p><img data-src="images/pyro.png" width="800"></p>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><br> <br></p>
+<ul>
+<li><p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"></path></svg> Large read lenght generation</p></li>
+<li><p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path></svg> High reagent cost</p></li>
+<li><p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path></svg> High error rate for homopolymers</p></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Durante il sequenziamento vengono, di volta in volta, aggiunti dei nucleotidi.</p>
+<p>Se il nucleotide viene incorporato viene rilasciato un pirofosfato</p>
+<p>Poi utilizzato come substrato dall’enzima ATP solforilasi.</p>
+<p>Quest’ultimo enzima catalizza la conversione del pirofosfato in ATP.</p>
+<p>L’ATP a sua volta è il cofattore utilizzato dalla luciferasi per catalizzare la reazione che coinvolge la luciferina e che porta alla produzione di luce.</p>
+<p>La luce generata, solo in seguito alla incorporazione del nucleotide corretto,viene rilevata grazie ad un detector.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-26" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Sequence by synthesis</span></p>
+<p><br></p>
+</section>
+<section id="section-27" class="slide level2" data-background-image="images/pant.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<p><span class="subtit">Third generation NGS</span></p>
+<p><br></p>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><span style="font-size: 50px; font-family: 'Julius Sans One', sans-serif">Third-generation methods allow direct sequencing of single DNA molecules</span></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="section-28" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h1></h1>
 <p><span class="tit p-span-center">RNASeq pipeline</span></p>
 </section>
-<section id="section-4" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-29" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>In vivo</p>
 </div>
 </section>
-<section id="section-5" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-30" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>In vitro</p>
 </div>
 </section>
-<section id="section-6" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-31" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>In silico</p>
 </div>
 </section></section>
 <section>
-<section id="section-7" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-32" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h1></h1>
 <p><span class="tit p-span-center">How many samples do I need?</span></p>
 </section>
-<section id="section-8" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-33" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
 </div>
 </section>
-<section id="section-9" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-34" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -474,7 +1112,7 @@
 <li><strong>Type I error</strong>: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.</li>
 </ul>
 </section>
-<section id="section-10" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-35" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -484,7 +1122,7 @@
 <li><p><strong>Type II error</strong>: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.</p></li>
 </ul>
 </section>
-<section id="section-11" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-36" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -495,7 +1133,7 @@
 <li><p><strong>Effect size</strong>: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2.</p></li>
 </ul>
 </section>
-<section id="section-12" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-37" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -507,7 +1145,7 @@
 <li><p><strong>Sample size</strong>: the quantity you want to calculate.</p></li>
 </ul>
 </section>
-<section id="section-13" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-38" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <h4 id="lets-say-we-want">Let’s say we want:</h4>
 <ul>
@@ -539,7 +1177,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-14" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-39" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <h4 id="lets-say-we-want-1">Let’s say we want:</h4>
 <ul>
@@ -569,11 +1207,11 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-15" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-40" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Power analysis for RNA-seq</span></p>
 </section>
-<section id="section-16" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-41" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 60px; text-align:center">
 <p><strong>General Considerations</strong></p>
@@ -583,7 +1221,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>RNA-seq experiments often suffer from a low statistical power</p>
 </div>
 </section>
-<section id="section-17" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-42" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 60px; text-align:center">
 <p><strong>General Considerations</strong></p>
@@ -597,7 +1235,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>Low power can lead to a lack of reproducibility of the research findings</p>
 </div>
 </section>
-<section id="section-18" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-43" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 60px; text-align:center">
 <p><strong>General Considerations</strong></p>
@@ -615,11 +1253,11 @@ NOTE: n is number in *each* group</code></pre>
 <p>The number of replicates is one of the critical parameter related to the power of an analysis</p>
 </div>
 </section>
-<section id="section-19" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-44" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Replicates</span></p>
 </section>
-<section id="section-20" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-45" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 
 <img data-src="images/image-259602676.png" class="r-stretch quarto-figure-center"><p class="caption">Klaus B., EMBO J (2015) 34: 2727-2730</p><aside class="notes">
@@ -639,15 +1277,15 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-21" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-46" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Do we need technical replicates?</span></p>
 </section>
-<section id="section-22" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-47" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">No</span></p>
 </section>
-<section id="section-23" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-48" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">No</span></p>
 <div class="callout callout-important callout-captioned callout-style-default">
@@ -664,15 +1302,15 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-24" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-49" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Do we need biological replicates?</span></p>
 </section>
-<section id="section-25" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-50" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">YES</span></p>
 </section>
-<section id="section-26" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-51" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">YES</span></p>
 <div class="callout callout-important callout-captioned callout-style-default">
@@ -689,7 +1327,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-27" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-52" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">YES</span></p>
 <div class="callout callout-important callout-captioned callout-style-default">
@@ -706,7 +1344,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-28" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-53" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div class="f40 tcenter fragment">
 <p>Biological replicates are of greater importance than sequencing depth</p>
@@ -732,7 +1370,7 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-29" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-54" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq</strong></p>
@@ -764,7 +1402,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-30" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-55" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq</strong></p>
@@ -790,7 +1428,7 @@ NOTE: n is number in *each* group</code></pre>
 - Sequence deeper with at least 30-60 million reads depending on level of expression (start with 30 million with a good number of replicates). - Generally recommended to have read length &gt;= 50 bp</p>
 </div>
 </section>
-<section id="section-31" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-56" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq</strong></p>
@@ -819,7 +1457,7 @@ NOTE: n is number in *each* group</code></pre>
 - Perform careful QC of RNA quality. Be careful to use high quality preparation methods and restrict analysis to high quality RIN # samples.</p>
 </div>
 </section>
-<section id="section-32" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animtate="true">
+<section id="section-57" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animtate="true">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Principles of a good experimental design</strong></p>
@@ -838,11 +1476,11 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </section></section>
 <section>
-<section id="section-33" class="title-slide slide level1 center" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-58" class="title-slide slide level1 center" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h1></h1>
 <p><span class="tit p-span-center">Applications</span></p>
 </section>
-<section id="section-34" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-59" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Diagnostics and disease profiling</p>
@@ -874,7 +1512,7 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-35" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-60" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Human and pathogen transcriptomes</p>
@@ -908,7 +1546,7 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-36" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-61" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Responses to environment</p>
@@ -927,7 +1565,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>Lowe et al., 2017</p>
 </div>
 </section>
-<section id="section-37" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-62" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Gene function annotation</p>
@@ -945,7 +1583,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>Lowe et al., 2017</p>
 </div>
 </section>
-<section id="section-38" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-63" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Noncoding RNA</p>

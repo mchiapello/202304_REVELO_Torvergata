@@ -11,6 +11,11 @@
   font-size: 200px;
 }
 
+.subtit {
+  text-align: center;
+  font-size: 100px;
+}
+
 .center {
   margin: auto;
   width: 100%
