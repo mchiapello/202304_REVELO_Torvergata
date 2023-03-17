@@ -385,6 +385,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -1248,36 +1251,508 @@ D. The newly synthesized DNA strand is melted off, and A-C is repeated using a p
 <h1></h1>
 <p><span class="tit p-span-center">RNASeq pipeline</span></p>
 </section>
-<section id="section-38" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-38" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=6&gt;Isolate total RNA) --&gt; B(&lt;font size=6&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=6&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=6&gt;Sequencing) --&gt; E(&lt;font size=6&gt;Quantify expression)
+      E --&gt; F(&lt;font size=6&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=6&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  class A,B,C,D,E,F,G className;
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-39" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class B,C,D,E,F,G className;
+  class A classHigh;
+  linkStyle 1 stroke:red
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Isolate total RNA</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="p-img-center">
+<p><img data-src="images/rnaE.png" width="500"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-40" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-3">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,E,F,G className;
+  linkStyle 0 stroke:red
+</pre>
+<div id="mermaid-tooltip-3" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Quality control</span> <br></p>
+<div>
+<ol type="1">
+<li class="fragment"><p>RNA integrity is the major factor affecting the quality of sequencing data</p></li>
+<li class="fragment"><p>Protocols of RNA-Seq libraries require samples with high-quality RNA</p></li>
+<li class="fragment"><p>Prior to the construction of the libraries, it is necessary to assess RNA integrity number (RIN)</p></li>
+<li class="fragment"><p>The RIN measurement is based on a machine learning algorithm</p></li>
+<li class="fragment"><p>A higher RIN value indicates a higher degree of RNA integrity (range 1–10)</p></li>
+<li class="fragment"><p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg>RIN does not directly measure <strong>mRNA integrity</strong>, which is the main genetic material used in the construction of the libraries</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>::::</p>
+</section>
+<section id="section-41" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-4">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,C,D,E,F,G className;
+  class B classHigh;
+</pre>
+<div id="mermaid-tooltip-4" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Enrich a specific type of RNA</span></p>
+<div class="f40">
+<ul>
+<li class="fragment"><p>mRNA</p></li>
+<li class="fragment"><p>rRNAs and tRNAs (involved in mRNA translation)</p></li>
+<li class="fragment"><p>Small nuclear RNAs (involved in splicing)</p></li>
+<li class="fragment"><p>Small nucleolar RNAs (involved in the modification of rRNAs)</p></li>
+<li class="fragment"><p>microRNA (regulate gene expression at the posttranscriptional level)</p></li>
+<li class="fragment"><p>Long noncoding RNAs (chromatin remodelling, transcriptional control and posttranscriptional processing)</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>::::</p>
+<aside class="notes">
+<ul>
+<li><p>mRNA molecules are the most studied RNA species because they encode proteins.</p></li>
+<li><p>But recent advances in NGS technology have generated a focus on non-coding RNAs too, such as:</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-42" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-5">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,C,D,E,F,G className;
+  class B classHigh;
+</pre>
+<div id="mermaid-tooltip-5" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Enrich a specific type of RNA</span></p>
+<p><br></p>
+<div class="f40">
+<p>Two options for mRNA enrichment</p>
+<ul>
+<li class="fragment"><p><strong>mRNA enrichment</strong> – Selectively enriching for poly(A)-tailed transcripts</p></li>
+<li class="fragment"><p><strong>RNA depletion</strong> – Selectively depleting abundant/off-target transcripts</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>::::</p>
+<aside class="notes">
+<p>3- RIN: has become a widely accepted standard for quality measurement</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-43" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-6">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+</pre>
+<div id="mermaid-tooltip-6" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Prepare the RNA sequencing library</span></p>
+<p><br></p>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="M3_RNASeq_Intro_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-44" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-7">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+</pre>
+<div id="mermaid-tooltip-7" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Prepare the RNA sequencing library</span></p>
+<p><br></p>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><span style="font-size: 70px">A sequencing library is essentially a pool of RNA fragments with adapters attached</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-45" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-8">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+</pre>
+<div id="mermaid-tooltip-8" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Prepare the RNA sequencing library</span> <span class="p-span-center f20">Step 1</span></p>
+<p><br></p>
+<p><strong>Fragmentation</strong></p>
+<div class="{incremental}">
+<ol type="1">
+<li>Breaking of RNA strands into pieces</li>
+</ol>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>1- which can be done by using physical, chemical or enzymatic methods</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-46" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-9">flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(&lt;font size=3&gt;Isolate total RNA) --&gt; B(&lt;font size=3&gt;Enrich a specific type of RNA)
+      B --&gt; C(&lt;font size=3&gt;Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(&lt;font size=3&gt;Sequencing) --&gt; E(&lt;font size=3&gt;Quantify expression)
+      E --&gt; F(&lt;font size=3&gt;Differential Expression analysis)
+      F --&gt; G(&lt;font size=3&gt;Biological conclusions)
+  end
+  vitro --&gt; silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+</pre>
+<div id="mermaid-tooltip-9" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<p><span class="p-span-center">Prepare the RNA sequencing library</span> <span class="p-span-center f20">Step 2</span></p>
+<p><br></p>
+<p><strong>Attachment of adapters</strong></p>
+<div>
+<ol type="1">
+<li class="fragment"><p>Adapters are a short, chemically-synthesised oligonucleotide that can be attached to the ends of DNA molecules</p></li>
+<li class="fragment"><p>Act as barcodes to identify where each nucleotide was originally located</p></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<div class="p-img-center">
+<p><img data-src="images/adapter.png" width="900"></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>1- which can be done by using physical, chemical or enzymatic methods</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-47" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>In vivo</p>
 </div>
 </section>
-<section id="section-39" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-48" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>In vitro</p>
 </div>
 </section>
-<section id="section-40" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-49" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>In silico</p>
 </div>
 </section></section>
 <section>
-<section id="section-41" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-50" class="title-slide slide level1 center" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h1></h1>
 <p><span class="tit p-span-center">How many samples do I need?</span></p>
 </section>
-<section id="section-42" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-51" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
 </div>
 </section>
-<section id="section-43" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-52" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -1286,7 +1761,7 @@ D. The newly synthesized DNA strand is melted off, and A-C is repeated using a p
 <li><strong>Type I error</strong>: controlled by the α value. Often set to 0.01 (1%) or 0.001 (0.1%) in RNA-seq experiments.</li>
 </ul>
 </section>
-<section id="section-44" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-53" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -1296,7 +1771,7 @@ D. The newly synthesized DNA strand is melted off, and A-C is repeated using a p
 <li><p><strong>Type II error</strong>: controlled by the β value. (1−β) will give you the power of your analysis. Should be set to 70 or 80% to detect 70 or 80% of the differentially expressed genes. The number of biological replicates might be hard to reach in practice for RNA-seq experiments.</p></li>
 </ul>
 </section>
-<section id="section-45" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-54" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -1307,7 +1782,7 @@ D. The newly synthesized DNA strand is melted off, and A-C is repeated using a p
 <li><p><strong>Effect size</strong>: this is a parameter you will set. For instance, if you want to investigate genes that differ between treatments with a difference of their mean of 2 then the effect size is equal to 2.</p></li>
 </ul>
 </section>
-<section id="section-46" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-55" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Power analysis</p>
@@ -1319,7 +1794,7 @@ D. The newly synthesized DNA strand is melted off, and A-C is repeated using a p
 <li><p><strong>Sample size</strong>: the quantity you want to calculate.</p></li>
 </ul>
 </section>
-<section id="section-47" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-56" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <h4 id="lets-say-we-want">Let’s say we want:</h4>
 <ul>
@@ -1351,7 +1826,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-48" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-57" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <h4 id="lets-say-we-want-1">Let’s say we want:</h4>
 <ul>
@@ -1381,11 +1856,11 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-49" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-58" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Power analysis for RNA-seq</span></p>
 </section>
-<section id="section-50" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-59" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 60px; text-align:center">
 <p><strong>General Considerations</strong></p>
@@ -1395,7 +1870,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>RNA-seq experiments often suffer from a low statistical power</p>
 </div>
 </section>
-<section id="section-51" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-60" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 60px; text-align:center">
 <p><strong>General Considerations</strong></p>
@@ -1409,7 +1884,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>Low power can lead to a lack of reproducibility of the research findings</p>
 </div>
 </section>
-<section id="section-52" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-61" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 60px; text-align:center">
 <p><strong>General Considerations</strong></p>
@@ -1427,11 +1902,11 @@ NOTE: n is number in *each* group</code></pre>
 <p>The number of replicates is one of the critical parameter related to the power of an analysis</p>
 </div>
 </section>
-<section id="section-53" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-62" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Replicates</span></p>
 </section>
-<section id="section-54" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-63" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 
 <img data-src="images/image-259602676.png" class="r-stretch quarto-figure-center"><p class="caption">Klaus B., EMBO J (2015) 34: 2727-2730</p><aside class="notes">
@@ -1451,15 +1926,15 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-55" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-64" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Do we need technical replicates?</span></p>
 </section>
-<section id="section-56" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-65" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">No</span></p>
 </section>
-<section id="section-57" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-66" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">No</span></p>
 <div class="callout callout-important callout-captioned callout-style-default">
@@ -1476,15 +1951,15 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-58" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-67" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <p><span class="tit p-span-center">Do we need biological replicates?</span></p>
 </section>
-<section id="section-59" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-68" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">YES</span></p>
 </section>
-<section id="section-60" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-69" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">YES</span></p>
 <div class="callout callout-important callout-captioned callout-style-default">
@@ -1501,7 +1976,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-61" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
+<section id="section-70" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><span class="tit p-span-center">YES</span></p>
 <div class="callout callout-important callout-captioned callout-style-default">
@@ -1518,7 +1993,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-62" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-71" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div class="f40 tcenter fragment">
 <p>Biological replicates are of greater importance than sequencing depth</p>
@@ -1544,7 +2019,7 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-63" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-72" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq</strong></p>
@@ -1576,7 +2051,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
 </section>
-<section id="section-64" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-73" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq</strong></p>
@@ -1602,7 +2077,7 @@ NOTE: n is number in *each* group</code></pre>
 - Sequence deeper with at least 30-60 million reads depending on level of expression (start with 30 million with a good number of replicates). - Generally recommended to have read length &gt;= 50 bp</p>
 </div>
 </section>
-<section id="section-65" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
+<section id="section-74" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Replicates are almost always preferred to greater sequencing depth for bulk RNA-Seq</strong></p>
@@ -1631,7 +2106,7 @@ NOTE: n is number in *each* group</code></pre>
 - Perform careful QC of RNA quality. Be careful to use high quality preparation methods and restrict analysis to high quality RIN # samples.</p>
 </div>
 </section>
-<section id="section-66" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animtate="true">
+<section id="section-75" class="slide level2" data-background-image="images/stat001.jpg" data-background-size="cover" data-background-opacity="0.1" data-auto-animtate="true">
 <h2></h2>
 <div style="font-size: 60px; text-align: center">
 <p><strong>Principles of a good experimental design</strong></p>
@@ -1650,11 +2125,11 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 </section></section>
 <section>
-<section id="section-67" class="title-slide slide level1 center" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-76" class="title-slide slide level1 center" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h1></h1>
 <p><span class="tit p-span-center">Applications</span></p>
 </section>
-<section id="section-68" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-77" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Diagnostics and disease profiling</p>
@@ -1686,7 +2161,7 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-69" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-78" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Human and pathogen transcriptomes</p>
@@ -1720,7 +2195,7 @@ NOTE: n is number in *each* group</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-70" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-79" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Responses to environment</p>
@@ -1739,7 +2214,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>Lowe et al., 2017</p>
 </div>
 </section>
-<section id="section-71" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-80" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Gene function annotation</p>
@@ -1757,7 +2232,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>Lowe et al., 2017</p>
 </div>
 </section>
-<section id="section-72" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
+<section id="section-81" class="slide level2" data-background-image="images/app001.jpg" data-background-size="cover" data-background-opacity="0.2">
 <h2></h2>
 <div style="font-size: 80px; text-align: center">
 <p>Noncoding RNA</p>

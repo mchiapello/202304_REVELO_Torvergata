@@ -809,6 +809,408 @@ Third-generation NGS platforms:
 
 [RNASeq pipeline]{.tit .p-span-center}
 
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate=true}
+
+
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=6>Isolate total RNA) --> B(<font size=6>Enrich a specific type of RNA)
+      B --> C(<font size=6>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=6>Sequencing) --> E(<font size=6>Quantify expression)
+      E --> F(<font size=6>Differential Expression analysis)
+      F --> G(<font size=6>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  class A,B,C,D,E,F,G className;
+```
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1" auto-animate=true}
+
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class B,C,D,E,F,G className;
+  class A classHigh;
+  linkStyle 1 stroke:red
+```
+:::
+
+:::{.column width="65%"}
+[Isolate total RNA]{.p-span-center}
+
+:::{.fragment .fade-in fragment-index=1}
+:::{.p-img-center}
+![](images/rnaE.png){width=500}
+:::
+
+:::
+
+:::
+
+::::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+::::{.columns}
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,E,F,G className;
+  linkStyle 0 stroke:red
+```
+:::
+:::{.column width="65%"}
+[Quality control]{.p-span-center}
+<br>
+
+:::{.incremental}
+1. RNA integrity is the major factor affecting the quality of sequencing data
+
+1. Protocols of RNA-Seq libraries require samples with high-quality RNA
+
+1. Prior to the construction of the libraries, it is necessary to assess RNA integrity number (RIN)
+
+1. The RIN measurement is based on a machine learning algorithm
+
+1. A higher RIN value indicates a higher degree of RNA integrity (range 1–10)
+
+1. `r fontawesome::fa("minus-circle", fill = "red")`RIN does not directly measure **mRNA integrity**, which is the main genetic material used in the construction of the libraries
+:::
+:::
+:::
+::::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,C,D,E,F,G className;
+  class B classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Enrich a specific type of RNA]{.p-span-center}
+
+::: {.incremental .f40}
+- mRNA
+
+- rRNAs and tRNAs (involved in mRNA translation)
+
+- Small nuclear RNAs (involved in splicing)
+
+- Small nucleolar RNAs (involved in the modification of rRNAs)
+
+- microRNA (regulate gene expression at the posttranscriptional level)
+
+- Long noncoding RNAs (chromatin remodelling, transcriptional control and posttranscriptional processing)
+:::
+
+
+:::
+
+:::
+
+::::
+
+:::{.notes}
+- mRNA molecules are the most studied RNA species because they encode proteins.
+
+- But recent advances in NGS technology have generated a focus on non-coding RNAs too, such as:
+:::
+
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,C,D,E,F,G className;
+  class B classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Enrich a specific type of RNA]{.p-span-center}
+
+<br>
+
+::: {.incremental .f40}
+Two options for mRNA enrichment 
+
+- **mRNA enrichment** – Selectively enriching for poly(A)-tailed transcripts
+
+- **RNA depletion** – Selectively depleting abundant/off-target transcripts 
+:::
+
+
+:::
+
+:::
+
+::::
+
+
+:::{.notes}
+3- RIN: has become a widely accepted standard for quality measurement
+:::
+
+
+
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+```
+:::
+
+:::{.column width="65%"}
+[Prepare the RNA sequencing library]{.p-span-center}
+
+<br>
+
+```{r}
+#| echo: false
+#| layout-ncol: 1
+plot(qrcode::qr_code("https://forms.gle/jN6Fx7F5JSHFxb5u8"))
+```
+
+:::
+::::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+```
+:::
+
+:::{.column width="65%"}
+[Prepare the RNA sequencing library]{.p-span-center}
+
+<br>
+
+:::{.callout-important}
+[A sequencing library is essentially a pool of RNA fragments with adapters attached]{style="font-size: 70px"}
+:::
+
+:::
+::::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+```
+:::
+
+:::{.column width="65%"}
+[Prepare the RNA sequencing library]{.p-span-center}
+[Step 1]{.p-span-center .f20}
+
+<br>
+
+**Fragmentation**
+
+:::{incremental}
+1. Breaking of RNA strands into pieces
+:::
+:::
+::::
+
+:::{.notes}
+1- which can be done by using physical, chemical or enzymatic methods
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+  linkStyle 1 stroke:red
+```
+:::
+
+:::{.column width="65%"}
+[Prepare the RNA sequencing library]{.p-span-center}
+[Step 2]{.p-span-center .f20}
+
+<br>
+
+**Attachment of adapters**
+
+:::{.incremental}
+1. Adapters are a short, chemically-synthesised oligonucleotide that can be attached to the ends of DNA molecules
+
+1. Act as barcodes to identify where each nucleotide was originally located
+:::
+
+:::{.fragment .fade-in}
+:::{.p-img-center}
+![](images/adapter.png){width=900}
+:::
+
+:::
+
+:::
+::::
+
+:::{.notes}
+1- which can be done by using physical, chemical or enzymatic methods
+:::
+
+
+
 ##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
 ::: {style="font-size: 80px; text-align: center"}
