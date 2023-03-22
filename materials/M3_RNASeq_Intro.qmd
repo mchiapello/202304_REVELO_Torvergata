@@ -1897,6 +1897,7 @@ flowchart TB
 ::::
 
 :::{.notes}
+- To confirm the expression profile of genes in RNA-Seq results =>  Reverse transcription-quantitative PCR (RT-qPCR)
 :::
 
 
