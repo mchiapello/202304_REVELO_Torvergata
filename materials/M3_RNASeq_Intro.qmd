@@ -805,6 +805,15 @@ Third-generation NGS platforms:
 {{< video https://www.youtube.com/embed/CGWZvHIi3i0 width="100%" height="85%" >}}
 
 
+##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
+
+[Combining sequencing technologies]{.subtit}
+
+Long-read sequencing vs short-read sequencing
+
+https://frontlinegenomics.com/long-read-sequencing-vs-short-read-sequencing
+
+
 #  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
 [RNASeq pipeline]{.tit .p-span-center}
@@ -1052,7 +1061,6 @@ flowchart TB
   classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
   class A,B,D,E,F,G className;
   class C classHigh;
-  linkStyle 1 stroke:red
 ```
 :::
 
@@ -1093,7 +1101,6 @@ flowchart TB
   classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
   class A,B,D,E,F,G className;
   class C classHigh;
-  linkStyle 1 stroke:red
 ```
 :::
 
@@ -1132,7 +1139,6 @@ flowchart TB
   classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
   class A,B,D,E,F,G className;
   class C classHigh;
-  linkStyle 1 stroke:red
 ```
 :::
 
@@ -1177,7 +1183,6 @@ flowchart TB
   classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
   class A,B,D,E,F,G className;
   class C classHigh;
-  linkStyle 1 stroke:red
 ```
 :::
 
@@ -1210,24 +1215,690 @@ flowchart TB
 :::
 
 
-
 ##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
-::: {style="font-size: 80px; text-align: center"}
-In vivo
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,D,E,F,G className;
+  class C classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Prepare the RNA sequencing library]{.p-span-center}
+[Step 3]{.p-span-center .f20}
+
+<br>
+
+**Library quantification**
+
+:::{.callout-important}
+This is key to obtaining high quality NGS data
+:::
+
+:::{.incremental}
+1. It provides the number of nucleic acids ready to be sequenced in a sample
+
+1. It is important to try and obtain the highest complexity level as possible in an NGS library 
+
+1. Variety of techniques: UV absorption, intercalating dyes, hydrolysis probes and droplet digital emulsion PCR
+:::
+:::
+::::
+
+:::{.notes}
+2- because this will reduce the amount of bias. Library complexity refers to the number of unique DNA fragments present – in other words, the library should reflect the starting material as much as possible. Reductions in complexity usually result from PCR amplification during library preparation, which elevates the number of duplicate reads
 :::
 
 ##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
-::: {style="font-size: 80px; text-align: center"}
-In vitro
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,E,F,G className;
+  class D classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Sequencing]{.p-span-center}
+[Step 1]{.p-span-center .f20}
+
+<br>
+
+**BCL to FASTQ conversion**
+
+:::{.incremental}
+1. Illumina sequencing technology uses cluster generation and sequencing by synthesis chemistry to sequence millions or billions of clusters on a flow cell
+
+1. During sequencing, for each cluster, base calls are made and stored in the form of individual base call (or BCL) files
+
+1. When sequencing completes, the base calls in the BCL files must be converted into sequence data
+
+:::
+:::
+::::
+
+:::{.notes}
+3- This process is called BCL to FASTQ conversion
+:::
+
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,E,F,G className;
+  class D classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Sequencing]{.p-span-center}
+[Step 1]{.p-span-center .f20}
+
+<br>
+
+**BCL to FASTQ conversion**
+
+<br>
+
+:::{.p-img-center}
+![](images/bc.png){width=800}
+:::
+:::
+::::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,E,F,G className;
+  class D classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Sequencing]{.p-span-center}
+[Step 2]{.p-span-center .f20}
+
+<br>
+
+**Pre-process**
+
+<br>
+
+:::{.incremental}
+1. Assess the quality of sequencing data
+
+1. Demultiplex by index or barcode 
+
+1. Remove adapter sequences
+
+1. Trim reads by quality
+
+1. Discard reads by quality/ambiguity
+
+:::
+
+:::{.notes}
+2- (it is usually done in the sequencing facility)
+:::
+
+:::
+::::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,E,F,G className;
+  class D classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Sequencing]{.p-span-center}
+[Step 3]{.p-span-center .f20}
+
+<br>
+
+**Read mapping**
+
+<br>
+
+:::{.incremental}
+
+1. Mapping reads to a reference genome or transcriptome
+
+1. We need to retrieve a reference genome or transcriptome
+
+    - Download from public databases
+ 
+    - Create *De Novo*
+:::
+:::
+::::
+
+:::{.notes}
+We are not exploring the *De Novo* option in this course
 :::
 
 ##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
-::: {style="font-size: 80px; text-align: center"}
-In silico
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,E,F,G className;
+  class D classHigh;
+```
 :::
+
+:::{.column width="65%"}
+[Sequencing]{.p-span-center}
+[Step 4]{.p-span-center .f20}
+
+<br>
+<br>
+
+::: {.p-img-center}
+```{r}
+#| echo: false
+#| layout-ncol: 1
+plot(qrcode::qr_code("https://forms.gle/fcGodxqoZqkwgm7p8"))
+```
+:::
+
+
+:::
+::::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,E,F,G className;
+  class D classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Sequencing]{.p-span-center}
+[Step 4]{.p-span-center .f20}
+
+<br>
+
+**Read mapping**
+
+<br>
+
+:::{.incremental}
+
+1. Fast (splice-unaware) aligners to a reference transcriptome
+
+1. Splice-aware aligners to a reference genome
+
+1. Quasi-mappers (alignment-free mappers) to a reference transcriptome
+:::
+:::
+::::
+
+:::{.notes}
+1. Bowtie2, bwa, gem
+
+1. STAR
+
+1. Salmon, Kallisto and Sailfish
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,F,G className;
+  class E classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Quantify expression]{.p-span-center}
+
+<br>
+
+**Normalized expression units**
+
+<br>
+
+:::{.incremental}
+1. Normalized gene expression units provide consistent and comparable measures to compare and visualize gene expression counts within and across samples
+
+1. Normalized gene expression units are necessary to remove technical biases 
+
+:::
+:::
+::::
+
+:::{.notes}
+2- such as sequencing depth, RNA composition, and gene length in sequenced data
+
+    - more sequencing depth produces more read count for a gene expressed at the same level
+
+    - differences in gene length generate unequal reads count for genes expressed at the same level (longer the gene more the read count)
+
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,F,G className;
+  class E classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Quantify expression]{.p-span-center}
+[Normalized expression units]{.p-span-center .f20}
+
+<br>
+
+**Reads per million**
+
+<br>
+
+:::{.callout-tip}
+## Definition
+RPM (also known as CPM) is a basic gene expression unit that normalizes only for sequencing depth (depth-normalized counts)
+:::
+
+:::{.p-img-center}
+![](images/rmp1.png){width=800}
+::: 
+
+<br>
+
+:::{.fragment .fade-in fragment-index=1}
+:::{.p-img-center}
+![](images/rmp2.png){width=800}
+:::
+:::
+
+:::
+::::
+
+:::{.notes}
+- RPM or CPM (Reads per million mapped reads or Counts per million mapped reads)
+
+- RPM is calculated by dividing the mapped reads count by a per million scaling factor of total mapped reads
+
+- **For example**, You have sequenced one library with 5 million(M) reads. Among them, total 4 M matched to the genome sequence and 5000 reads matched to a given gene
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,F,G className;
+  class E classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Quantify expression]{.p-span-center}
+[Normalized expression units]{.p-span-center .f20}
+
+<br>
+
+**Reads per kilo base of transcript per million mapped reads**
+
+<br>
+
+:::{.callout-tip}
+## Definition
+RPKM is normalized to correct the gene (transcript) lengths and library sizes (sequencing depth)
+:::
+
+:::{.p-img-center}
+![](images/rpkm1.png){width=800}
+::: 
+
+<br>
+
+:::{.fragment .fade-in fragment-index=1}
+:::{.p-img-center}
+![](images/rpkm2.png){width=800}
+:::
+:::
+
+:::
+::::
+
+:::{.notes}
+- RPKM is most useful for comparing gene expression values within a sample, and it is not recommended for performing differential gene expression analysis (sample-to-sample comparisons)
+
+- **RPKM calculation example**: You have sequenced one library with 5 M reads. Among them, total 4 M matched to the genome sequence and 5000 reads matched to a given gene with a length of 2000 bp
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,F,G className;
+  class E classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Quantify expression]{.p-span-center}
+[Normalized expression units]{.p-span-center .f20}
+
+<br>
+
+**Transcripts per million**
+
+<br>
+
+:::{.callout-tip}
+## Definition
+TPM is a measurement of the proportion of transcripts in your pool of RNA 
+:::
+
+:::{.p-img-center}
+![](images/tpm1.png){width=800}
+::: 
+
+<br>
+
+:::{.fragment .fade-in fragment-index=1}
+
+:::{.p-img-center}
+![](images/tpm2.png){width=800}
+:::
+:::
+
+:::
+::::
+
+:::{.notes}
+- TPM is proportional to RPKM
+
+- In contrast to RPKM, the TPM average is constant and is proportional to the relative RNA molar concentration
+:::
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,E,G className;
+  class F classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Differentially expression analysis]{.p-span-center}
+
+<br>
+
+:::{.callout-important .f40}
+- A basic task in the analysis of count data from RNA-seq is the detection of differentially expressed genes.
+
+- It determines genotypical differences between two or more conditions of cells, in support of specific hypothesis-driven studies.
+
+- The integration and the visualized representation of DGE result analysis functions can facilitate the downstream studies.
+:::
+
+:::{.p-img-center}
+![](images/dge1.png){width=400}
+::: 
+
+:::
+::::
+
+:::{.notes}
+:::
+
+
+##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
+
+::::{.columns}
+
+:::{.column width="35%"}
+```{mermaid}
+flowchart TB
+  subgraph vitro [In vitro]
+    direction TB
+      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
+      B --> C(<font size=3>Prepare the RNA sequencing library)
+  end
+  subgraph silico [In silico]
+    direction TB
+      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
+      E --> F(<font size=3>Differential Expression analysis)
+      F --> G(<font size=3>Biological conclusions)
+  end
+  vitro --> silico
+  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
+  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
+  class A,B,C,D,E,F className;
+  class G classHigh;
+```
+:::
+
+:::{.column width="65%"}
+[Biological conclusion]{.p-span-center}
+
+:::{.p-img-center}
+![](images/deg.png){width=900}
+::: 
+
+:::
+::::
+
+:::{.notes}
+:::
+
 
 
 
@@ -1691,4 +2362,11 @@ Transcriptomics is most commonly applied to the mRNA content of the cell, Howeve
 :::
 
 
+
+#  {background-image="images/qmark.jpg" background-size="cover" background-opacity="0.7"}
+
+
+::: {style="position: absolute; left: 980px; top: 450px;"}
+[Domande?]{style="font-size: 130px; font-weight: bold; color: white"}
+:::
 
