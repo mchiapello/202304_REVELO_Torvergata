@@ -36,7 +36,15 @@ p span.p-span-center{
     display: block;
 }
 
+.f100 {
+  font-size: 100px;
+}
+
 .f40 {
+  font-size: 40px;
+}
+
+.f40 code {
   font-size: 40px;
 }
 

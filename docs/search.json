@@ -3680,5 +3680,75 @@
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
     "text": "Noncoding RNA\n\n\n\n\n\nRNASeq is applicable to noncoding RNAs that are not translated into a protein, but instead, have direct functions\nMany of these noncoding RNAs affect disease states, including cancer, cardiovascular, and neurological diseases\n\n\n\n\nLowe et al., 2017\n\n\nTranscriptomics is most commonly applied to the mRNA content of the cell, However\n\n\n\n\nhome page"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#TitleSlide",
+    "href": "materials/M2_RiepilogoR.html#TitleSlide",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "R recall\nIntroduzione all’analisi RNASeq in R\nDipartimento di Biomedicina e Prevenzione\n \nMarco Chiapello, Revelo Datalab\n20.1-03-31"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-1",
+    "href": "materials/M2_RiepilogoR.html#section-1",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Variable\n\n\n\n\n\n\n\nDefinition\n\n\n\nVariables are used to store information to be referenced and manipulated in a computer program.\nThey also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves.\nIt is helpful to think of variables as containers that hold information.\nTheir sole purpose is to label and store data in memory"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-3",
+    "href": "materials/M2_RiepilogoR.html#section-3",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Assignment operator\n\n\n4 + 5\nx <- 4 + 5\nx + 2\nx <- 2 + 1\nx <- x + 2\n\nx = x + 2\nx + 2 -> x"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-5",
+    "href": "materials/M2_RiepilogoR.html#section-5",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Website\n\n\n\n\n\n\n\n\nhttp://bit.ly/3ZcDcj9"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-6",
+    "href": "materials/M2_RiepilogoR.html#section-6",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "tidyverse.org"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-7",
+    "href": "materials/M2_RiepilogoR.html#section-7",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "tidyverse.org"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-8",
+    "href": "materials/M2_RiepilogoR.html#section-8",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Strumenti\n\nWebsite\nSlack\n\nStrumento di comunicazione\n\n\n \nEntrambi rimarranno online per sempre"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-2",
+    "href": "materials/M2_RiepilogoR.html#section-2",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Variable\n\n\nYou want your object names to be explicit and not too long.\nThey cannot start with a number (2x is not valid, but x2 is).\nR is case sensitive, so for example, weight_kg is different from Weight_kg.\nThere are some names that cannot be used because they are the names of fundamental functions in R (e.g., if, else, for, see here for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., c, T, mean, data, df, weights).\nIt’s best to avoid dots (.) within names. Many function names in R itself have them and dots also have a special meaning (methods) in R.\nIt is recommended to use nouns for object names and verbs for function names.\nBe consistent in the styling of your code, such as where you put spaces, how you name objects, etc.\nStyles can include “lower_snake”, “UPPER_SNAKE”, “lowerCamelCase”, “UpperCamelCase”, etc. Using a consistent coding style makes your code clearer to read for your future self and your collaborators."
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-4",
+    "href": "materials/M2_RiepilogoR.html#section-4",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Data Structures\nThe most essential data structures used in R include:\n\n\nVectors: A vector is an ordered collection of basic data types of a given length\nLists: A list is a generic object consisting of an ordered collection of objects. Lists are heterogeneous data structures\nDataframes: Dataframes are generic data objects of R which are used to store the tabular data. Dataframes are the foremost popular data objects in R\nMatrices: A matrix is a rectangular arrangement of numbers in rows and columns. Matrices are two-dimensional, homogeneous data structures.\nArrays: Arrays are the R data objects which store the data in more than two dimensions.\nFactors: Factors are the data objects which are used to categorize the data and store it as levels. They are useful for storing categorical data.\n\n\n\nA vector is the most common and basic data type in R, and is pretty much the workhorse of R\nR is vectorized program"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-9",
+    "href": "materials/M2_RiepilogoR.html#section-9",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Project Goals:\n\n\nTo provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.\nTo facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.\nTo provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.\nTo further scientific understanding by producing high-quality documentation and reproducible research.\nTo train researchers on computational and statistical methods for the analysis of genomic data.\n\n\n\nbioconductor.org"
   }
 ]

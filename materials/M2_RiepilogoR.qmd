@@ -6,7 +6,7 @@ format:
     width: 1600
     height: 900
     logo: "images/revelo.png"
-    footer: "[home page](https://mchiapello.github.io/202304_REVELO_Torvergata/)"
+    footer: "[home page](https://mchiapello.github.io/20.104_REVELO_Torvergata/)"
     css: ["css/theme.css", "css/custom.css"]
     theme: simple
     controls: true
@@ -17,7 +17,7 @@ editor_options:
   chunk_output_type: inline
 ---
 
-##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
 ```{r setup, include=FALSE}
 library(fontawesome)
@@ -28,8 +28,12 @@ library(gtExtras)
 library(gtsummary)
 ```
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
+</style>
+
 ::: {style="position: absolute; left: 480px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;"}
-[Introduzione al Corso]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px"}
+[R recall]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px; font-family: 'Architects Daughter', cursive;"}
 
 [Introduzione all'analisi RNASeq in R]{style="font-size: 40px;font-weight: bold;"}
 
@@ -39,181 +43,151 @@ library(gtsummary)
 
 [Marco Chiapello, Revelo Datalab]{style="font-size: 40px; font-weight: bold;"}
 
-[2023-03-31]{style="font-size: 30px;font-weight: bold;"}
+[20.1-03-31]{style="font-size: 30px;font-weight: bold;"}
 :::
 
 
-#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+#  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
-[Code of Conduct]{.tit .p-span-center}
+[R variables]{.tit .p-span-center}
 
-[{{< fa people-group >}}]{.icon .p-span-center}
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
-##  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
-
-::: {style="font-size: 40px; text-align: justify"}
-We are dedicated to providing a [welcoming]{.rn} and [supportive]{.rn} environment for all people, [regardless of background or identity]{.rn rn-type="box" rn-color="black"}.
-
-By participating in this course, [participants accept the Code of Conduct]{.rn}.
-
-Any form of behaviour to [exclude]{.rn rn-color="orange"}, [intimidate]{.rn rn-color="orange"}, or [cause discomfort]{.rn rn-color="orange"} is a violation of the Code of Conduct. In order to foster a [positive and professional learning environment]{.rn rn-color="green"} we encourage the following kinds of behaviours in all platforms and events:
-
-::: {.fragment .fade-up}
--   Use welcoming and inclusive language
-:::
-
-::: {.fragment .fade-up}
--   Be respectful of different viewpoints and experiences
-:::
-
-::: {.fragment .fade-up}
--   Gracefully accept constructive criticism
-:::
-
-::: {.fragment .fade-up}
--   Focus on what is best for the community
-:::
-
-::: {.fragment .fade-up}
--   Show courtesy and respect towards other community members
-:::
-:::
-
-#  {background-image="images/back002.jpg" background-size="cover" background-opacity="0.3"}
-
-[Presentiamoci]{.tit .p-span-center}
-
-[{{< fa id-card >}}]{.icon .p-span-center}
-
-##  {background-image="images/back002.jpg" background-size="cover" background-opacity="0.3"}
-
-::: {.fragment .fade-down style="font-size: 100px; text-align: start;"}
-{{< fa 1 >}} Chi sei?
-:::
+[Variable]{.f100}
 
 <br>
 
-::: {.fragment .fade-down style="font-size: 100px; text-align: start; margin-left: 200px"}
-{{< fa 2 >}} Cosa hai studiato?
+:::{.callout-tip}
+## Definition
+
+1. Variables are used to store information to be referenced and manipulated in a computer program. 
+
+1. They also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves. 
+   
+1. It is helpful to think of variables as containers that hold information. 
+   
+1. Their sole purpose is to label and store data in memory
+
 :::
 
-<br>
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
-::: {.fragment .fade-down style="font-size: 100px; text-align: start;"}
-{{< fa 3 >}} Quali sono i tuoi obiettivi?
+[Variable]{.f100}
+
+:::{.incremental .f30}
+- You want your object names to be explicit and not too long.
+
+- They cannot start with a number (2x is not valid, but x2 is).
+
+- R is case sensitive, so for example, weight_kg is different from Weight_kg.
+
+- There are some names that cannot be used because they are the names of fundamental functions in R (e.g., if, else, for, see here for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., c, T, mean, data, df, weights).
+
+- It’s best to avoid dots (.) within names. Many function names in R itself have them and dots also have a special meaning (methods) in R.
+
+- It is recommended to use nouns for object names and verbs for function names.
+
+- Be consistent in the styling of your code, such as where you put spaces, how you name objects, etc. 
+  
+- Styles can include “lower_snake”, “UPPER_SNAKE”, “lowerCamelCase”, “UpperCamelCase”, etc. Using a consistent coding style makes your code clearer to read for your future self and your collaborators. 
+
 :::
 
-<br>
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
-::: {.fragment .fade-down style="font-size: 100px; text-align: start; margin-left: 200px"}
-{{< fa 4 >}} Quali sono le aspettative per il corso?
-:::
+[Assignment operator]{.f100}
 
-#  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
-
-[Com'è strutturato il corso]{.tit .p-span-center}
-
-##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
-
-[Website]{.p-span-center style="font-size: 100px"}
-
-::: {.fragment .fade-down .p-img-center}
+:::{.f40}
 ```{r}
-#| echo: false
-#| layout-ncol: 1
-plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1|2|3|4|5|7-8"
+4 + 5
+x <- 4 + 5
+x + 2
+x <- 2 + 1
+x <- x + 2
+
+x = x + 2
+x + 2 -> x
 ```
-
-[http://bit.ly/3ZcDcj9]{.p-span-center style="font-size: 100px; font-weight: bold;"}
 :::
 
-##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
-[Agenda]{.p-span-center style="font-size: 100px"}
+[Data Structures]{.f100}
 
-::: columns
-::: {.column width="50%"}
-[Primo Giorno]{.p-span-center}
-[Introduzione all'RNASeq]{.p-span-center}
+The most essential data structures used in R include: 
+
+:::{.incremental}
+
+1. [**Vectors**: A vector is an ordered collection of basic data types of a given length]{.rn}
+
+1. **Lists**: A list is a generic object consisting of an ordered collection of objects. Lists are heterogeneous data structures
+
+1. **Dataframes**: Dataframes are generic data objects of R which are used to store the tabular data. Dataframes are the foremost popular data objects in R
+
+1. **Matrices**: A matrix is a rectangular arrangement of numbers in rows and columns. Matrices are two-dimensional, homogeneous data structures.
+
+1. **Arrays**: Arrays are the R data objects which store the data in more than two dimensions.
+
+1. **Factors**: Factors are the data objects which are used to categorize the data and store it as levels. They are useful for storing categorical data.
+
+:::
+
+:::{.notes}
+A vector is the most common and basic data type in R, and is pretty much the workhorse of R
+
+R is vectorized program
+:::
+
+#  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
+
+[R tidyverse]{.tit .p-span-center}
+
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
 <br>
 
-:::{.fragment .fade-rigth fragment-index=1}
-
-[Orari]{style="font-weight: bold;"}    
-9:30 : Introduzione al Corso   
-10:00: Riepilogo R             
-10:45: Pausa                   
-11:00: Introduzione all'RNASeq
-
-
-12:30: Pausa pranzo            
-
-
-13:30: Software and code       
-14:45: Pausa                   
-15:00: DEMO                    
-16:30: Considerazioni finali   
-
-:::
+:::{.p-img-center}
+![](images/tidy1.png){width=1100}
 :::
 
-::: {.column width="50%"}
-[Secondo Giorno]{.p-span-center}
-[Espessione Differenziale]{.p-span-center}
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
 <br>
 
-:::{.fragment .fade-rigth fragment-index=2}
-[Orari]{style="font-weight: bold;"}    
-9:30 : Introduzione a DESEQ2   
-10:45: Pausa                   
-11:00: Live Code
-
-
-12:30: Pausa pranzo            
-
-
-13:30: Live Code       
-14:45: Pausa                   
-15:00: Capstone exercise                    
-16:30: Considerazioni finali   
-:::
-:::
+:::{.p-img-center}
+![](images/tidy2.png){width=1500}
 :::
 
-##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+:::{.tcenter .f100}
+[tidyverse.org](https://www.tidyverse.org)
+:::
 
-[Feedbacks]{.p-span-center style="font-size: 100px"}
+#  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
-- [Immediati]{style="font-size: 70px"}
+[Bioconductor]{.tit .p-span-center}
 
-  - Sticky notes
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
-- [Formative assessment]{style="font-size: 70px"}
+Project Goals:
 
-  - Veloci questionari o esercizi
+:::{.incremental}
+- To provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.
 
-- [Alla fine di ogni modulo]{style="font-size: 70px"}
+- To facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.
 
-  - Sticky notes
+- To provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.
 
-##  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
+- To further scientific understanding by producing high-quality documentation and reproducible research.
 
-[Strumenti]{.p-span-center style="font-size: 100px"}
+- To train researchers on computational and statistical methods for the analysis of genomic data.
+:::
 
-- [Website]{style="font-size: 70px"}
-  
-- [Slack]{style="font-size: 70px"}
-
-  - Strumento di comunicazione
-  
-<br>
-<br>
-
-
-[Entrambi rimarranno online per sempre]{.p-span-center style="font-size: 70px" .rn}
-
+:::{.f100 .tcenter}
+[bioconductor.org](http://www.bioconductor.org)
+:::
 
 #  {background-image="images/qmark.jpg" background-size="cover" background-opacity="0.7"}
 
@@ -222,8 +196,4 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 [Domande?]{style="font-size: 130px; font-weight: bold; color: white"}
 :::
 
-# {background-image="images/notice001.png" background-size="cover" background-opacity="0.3"}
 
-:::{.fragment .fade-in}
-[Tutto in questo corso è stato fatto in R]{.tit .p-span-center}
-:::
