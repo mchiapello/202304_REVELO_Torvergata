@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Introduzione all’analisi di RNASeq con R",
     "section": "",
-    "text": "Programma del corso\nIl corso si terrà in:\nDipartimento di Biomedicina e Prevenzione Università di Roma Tor Vergata Edificio E Nord 2 piano aula 290 Via Montpellier 1 00133 Rome\n\nPrimo giorno\n\n\n\nOrario\nTema\n\n\n\n\n9:30\nIntroduzione al Corso\n\n\n10:00\nRiepilogo R\n\n\n10:45\nPausa\n\n\n11:00\nIntroduzione all’RNASeq\n\n\n12:30\nPausa pranzo\n\n\n13:30\nSoftware and code\n\n\n14:45\nPausa\n\n\n15:00\nDEMO\n\n\n16:30\nConsiderazioni finali\n\n\n\n\n\nSecondo giorno\n\n\n\nOrario\nTema\n\n\n\n\n9:30\nIntroduzione a DESEQ2\n\n\n10:45\nPausa\n\n\n11:00\nLive Code\n\n\n12:30\nPausa pranzo\n\n\n13:30\nLive Code\n\n\n14:45\nPausa\n\n\n15:00\nCapstone exercise\n\n\n16:30\nConsiderazioni finali\n\n\n\n\n\n\nCome installare i software necessari al corso\nPer questo corso ci serviranno diversi software. Alcuni dei quali possono essere usati indistintamente su diversi sistemi operativi, altri invece no. Di seguito troverete le istruzioni per installare i software necessari sul vostro computer.\n\nR\nPer installare R cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nRStudio\nPer installare RStudio cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nConda\n\nMac OS\nScaricare lo script miniconda dal seguente link\nDopo aver aperto il terminale, incollate i seguenti comandi\ncd ~/Downloads\nbash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda\nsource $HOME/miniconda/bin/activate\nconda init zsh\n\n\n\nWindows OS\nWe will first install Miniconda and then add three new locations to your system environment path for conda to be recognized as a command in your Command Prompt.\nInstalleremo Miniconda e poi faremo delle piccole modifiche per permettere al Command prompt di riconoscere conda.\n\nDownload the Miniconda executable (.exe) from here and double click the .exe to run the setup guide\nClick “Next >” to continue\nClick “I Agree”\nVerify that the installation type “Just Me (recommended)” is selected and then click “Next >”\nUse the default destination folder which should resemble C:. We will need the path to this destination folder soon so copy it to your clipboard and then click “Next >”\nCheck “Register Miniconda3 as my default Python 3.9” and then click “Install”\nUsing the search box in the toolbar at the bottom of your screen, search for “environment variables” and then click on “Edit the system environment variables”\nClick “Environment Variables…”\nUnder “System variables” click on “Path” so that row is highlighted in blue and click “Edit…”\nClick “New”\nIn the box that appears, paste the file path that you copied in step 5. It should look like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “OK” to close the “Edit environment variable” window\nClick “OK” to close the “Environment Variables” window\nClick “OK” to close the “System Properties” window\n\n\n\nSlack\nSeguire il link per iscriversi al canale Slack del corso\n\n\n\nDocente\nMarco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R e Bioconductor. Dal 2016 è un istruttore certificato per l’organizzazione internazionale The Carpentries con la quale ha insegnato negli ultimi anni più di 10 corsi in varie università Europee di analisi dati con R. Dal 2015 insegna il corso PhD ToolBox presso l’Università degli Studi di Torino. Attualmente è Application Engineer presso Agilent Technologies nella divisione “Diagnostics & Genomics”."
+    "text": "Location\nIl corso si terrà in:\nDipartimento di Biomedicina e Prevenzione\nUniversità di Roma Tor Vergata\nEdificio E Nord 2 piano aula 290\nVia Montpellier 1\n00133 Rome\n\n\nProgramma del corso\n\nPrimo giorno\n\n\n\nOrario\nTema\n\n\n\n\n9:30\nIntroduzione al Corso\n\n\n10:15\nRiepilogo R\n\n\n10:45\nPausa\n\n\n11:00\nIntroduzione all’RNASeq\n\n\n12:30\nPausa pranzo\n\n\n13:30\nSoftware and code\n\n\n14:45\nPausa\n\n\n15:00\nDEMO\n\n\n16:30\nConsiderazioni finali\n\n\n\n\n\nSecondo giorno\n\n\n\nOrario\nTema\n\n\n\n\n9:30\nIntroduzione a DESEQ2\n\n\n10:45\nPausa\n\n\n11:00\nLive Code\n\n\n12:30\nPausa pranzo\n\n\n13:30\nLive Code\n\n\n14:45\nPausa\n\n\n15:00\nCapstone exercise\n\n\n16:30\nConsiderazioni finali\n\n\n\n\n\n\nCome installare i software necessari al corso\nPer questo corso ci serviranno diversi software. Alcuni dei quali possono essere usati indistintamente su diversi sistemi operativi, altri invece no. Di seguito troverete le istruzioni per installare i software necessari sul vostro computer.\n\nR\nPer installare R cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nRStudio\nPer installare RStudio cliccate sul seguente link e seguite le istruzioni per il vostro sistema operativo.\n\n\nConda\n\nMac OS\nScaricare lo script miniconda dal seguente link\nDopo aver aperto il terminale, incollate i seguenti comandi\ncd ~/Downloads\nbash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda\nsource $HOME/miniconda/bin/activate\nconda init zsh\n\n\n\nWindows OS\nWe will first install Miniconda and then add three new locations to your system environment path for conda to be recognized as a command in your Command Prompt.\nInstalleremo Miniconda e poi faremo delle piccole modifiche per permettere al Command prompt di riconoscere conda.\n\nDownload the Miniconda executable (.exe) from here and double click the .exe to run the setup guide\nClick “Next >” to continue\nClick “I Agree”\nVerify that the installation type “Just Me (recommended)” is selected and then click “Next >”\nUse the default destination folder which should resemble C:. We will need the path to this destination folder soon so copy it to your clipboard and then click “Next >”\nCheck “Register Miniconda3 as my default Python 3.9” and then click “Install”\nUsing the search box in the toolbar at the bottom of your screen, search for “environment variables” and then click on “Edit the system environment variables”\nClick “Environment Variables…”\nUnder “System variables” click on “Path” so that row is highlighted in blue and click “Edit…”\nClick “New”\nIn the box that appears, paste the file path that you copied in step 5. It should look like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “New”\nPaste the file path that you copied in step 5 but modify it so that it looks like C:\n\nClick “OK” to close the “Edit environment variable” window\nClick “OK” to close the “Environment Variables” window\nClick “OK” to close the “System Properties” window\n\n\n\nSlack\nSeguire il link per iscriversi al canale Slack del corso\n\n\n\nDocente\nMarco Chiapello è un bioinformatico con lunga esperieza di utilizzo di R e Bioconductor. Dal 2016 è un istruttore certificato per l’organizzazione internazionale The Carpentries con la quale ha insegnato negli ultimi anni più di 10 corsi in varie università Europee di analisi dati con R. Dal 2015 insegna il corso PhD ToolBox presso l’Università degli Studi di Torino. Attualmente è Application Engineer presso Agilent Technologies nella divisione “Diagnostics & Genomics”."
   },
   {
     "objectID": "index.html#overview",
@@ -3700,21 +3700,21 @@
     "href": "materials/M2_RiepilogoR.html#section-3",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Assignment operator\n\n\n4 + 5\nx <- 4 + 5\nx + 2\nx <- 2 + 1\nx <- x + 2\n\nx = x + 2\nx + 2 -> x"
+    "text": "Variable\n\n\nYou want your object names to be explicit and not too long.\nThey cannot start with a number (2x is not valid, but x2 is).\nR is case sensitive, so for example, weight_kg is different from Weight_kg.\nThere are some names that cannot be used because they are the names of fundamental functions in R (e.g., if, else, for, see here for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., c, T, mean, data, df, weights).\nIt’s best to avoid dots (.) within names. Many function names in R itself have them and dots also have a special meaning (methods) in R.\nIt is recommended to use nouns for object names and verbs for function names.\nBe consistent in the styling of your code, such as where you put spaces, how you name objects, etc."
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-5",
     "href": "materials/M2_RiepilogoR.html#section-5",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Website\n\n\n\n\n\n\n\n\nhttp://bit.ly/3ZcDcj9"
+    "text": "Assignment operator\n\n\n4 + 5\nx <- 4 + 5\nx + 2\nx <- 2 + 1\nx <- x + 2\n\nx = x + 2\nx + 2 -> x"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-6",
     "href": "materials/M2_RiepilogoR.html#section-6",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "tidyverse.org"
+    "text": "Data Structures\nThe most essential data structures used in R include:\n\n\nVectors: A vector is an ordered collection of basic data types of a given length\nLists: A list is a generic object consisting of an ordered collection of objects. Lists are heterogeneous data structures\nDataframes: Dataframes are generic data objects of R which are used to store the tabular data. Dataframes are the foremost popular data objects in R\nMatrices: A matrix is a rectangular arrangement of numbers in rows and columns. Matrices are two-dimensional, homogeneous data structures.\nArrays: Arrays are the R data objects which store the data in more than two dimensions.\nFactors: Factors are the data objects which are used to categorize the data and store it as levels. They are useful for storing categorical data.\n\n\n\nA vector is the most common and basic data type in R, and is pretty much the workhorse of R\nR is vectorized program"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-7",
@@ -3728,27 +3728,97 @@
     "href": "materials/M2_RiepilogoR.html#section-8",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Strumenti\n\nWebsite\nSlack\n\nStrumento di comunicazione\n\n\n \nEntrambi rimarranno online per sempre"
+    "text": "tidyverse.org"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-2",
     "href": "materials/M2_RiepilogoR.html#section-2",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Variable\n\n\nYou want your object names to be explicit and not too long.\nThey cannot start with a number (2x is not valid, but x2 is).\nR is case sensitive, so for example, weight_kg is different from Weight_kg.\nThere are some names that cannot be used because they are the names of fundamental functions in R (e.g., if, else, for, see here for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., c, T, mean, data, df, weights).\nIt’s best to avoid dots (.) within names. Many function names in R itself have them and dots also have a special meaning (methods) in R.\nIt is recommended to use nouns for object names and verbs for function names.\nBe consistent in the styling of your code, such as where you put spaces, how you name objects, etc.\nStyles can include “lower_snake”, “UPPER_SNAKE”, “lowerCamelCase”, “UpperCamelCase”, etc. Using a consistent coding style makes your code clearer to read for your future self and your collaborators."
+    "text": "Variable\n\n\n\n\n\n\n\nDefinition\n\n\n\nVariables are used to store information to be referenced and manipulated in a computer program.\nThey also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves.\nIt is helpful to think of variables as containers that hold information.\nTheir sole purpose is to label and store data in memory"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-4",
     "href": "materials/M2_RiepilogoR.html#section-4",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Data Structures\nThe most essential data structures used in R include:\n\n\nVectors: A vector is an ordered collection of basic data types of a given length\nLists: A list is a generic object consisting of an ordered collection of objects. Lists are heterogeneous data structures\nDataframes: Dataframes are generic data objects of R which are used to store the tabular data. Dataframes are the foremost popular data objects in R\nMatrices: A matrix is a rectangular arrangement of numbers in rows and columns. Matrices are two-dimensional, homogeneous data structures.\nArrays: Arrays are the R data objects which store the data in more than two dimensions.\nFactors: Factors are the data objects which are used to categorize the data and store it as levels. They are useful for storing categorical data.\n\n\n\nA vector is the most common and basic data type in R, and is pretty much the workhorse of R\nR is vectorized program"
+    "text": "Variable"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-9",
     "href": "materials/M2_RiepilogoR.html#section-9",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
+    "text": "tidyverse.org"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-10",
+    "href": "materials/M2_RiepilogoR.html#section-10",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
     "text": "Project Goals:\n\n\nTo provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.\nTo facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.\nTo provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.\nTo further scientific understanding by producing high-quality documentation and reproducible research.\nTo train researchers on computational and statistical methods for the analysis of genomic data.\n\n\n\nbioconductor.org"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-11",
+    "href": "materials/M2_RiepilogoR.html#section-11",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Project Goals:\n\n\nTo provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.\nTo facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.\nTo provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.\nTo further scientific understanding by producing high-quality documentation and reproducible research.\nTo train researchers on computational and statistical methods for the analysis of genomic data.\n\n\n\nbioconductor.org"
+  },
+  {
+    "objectID": "materials/M1_intro.html",
+    "href": "materials/M1_intro.html",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Introduzione al Corso\nIntroduzione all’analisi RNASeq in R\nDipartimento di Biomedicina e Prevenzione\n \nMarco Chiapello, Revelo Datalab\n2023-03-31"
+  },
+  {
+    "objectID": "materials/risorse.html",
+    "href": "materials/risorse.html",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Teaching material - from Laurent Gatto\nReproducible Research\nSoftware carpentry\nData carpentry"
+  },
+  {
+    "objectID": "materials/risorse.html#books",
+    "href": "materials/risorse.html#books",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Books:",
+    "text": "Books:\n\nR bookdown - collaborative book website\nTidyverse Cookbook\nModern R"
+  },
+  {
+    "objectID": "materials/risorse.html#papers",
+    "href": "materials/risorse.html#papers",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Papers:",
+    "text": "Papers:\n\nTen Simple Rules for Taking Advantage of Git and GitHub\nTen Simple Rules for Reproducible Computational Research\nThe Practice of Reproducible Research"
+  },
+  {
+    "objectID": "materials/risorse.html#website",
+    "href": "materials/risorse.html#website",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Website",
+    "text": "Website\n\nTen simple rules\nPoints of significance\nReproducible research - CRAN Task View\nggplot2\nggplot2 gallery and examples\nTop 50 ggplot2 Visualizations\nR-bloggers\nOpen science website\nOpen-source guideline\nData science competions\nPaper with R code\nR code best pratices"
+  },
+  {
+    "objectID": "materials/risorse.html#miscellaneous",
+    "href": "materials/risorse.html#miscellaneous",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Miscellaneous",
+    "text": "Miscellaneous\n\nReproducible research - Coursera course\nExercism - Level up your programming skills\nCodewars - Improve your skills by training with others on real code challenges\nBad publishing and bullied into bad science"
+  },
+  {
+    "objectID": "materials/risorse.html#potentially-useful-r-packages",
+    "href": "materials/risorse.html#potentially-useful-r-packages",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Potentially useful R packages",
+    "text": "Potentially useful R packages\n\nesquisse\nggThemeAssistant\nSwirl - Learn R in R"
+  },
+  {
+    "objectID": "materials/risorse.html#cheatsheets",
+    "href": "materials/risorse.html#cheatsheets",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Cheatsheets",
+    "text": "Cheatsheets\n\nUNIX\ndplyr\nggplot2\nRmarkdown\nGit\nVersion control workflow"
   }
 ]

@@ -9,26 +9,30 @@ editor:
     wrap: 72
 ---
 
-### Programma del corso
+![](materials/images/R2.png)
+
+### Location
 
 Il corso si terrà in:
 
-Dipartimento di Biomedicina e Prevenzione
-Università di Roma Tor Vergata
-Edificio E Nord 2 piano aula 290
-Via Montpellier 1
-00133 Rome
+Dipartimento di Biomedicina e Prevenzione    
+Università di Roma Tor Vergata    
+Edificio E Nord 2 piano aula 290    
+Via Montpellier 1    
+00133 Rome    
+
+### Programma del corso
 
 #### Primo giorno
 
 | Orario     | Tema                  |
 |------------|-----------------------|
 |9:30| [Introduzione al Corso](materials/M1_intro.qmd)   |
-|10:00| Riepilogo R             |
+|10:15| [Riepilogo R](materials/M2_RiepilogoR.qmd)             |
 |10:45| Pausa                   |
-|11:00| Introduzione all'RNASeq|
+|11:00| [Introduzione all'RNASeq](materials/M3_RNASeq_Intro.qmd)|
 |12:30| Pausa pranzo            |
-|13:30| Software and code       |
+|13:30| [Software and code](materials/M4_software_code.qmd)       |
 |14:45| Pausa                   |
 |15:00| DEMO                    |
 |16:30| Considerazioni finali   | 

@@ -1,0 +1,59 @@
+---
+format: html
+---
+
+## Repositories:
+* [Teaching material](https://github.com/lgatto/TeachingMaterial) - from Laurent Gatto
+* [Reproducible Research](https://github.com/KirstieJane/ReproducibleResearch)
+* [Software carpentry](https://github.com/swcarpentry/)
+* [Data carpentry](https://github.com/datacarpentry)
+
+***
+## Books:
+* [R bookdown](https://bookdown.org/) - collaborative book website
+* [Tidyverse Cookbook](https://bookdown.org/Tazinho/Tidyverse-Cookbook/)
+* [Modern R](https://b-rodrigues.github.io/modern_R/)
+
+***
+## Papers:
+* [Ten Simple Rules for Taking Advantage of Git and GitHub](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947)
+* [Ten Simple Rules for Reproducible Computational Research](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285)
+* [The Practice of Reproducible Research](https://www.practicereproducibleresearch.org/#)
+
+***
+## Website
+* [Ten simple rules](http://collections.plos.org/ten-simple-rules)
+* [Points of significance](http://www.nature.com/collections/qghhqm/pointsofsignificance)
+* [Reproducible research](https://cran.r-project.org/web/views/ReproducibleResearch.html) - CRAN Task View
+* [ggplot2](http://ggplot2.org/)
+* [ggplot2 gallery and examples](http://www.r-graph-gallery.com/portfolio/ggplot2-package/)
+* [Top 50 ggplot2 Visualizations](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+* [R-bloggers](https://www.r-bloggers.com)
+* [Open science website](http://ropensci.org/)
+* [Open-source guideline](https://opensource.guide)
+* [Data science competions](https://www.kaggle.com/)
+* [Paper with R code](https://figshare.com/articles/Letter-value_plots_Boxplots_for_large_data/4748227/1)
+* [R code best pratices](http://www.thertrader.com/2018/09/01/r-code-best-practices/)
+
+***
+## Miscellaneous
+* [Reproducible research](https://www.coursera.org/learn/reproducible-research) - Coursera course
+* [Exercism](http://exercism.io/) - Level up your programming skills
+* [Codewars](https://www.codewars.com/) - Improve your skills by training with others on real code challenges
+* [Bad publishing and bullied into bad science](https://lgatto.github.io/beyond-bad-publishing/)
+
+***
+## Potentially useful R packages
+* [esquisse](https://cran.r-project.org/web/packages/esquisse/readme/README.html)
+* [ggThemeAssistant](https://github.com/calligross/ggthemeassist)
+* [Swirl](http://swirlstats.com/) - Learn R in R
+
+
+***
+## Cheatsheets
+* [UNIX](https://www.git-tower.com/learn/cheat-sheets/cli)
+* [dplyr](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+* [ggplot2](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+* [Rmarkdown](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+* [Git](https://www.git-tower.com/learn/cheat-sheets/git)
+* [Version control workflow](https://www.git-tower.com/learn/cheat-sheets/vcs-workflow)

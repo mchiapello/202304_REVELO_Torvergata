@@ -49,6 +49,12 @@ library(gtsummary)
 
 #  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
+:::{.p-img-center}
+![](images/Rerror.png){width=1200}
+:::
+
+#  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
+
 [R variables]{.tit .p-span-center}
 
 ##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
@@ -74,7 +80,7 @@ library(gtsummary)
 
 [Variable]{.f100}
 
-:::{.incremental .f30}
+:::{.incremental .f40}
 - You want your object names to be explicit and not too long.
 
 - They cannot start with a number (2x is not valid, but x2 is).
@@ -88,9 +94,15 @@ library(gtsummary)
 - It is recommended to use nouns for object names and verbs for function names.
 
 - Be consistent in the styling of your code, such as where you put spaces, how you name objects, etc. 
-  
-- Styles can include “lower_snake”, “UPPER_SNAKE”, “lowerCamelCase”, “UpperCamelCase”, etc. Using a consistent coding style makes your code clearer to read for your future self and your collaborators. 
 
+:::
+
+##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
+
+[Variable]{.f100}
+
+:::{.p-img-center}
+![](images/case.png){width=1200}
 :::
 
 ##  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}

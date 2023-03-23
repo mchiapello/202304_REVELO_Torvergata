@@ -34,12 +34,10 @@ website:
   sidebar: 
     style: docked
     contents: 
-      - section: "Materiale aggiuntivo"
-        contents: 
-          - href: materials/test-layout.qmd
-            text: "Letture"
-          - href: materials/02-Day02.qmd
-            text: "Risorse esterne"      
+      - href: materials/risorse.qmd
+        text: "Letture interessanti"      
+      - href: https://2023-rnaseq-course1.slack.com
+        text: "Slack chat"      
 
 format:
   html:
