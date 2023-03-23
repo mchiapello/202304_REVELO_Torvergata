@@ -26,18 +26,15 @@ website:
             text: "Modulo III: Introduzione all'RNASeq"
           - href: materials/02-Day02.qmd
             text: "Secondo giorno"
+      - href: materials/risorse.qmd
+        text: "Materiale aggiuntivo"
+      - href: https://2023-rnaseq-course1.slack.com
+        text: "Slack chat"
     right: 
       - text: "Revelo DataLabs"
         href: https://revelodatalabs.com
       - icon: github
         href: https://github.com/mchiapello/202304_REVELO_Torvergata
-  sidebar: 
-    style: docked
-    contents: 
-      - href: materials/risorse.qmd
-        text: "Letture interessanti"      
-      - href: https://2023-rnaseq-course1.slack.com
-        text: "Slack chat"      
 
 format:
   html:
