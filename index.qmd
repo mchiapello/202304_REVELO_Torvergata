@@ -23,7 +23,7 @@ Via Montpellier 1
 
 | Orario     | Tema                  |
 |------------|-----------------------|
-|9:30| Introduzione al Corso   |
+|9:30| [Introduzione al Corso](materials/M1_intro.qmd)   |
 |10:00| Riepilogo R             |
 |10:45| Pausa                   |
 |11:00| Introduzione all'RNASeq|

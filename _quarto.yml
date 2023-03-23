@@ -20,6 +20,8 @@ website:
         menu: 
           - href: materials/M1_intro.qmd
             text: "Modulo I: Introduzione al corso"
+          - href: materials/M2_RiepilogoR.qmd
+            text: "Modulo II: Riepilogo di R"
           - href: materials/M3_RNASeq_Intro.qmd
             text: "Modulo III: Introduzione all'RNASeq"
           - href: materials/02-Day02.qmd
