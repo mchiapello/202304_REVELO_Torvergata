@@ -18,10 +18,6 @@ editor_options:
   chunk_output_type: inline
 ---
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
-</style>
-
 ##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
 
 ```{r setup, include=FALSE}
@@ -33,8 +29,12 @@ library(gtExtras)
 library(gtsummary)
 ```
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
+</style>
+
 ::: {style="position: absolute; left: 480px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;"}
-[Introduzione al Corso]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px"}
+[Introduzione al Corso]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px; font-family: 'Architects Daughter', cursive;"}
 
 [Introduzione all'analisi RNASeq in R]{style="font-size: 40px;font-weight: bold;"}
 

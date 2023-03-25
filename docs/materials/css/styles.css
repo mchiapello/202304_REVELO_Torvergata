@@ -1,0 +1,33 @@
+.center {
+  text-align: center;
+}
+
+.centerI {
+  display: block;
+  margin-left: 200px;
+  margin-right: auto;
+  width: 85%;
+}
+
+.centerI2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+}
+
+.f30 {
+    font-size: 30px;
+}
+
+.f50 {
+    font-size: 50px;
+}
+
+.f20 {
+    font-size: 20px;
+}
+
+.f15 {
+    font-size: 15px;
+}

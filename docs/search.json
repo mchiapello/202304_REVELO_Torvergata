@@ -3820,5 +3820,796 @@
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Cheatsheets",
     "text": "Cheatsheets\n\nUNIX\ndplyr\nggplot2\nRmarkdown\nGit\nVersion control workflow"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#obiettivi",
+    "href": "materials/Partek Intro.html#obiettivi",
+    "title": "Partek tutorial",
+    "section": "Obiettivi",
+    "text": "Obiettivi\n\n\nPochi concetti\nSolo cose utili\nChiari e comprensibili\nInterazione"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#introduzione-1",
+    "href": "materials/Partek Intro.html#introduzione-1",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nAgenda (per oggi)\n\nIntroduzione generale alla bioinformatica\n\nDiversi tipi di file (vcf, bed, fasta, fastq, gff, …)\nCosa fanno i principali software\n\nIntroduzione a Partek\nCreazione di pipeline con Partek"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#introduzione-2",
+    "href": "materials/Partek Intro.html#introduzione-2",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nAgenda (per oggi)\n\n\n\n\nOrari\nTemi\n\n\n\n\n10:00 - 11:00\nIntroduzione\n\n\n11:00 - 11:15\nPausa\n\n\n11:15 - 12:00\nIntroduzione a Partek\n\n\n12:00 - 12:30\nQA session\n\n\n14:00 - 15:00\nCreazione di pipeline con Partek\n\n\n15:00 - 15:15\nPausa\n\n\n15:15 - 16:00\nCreazione di pipeline con Partek\n\n\n16:00 - 16:30\nQA session"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#introduzione-3",
+    "href": "materials/Partek Intro.html#introduzione-3",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nAgenda (per domani)\n\nCreazione di pipeline con Partek (hand-on)\nDiscussione Custom report\n\n\n\n\n\nOrari\nTemi\n\n\n\n\n9:30 - 11:00\nDEMO - hads-on training\n\n\n11:00 - 11:15\nPausa\n\n\n11:15 - 12:00\nCustom report"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#introduzione-4",
+    "href": "materials/Partek Intro.html#introduzione-4",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nTutor\n\nMarco Chiapello, PhD\nBioinformatico\nLavoro per Agilent da 5 mesi\nHo sempre lavorato in Università europee occupandomi di analisi bioinformatiche"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#pipeline-per-chiamata-delle-varianti",
+    "href": "materials/Partek Intro.html#pipeline-per-chiamata-delle-varianti",
+    "title": "Partek tutorial",
+    "section": "Pipeline per chiamata delle varianti",
+    "text": "Pipeline per chiamata delle varianti"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\n\n\n\nDefinizione\n\n\nIl Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “>”\n\n\n\nI file contenenti queste sequenze possono avere varie desinenze: fasta, fna, ffn, faa, fa, frn"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-1",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-1",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\n\n\n\nDefinizione\n\n\nIl Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “>”\n\n\n\n>NM_001404729.1 Oryza sativa ribulose bisphosphate carboxylase small chain A\nCTCAACAGCACTGCTACTGGACATACTCTACTACTACTAGCCAGTAAGCTAGCTAACTAACTACGTGGCT\nATGGCCCCCACCGTGATGGCCTCCTCGGCCACCTCCGTGGCTCCATTCCAAGGGCTCAANNNNNNNNNNN"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-2",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-2",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\n\n\n\nDefinizione\n\n\nIl Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “>”\n\n\n\n>MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken\nMADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID\nFPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA\nDIDGDGQVNYEEFVQMMTAKXXXXXX"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-3",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-3",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\nÈ possibile creare dei file che contengano più sequenze concatenando singoli FASTA file.\n>MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken\nMADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID\nFPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA\nDIDGDGQVNYEEFVQMMTAK\n\n>gi|5524211|gb|AAD44166.1| cytochrome b [Elephas maximus maximus]\nLCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV\nEWIWGGFSVDKATLNRFFAFHFILPFTMVALAGVHLTFLHETGSNNPLGLTSDSDKIPFHPYYTIKDFLG\nLLILILLLLLLALLSPDMLGDPDNHMPADPLNTPLHIKPEWYFLFAYAILRSVPNKLGGVLALFLSIVIL\nGLMPFLHTSKHRSMMLRPLSQALFWTLTMDLLTLTWIGSQPVEYPYTIIGQMASILYFSIILAFLPIAGX\nIENY*"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-4",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-4",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\nNucleotidi"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-5",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-5",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\nAminoacidi"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-6",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-6",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-7",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-7",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-8",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-8",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n\nUn file FASTQ è identificato da 4 linee:\n\nLinea 1: inizia con il simbolo “@” ed è seguita dall’identificativo della sequenza (come nelle sequenze FASTA)\nLinea 2: contiene la sequenza nucleotidica\nLinea 3: inizia con un “+” e può contenere descrizioni aggiuntive della sequenza\nLinea 4: contiene i valori di qualità dei singoli nucleotidi"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-9",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-9",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n@SEQ_ID\nGATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT\n+\n!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-10",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-10",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide.\n\n\n\n\nI numeri da 33 a 126 sono i numeri ASCII corrispondenti alla lettera che indicano\nScore più alto osservato 40, quindi molti si fermano li"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-11",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-11",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-12",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-12",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\nI FASTQ file possono avere dimensioni molto grandi, per questo nella maggior parte dei casi non avrete a che fare con ilMioFile.fastq, ma con ilMioFile.fastq.gz.\nQuesto significa che il file è compresso, quindi non leggibile da un editor di testa senza prima essere de-compresso."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-13",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-13",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ file"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-14",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-14",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\n\n\n\nDefinizione\n\n\nI file SAM (Sequence Alignment Map) sono file di testo creati originariamente per contenere le sequenze biologiche allineate ad una sequenza di riferimento (genoma).\n\n\n\n\n\nIl formato è stato sviluppato per il progetto 1000 Genome.\nQuesto formato è largamente usato per le sequenze nucleotiche generate dalle tecnologie NGS.\nNella maggior parte dei casi non vi troverete a che fare con un file SAM, ma con un file BAM"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-15",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-15",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\nDifferenza tra SAM e BAM?\n\n\nIn realtà nessuna! I due file sono identici nel contenuto\nIn pratica il file SAM può essere letto da un editor di testo, mentre il file BAM no.\nIl BAM è un file binary, cioè machine-readable. È più compresso del file human-readable."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-16",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-16",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’intestazione\n\n(se presente) dev’essere prima dell’allineamento\nOgni riga dell’intestazione inizia con il simbolo “@”\nUna coppia di lettere che segue il simbolo “@” indica la sezione dell’intestazione\n\n\n\n@RG     ID:1    SM:C5926_BM_IonCode_0118\n@PG     ID:samtools     PN:samtools    VN:1.16.1    CL:samtools view -H C5926_BM_IonCode_0118.reassembled.bam\n\n\n\n\n@RG = read group\n\nID = Read group identifier\nSM = Sample\n\n@PG = Program\n\nID = Program record identifier\nPN = Program name\nVN = software version\nCl = command line"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-17",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-17",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’allineamento\n\n\n\n\n\n\n11 campi obbligatori\nMetadati non obbligatori\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-18",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-18",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\nFLAGS\n\n\nFlag calculator"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-19",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-19",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\nCIGAR\n\n\n\n\n\n\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string\nRappresenta l’allineamento di una sequenza al genoma di riferimento"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-20",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-20",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-21",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-21",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED/GTF/GFF3 formats\n\n\n\nDefinizione\n\n\nQuesti sono i tre principali formati di annotazione. Ci sono molte somiglianze ma anche alcune fondamentali differenze.\n\n\n\n\n\nBED: permettono un solo livello di complessita, ogni caratteristica può essere divisa in diversi blocchi (linee del file)\nGTF: permettono 2 livelli di complessità, gli esoni possono essere raggruppati in trascritti e i trascritti in geni\nGFF3: permettono un numero arbitrari di livelli"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-22",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-22",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED\n\n\n\nDefinizione\n\n\nI file BED (Browser Extensible Data) sono file di testo creati per descrivere caratteristiche del genoma."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-23",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-23",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-24",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-24",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-25",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-25",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGTF format\n\n\n\nDefinizione\n\n\nGFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-26",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-26",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGTF format\n\n\n\nDefinizione\n\n\nGFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-27",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-27",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGTF format"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-28",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-28",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGFF3 format\n\n\n\nDefinizione\n\n\nGFF3 (General Feature Format) è un file ti testo che contiene informazioni su ogni caratteristica delle sequenze nucleiche o aminiacidiche che descrive. CDS, microRNAs, binding domains, ORFs e molto altro possono essere gestite da questo formato\n\n\n\nCampi\n\n\n\nColumn 1: “seqid”\nColumn 2: “source”\nColumn 3: “type”\n\n\n\nColumn 4:“start”\nColumn 5: “end”\nColumn 6: “score”\n\n\n\nColumn 7: “strand”\nColumn 8: “phase”\nColumn 9: “attributes”"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-29",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-29",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGFF3 format\n\n\n\n\nIt encodes three alternatively-spliced transcripts named EDEN.1, EDEN.2 and EDEN.3,\nEDEN.3 has two alternative translational start sites leading to the generation of two protein coding sequences."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-30",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-30",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGFF3 format"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-31",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-31",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\n\n\n\nDefinizione\n\n\nVCF (Variant Calling Format) è un formato di file che contiene le informazioni circa le varianti identificate in un genoma.\n\n\n\nIl file VCF contiene tre sezioni:\n1. Meta-informazioni\n2. Intestazione\n3. Informazioni su ciascuna variante"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-32",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-32",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-33",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-33",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\n\n\nSpecifics\n\n\n\nFile meta-information is included after the ## string and must be key=value pairs.\nINFO: Information field forma\nFILTER: that have been applied to the data\nFORMAT: Individual format field format"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-34",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-34",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\nMeta-informazioni\n\n\n\nSono tutte le informazioni incluse dopo la stringa ##\nDevo sempre essere in forma di chiave=valore\nSottolineiamo tre informazioni molto importante:\na. ##INFO indica i formati dei campi\nb. ##FILTER indica i filtri applicati\nc. ##FORMAT indica i formati dei singoli campi"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-35",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-35",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\nIntestazione\n\n\nLa linea di intestazione contiene 8 campi fissi che sono:\n1. #CHROM\n2. POS\n3. ID\n4. REF\n5. ALT\n6. QUAL\n7. FILTER\n8. INFO"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-36",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-36",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\nInformazioni su ciascuna variante\n\n\n\n\n   \n\nDell’interpretazione di questo file si occupa Alissa Interpret"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-tipi-di-file-37",
+    "href": "materials/Partek Intro.html#diversi-tipi-di-file-37",
+    "title": "Partek tutorial",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software",
+    "href": "materials/Partek Intro.html#diversi-software",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-1",
+    "href": "materials/Partek Intro.html#diversi-software-1",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nPre-alignment QC\n\nEsisto molti solftware di quality control. Uno dei più famosi è FastQC.\nIn Partek è presente un modulo “pre-alignment Quality Control” sviluppato internalmente dall’azienda."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-2",
+    "href": "materials/Partek Intro.html#diversi-software-2",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nTrim/filter reads\nQuesto passaggio è importante per\n\nrimuovere i primer adapters\nFiltrare le reads di bassa qualità (se presenti)\n\nLa rimozione delle reads di bassa qualità semplifica l’analisi a valle"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-3",
+    "href": "materials/Partek Intro.html#diversi-software-3",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAllineamento al genoma\n\n\n\nDefinizione\n\n\nL’allineamenro delle reads al genoma permette di individuare le differenze tra le reads e il genoma di riferimento"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-4",
+    "href": "materials/Partek Intro.html#diversi-software-4",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAllineamento al genoma\nBWA\n\n\n\nDefinizione\n\n\nBurrows-Wheeler Aligner è un programma per mappare sequenze poco divergenti contro un grande genoma di riferimento.\n\n\n\n\n\nBWA offre 3 moduli:\n\n\n\nBacktrack (<70bp)\nSW (>70bp)\nMEM (>70bp)"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-5",
+    "href": "materials/Partek Intro.html#diversi-software-5",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAllineamento al genoma\nBWA\n\n\n\nDefinizione\n\n\nBurrows-Wheeler Aligner è un programma per mappare sequenze poco divergenti contro un grande genoma di riferimento.\n\n\n\n\nBWA offre 3 moduli:\n1. Backtrack (<70bp)\n1. SW (>70bp)\n1. MEM (>70bp)"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-6",
+    "href": "materials/Partek Intro.html#diversi-software-6",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nChiamata delle varianti\nGATK HaplotypeCaller\n\n\n\nDefinizione\n\n\nGATK HaplotypeCaller è in grado di chiamare SNPs e InDel tramite de-novo assembly of haplotypes nelle regione attive (quelle che contengono significative evidenze di variazioni).\nQuando il programma incontra una regiona con un signale di variazione, scarta il mappaggio e lo riassembla per essere maggiormente accurato."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-7",
+    "href": "materials/Partek Intro.html#diversi-software-7",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nChiamata delle varianti\nGATK HaplotypeCaller"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-8",
+    "href": "materials/Partek Intro.html#diversi-software-8",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAnalisi del numero di copie\n\n\n\nDefinizione\n\n\nLa variazione del numero di copie è un fenomeno in cui le sezioni del genoma vengono ripetute e il numero di ripetizioni nel genoma varia da individuo a individuo\n\n\n\n\n\n\n\n\nAmilasi: regioni in cui le persone hanno più copie del gene dell’amilasi, probabilmente perchè la dieta è basata su cibi ricchi di amidi."
+  },
+  {
+    "objectID": "materials/Partek Intro.html#diversi-software-9",
+    "href": "materials/Partek Intro.html#diversi-software-9",
+    "title": "Partek tutorial",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAnalisi del numero di copie\nDeCoN\n\n\n\nDefinizione\n\n\nDetection of Exon Copy Number identifica delezioni/duplicazioni di interi esoni in sequenze target.\nIl programma è interamente implementato in R.\n\n\n\n\n\na set of BAM files\na BED file\na reference FASTA file"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#igv",
+    "href": "materials/Partek Intro.html#igv",
+    "title": "Partek tutorial",
+    "section": "IGV",
+    "text": "IGV\n\n\n\nDefinizione\n\n\nIntegrative Genomics Viewer (IGV) è un programma interattivo per l’esplorazione grafica dei dati genomici.\n\n\n\nPuò essere scaricato a questo indirizzo: https://software.broadinstitute.org/software/igv/\nOppure utilizzato online a questo indirizzo: https://igv.org/app/"
+  },
+  {
+    "objectID": "materials/Partek Intro.html#igv-1",
+    "href": "materials/Partek Intro.html#igv-1",
+    "title": "Partek tutorial",
+    "section": "IGV",
+    "text": "IGV"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#obiettivi",
+    "href": "materials/M4_Software_Files.html#obiettivi",
+    "title": "Partek tutorial",
+    "section": "Obiettivi",
+    "text": "Obiettivi\n\n\nPochi concetti\nSolo cose utili\nChiari e comprensibili\nInterazione"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#introduzione-1",
+    "href": "materials/M4_Software_Files.html#introduzione-1",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nAgenda (per oggi)\n\nIntroduzione generale alla bioinformatica\n\nDiversi tipi di file (vcf, bed, fasta, fastq, gff, …)\nCosa fanno i principali software\n\nIntroduzione a Partek\nCreazione di pipeline con Partek"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#introduzione-2",
+    "href": "materials/M4_Software_Files.html#introduzione-2",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nAgenda (per oggi)\n\n\n\n\nOrari\nTemi\n\n\n\n\n10:00 - 11:00\nIntroduzione\n\n\n11:00 - 11:15\nPausa\n\n\n11:15 - 12:00\nIntroduzione a Partek\n\n\n12:00 - 12:30\nQA session\n\n\n14:00 - 15:00\nCreazione di pipeline con Partek\n\n\n15:00 - 15:15\nPausa\n\n\n15:15 - 16:00\nCreazione di pipeline con Partek\n\n\n16:00 - 16:30\nQA session"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#introduzione-3",
+    "href": "materials/M4_Software_Files.html#introduzione-3",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nAgenda (per domani)\n\nCreazione di pipeline con Partek (hand-on)\nDiscussione Custom report\n\n\n\n\n\nOrari\nTemi\n\n\n\n\n9:30 - 11:00\nDEMO - hads-on training\n\n\n11:00 - 11:15\nPausa\n\n\n11:15 - 12:00\nCustom report"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#introduzione-4",
+    "href": "materials/M4_Software_Files.html#introduzione-4",
+    "title": "Partek tutorial",
+    "section": "Introduzione",
+    "text": "Introduzione\nTutor\n\nMarco Chiapello, PhD\nBioinformatico\nLavoro per Agilent da 5 mesi\nHo sempre lavorato in Università europee occupandomi di analisi bioinformatiche"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#pipeline-per-chiamata-delle-varianti",
+    "href": "materials/M4_Software_Files.html#pipeline-per-chiamata-delle-varianti",
+    "title": "Partek tutorial",
+    "section": "Pipeline per chiamata delle varianti",
+    "text": "Pipeline per chiamata delle varianti"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\n\n\n\nDefinizione\n\n\nIl Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “>”\n\n\n\nI file contenenti queste sequenze possono avere varie desinenze: fasta, fna, ffn, faa, fa, frn"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-1",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-1",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\n\n\n\nDefinizione\n\n\nIl Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “>”\n\n\n\n>NM_001404729.1 Oryza sativa ribulose bisphosphate carboxylase small chain A\nCTCAACAGCACTGCTACTGGACATACTCTACTACTACTAGCCAGTAAGCTAGCTAACTAACTACGTGGCT\nATGGCCCCCACCGTGATGGCCTCCTCGGCCACCTCCGTGGCTCCATTCCAAGGGCTCAANNNNNNNNNNN"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-2",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-2",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\n\n\n\nDefinizione\n\n\nIl Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “>”\n\n\n\n>MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken\nMADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID\nFPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA\nDIDGDGQVNYEEFVQMMTAKXXXXXX"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-3",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-3",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\nÈ possibile creare dei file che contengano più sequenze concatenando singoli FASTA file.\n>MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken\nMADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID\nFPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA\nDIDGDGQVNYEEFVQMMTAK\n\n>gi|5524211|gb|AAD44166.1| cytochrome b [Elephas maximus maximus]\nLCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV\nEWIWGGFSVDKATLNRFFAFHFILPFTMVALAGVHLTFLHETGSNNPLGLTSDSDKIPFHPYYTIKDFLG\nLLILILLLLLLALLSPDMLGDPDNHMPADPLNTPLHIKPEWYFLFAYAILRSVPNKLGGVLALFLSIVIL\nGLMPFLHTSKHRSMMLRPLSQALFWTLTMDLLTLTWIGSQPVEYPYTIIGQMASILYFSIILAFLPIAGX\nIENY*"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-4",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-4",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\nNucleotidi"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-5",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-5",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file\nAminoacidi"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-6",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-6",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTA file"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-7",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-7",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-8",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-8",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n\nUn file FASTQ è identificato da 4 linee:\n\nLinea 1: inizia con il simbolo “@” ed è seguita dall’identificativo della sequenza (come nelle sequenze FASTA)\nLinea 2: contiene la sequenza nucleotidica\nLinea 3: inizia con un “+” e può contenere descrizioni aggiuntive della sequenza\nLinea 4: contiene i valori di qualità dei singoli nucleotidi"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-9",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-9",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n@SEQ_ID\nGATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT\n+\n!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-10",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-10",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide.\n\n\n\n\nI numeri da 33 a 126 sono i numeri ASCII corrispondenti alla lettera che indicano\nScore più alto osservato 40, quindi molti si fermano li"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-11",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-11",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-12",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-12",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ format\nI FASTQ file possono avere dimensioni molto grandi, per questo nella maggior parte dei casi non avrete a che fare con ilMioFile.fastq, ma con ilMioFile.fastq.gz.\nQuesto significa che il file è compresso, quindi non leggibile da un editor di testa senza prima essere de-compresso."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-13",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-13",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nFASTQ file"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-14",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-14",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\n\n\n\nDefinizione\n\n\nI file SAM (Sequence Alignment Map) sono file di testo creati originariamente per contenere le sequenze biologiche allineate ad una sequenza di riferimento (genoma).\n\n\n\n\n\nIl formato è stato sviluppato per il progetto 1000 Genome.\nQuesto formato è largamente usato per le sequenze nucleotiche generate dalle tecnologie NGS.\nNella maggior parte dei casi non vi troverete a che fare con un file SAM, ma con un file BAM"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-15",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-15",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\nDifferenza tra SAM e BAM?\n\n\nIn realtà nessuna! I due file sono identici nel contenuto\nIn pratica il file SAM può essere letto da un editor di testo, mentre il file BAM no.\nIl BAM è un file binary, cioè machine-readable. È più compresso del file human-readable."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-16",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-16",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’intestazione\n\n(se presente) dev’essere prima dell’allineamento\nOgni riga dell’intestazione inizia con il simbolo “@”\nUna coppia di lettere che segue il simbolo “@” indica la sezione dell’intestazione\n\n\n\n@RG     ID:1    SM:C5926_BM_IonCode_0118\n@PG     ID:samtools     PN:samtools    VN:1.16.1    CL:samtools view -H C5926_BM_IonCode_0118.reassembled.bam\n\n\n\n\n@RG = read group\n\nID = Read group identifier\nSM = Sample\n\n@PG = Program\n\nID = Program record identifier\nPN = Program name\nVN = software version\nCl = command line"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-17",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-17",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’allineamento\n\n\n\n\n\n\n11 campi obbligatori\nMetadati non obbligatori\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-18",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-18",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\nFLAGS\n\n\nFlag calculator"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-19",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-19",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format\nCIGAR\n\n\n\n\n\n\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string\nRappresenta l’allineamento di una sequenza al genoma di riferimento"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-20",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-20",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nSAM/BAM format"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-21",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-21",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED/GTF/GFF3 formats\n\n\n\nDefinizione\n\n\nQuesti sono i tre principali formati di annotazione. Ci sono molte somiglianze ma anche alcune fondamentali differenze.\n\n\n\n\n\nBED: permettono un solo livello di complessita, ogni caratteristica può essere divisa in diversi blocchi (linee del file)\nGTF: permettono 2 livelli di complessità, gli esoni possono essere raggruppati in trascritti e i trascritti in geni\nGFF3: permettono un numero arbitrari di livelli"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-22",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-22",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED\n\n\n\nDefinizione\n\n\nI file BED (Browser Extensible Data) sono file di testo creati per descrivere caratteristiche del genoma."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-23",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-23",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-24",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-24",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nBED"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-25",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-25",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGTF format\n\n\n\nDefinizione\n\n\nGFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-26",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-26",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGTF format\n\n\n\nDefinizione\n\n\nGFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-27",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-27",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGTF format"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-28",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-28",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGFF3 format\n\n\n\nDefinizione\n\n\nGFF3 (General Feature Format) è un file ti testo che contiene informazioni su ogni caratteristica delle sequenze nucleiche o aminiacidiche che descrive. CDS, microRNAs, binding domains, ORFs e molto altro possono essere gestite da questo formato\n\n\n\nCampi\n\n\n\nColumn 1: “seqid”\nColumn 2: “source”\nColumn 3: “type”\n\n\n\nColumn 4:“start”\nColumn 5: “end”\nColumn 6: “score”\n\n\n\nColumn 7: “strand”\nColumn 8: “phase”\nColumn 9: “attributes”"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-29",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-29",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGFF3 format\n\n\n\n\nIt encodes three alternatively-spliced transcripts named EDEN.1, EDEN.2 and EDEN.3,\nEDEN.3 has two alternative translational start sites leading to the generation of two protein coding sequences."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-30",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-30",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nGFF3 format"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-31",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-31",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\n\n\n\nDefinizione\n\n\nVCF (Variant Calling Format) è un formato di file che contiene le informazioni circa le varianti identificate in un genoma.\n\n\n\nIl file VCF contiene tre sezioni:\n1. Meta-informazioni\n2. Intestazione\n3. Informazioni su ciascuna variante"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-32",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-32",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-33",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-33",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\n\n\nSpecifics\n\n\n\nFile meta-information is included after the ## string and must be key=value pairs.\nINFO: Information field forma\nFILTER: that have been applied to the data\nFORMAT: Individual format field format"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-34",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-34",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\nMeta-informazioni\n\n\n\nSono tutte le informazioni incluse dopo la stringa ##\nDevo sempre essere in forma di chiave=valore\nSottolineiamo tre informazioni molto importante:\na. ##INFO indica i formati dei campi\nb. ##FILTER indica i filtri applicati\nc. ##FORMAT indica i formati dei singoli campi"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-35",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-35",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\nIntestazione\n\n\nLa linea di intestazione contiene 8 campi fissi che sono:\n1. #CHROM\n2. POS\n3. ID\n4. REF\n5. ALT\n6. QUAL\n7. FILTER\n8. INFO"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-36",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-36",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format\nInformazioni su ciascuna variante\n\n\n\n\n   \n\nDell’interpretazione di questo file si occupa Alissa Interpret"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-tipi-di-file-37",
+    "href": "materials/M4_Software_Files.html#diversi-tipi-di-file-37",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi tipi di file",
+    "text": "Diversi tipi di file\nVCF format"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software",
+    "href": "materials/M4_Software_Files.html#diversi-software",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nTerminal\n\n\nDEMO\nmaterial"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-1",
+    "href": "materials/M4_Software_Files.html#diversi-software-1",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nPre-alignment QC\n\nEsisto molti solftware di quality control. Uno dei più famosi è FastQC."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-2",
+    "href": "materials/M4_Software_Files.html#diversi-software-2",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nTrim/filter reads\nQuesto passaggio è importante per\n\nrimuovere i primer adapters\nFiltrare le reads di bassa qualità (se presenti)\n\nLa rimozione delle reads di bassa qualità semplifica l’analisi a valle"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-3",
+    "href": "materials/M4_Software_Files.html#diversi-software-3",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAllineamento al genoma\n\n\n\nDefinizione\n\n\nL’allineamenro delle reads al genoma permette di individuare le differenze tra le reads e il genoma di riferimento"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-4",
+    "href": "materials/M4_Software_Files.html#diversi-software-4",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAllineamento al genoma\nSTAR"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-5",
+    "href": "materials/M4_Software_Files.html#diversi-software-5",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAllineamento al genoma\nQuasi mapping\n\nKallisto\nSalmon"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-6",
+    "href": "materials/M4_Software_Files.html#diversi-software-6",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nEspressione differenziale"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-7",
+    "href": "materials/M4_Software_Files.html#diversi-software-7",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nChiamata delle varianti\nGATK HaplotypeCaller"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-8",
+    "href": "materials/M4_Software_Files.html#diversi-software-8",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAnalisi del numero di copie\n\n\n\nDefinizione\n\n\nLa variazione del numero di copie è un fenomeno in cui le sezioni del genoma vengono ripetute e il numero di ripetizioni nel genoma varia da individuo a individuo\n\n\n\n\n\n\n\n\nAmilasi: regioni in cui le persone hanno più copie del gene dell’amilasi, probabilmente perchè la dieta è basata su cibi ricchi di amidi."
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#diversi-software-9",
+    "href": "materials/M4_Software_Files.html#diversi-software-9",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAnalisi del numero di copie\nDeCoN\n\n\n\nDefinizione\n\n\nDetection of Exon Copy Number identifica delezioni/duplicazioni di interi esoni in sequenze target.\nIl programma è interamente implementato in R.\n\n\n\n\n\na set of BAM files\na BED file\na reference FASTA file"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#igv",
+    "href": "materials/M4_Software_Files.html#igv",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "IGV",
+    "text": "IGV\n\n\n\nDefinizione\n\n\nIntegrative Genomics Viewer (IGV) è un programma interattivo per l’esplorazione grafica dei dati genomici.\n\n\n\nPuò essere scaricato a questo indirizzo: https://software.broadinstitute.org/software/igv/\nOppure utilizzato online a questo indirizzo: https://igv.org/app/"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#igv-1",
+    "href": "materials/M4_Software_Files.html#igv-1",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "IGV",
+    "text": "IGV"
+  },
+  {
+    "objectID": "materials/M4_Software_Files.html#TitleSlide",
+    "href": "materials/M4_Software_Files.html#TitleSlide",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Files and Software\nIntroduzione all’analisi RNASeq in R\nDipartimento di Biomedicina e Prevenzione\n \nMarco Chiapello, Revelo Datalab\n2023-03-31"
   }
 ]

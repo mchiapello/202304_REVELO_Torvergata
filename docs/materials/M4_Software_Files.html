@@ -8,11 +8,10 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
-<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet"><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.335">
 
-  <title>Analisi di dati di trascrittomica con R – m1_intro</title>
+  <title>Analisi di dati di trascrittomica con R – m4_software_files</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,6 +33,7 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -333,8 +333,8 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
 </style>
-<div style="position: absolute; left: 480px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;">
-<p><span style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px; font-family: 'Architects Daughter', cursive;">Introduzione al Corso</span></p>
+<div style="position: absolute; left: 180px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;">
+<p><span style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px; font-family: 'Architects Daughter', cursive;">Files and Software</span></p>
 <p><span style="font-size: 40px;font-weight: bold;">Introduzione all’analisi RNASeq in R</span></p>
 <p><span style="font-size: 40px;font-weight: bold;">Dipartimento di Biomedicina e Prevenzione</span></p>
 <p><br> <br></p>
@@ -343,248 +343,574 @@
 </div>
 </section>
 <section>
-<section id="section" class="title-slide slide level1 center" data-background-image="images/back001.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h1></h1>
-<p><span class="tit p-span-center">Code of Conduct</span></p>
-<p><span class="icon p-span-center"><i class="fa-solid fa-people-group"></i></span></p>
+<section id="files" class="title-slide slide level1 center">
+<h1><span class="tit p-span-center">Files</span></h1>
+
 </section>
-<section id="section-1" class="slide level2" data-background-image="images/back001.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h2></h2>
-<div style="font-size: 40px; text-align: justify">
-<p>We are dedicated to providing a <span class="rn">welcoming</span> and <span class="rn">supportive</span> environment for all people, <span class="rn" data-rn-type="box" data-rn-color="black">regardless of background or identity</span>.</p>
-<p>By participating in this course, <span class="rn">participants accept the Code of Conduct</span>.</p>
-<p>Any form of behaviour to <span class="rn" data-rn-color="orange">exclude</span>, <span class="rn" data-rn-color="orange">intimidate</span>, or <span class="rn" data-rn-color="orange">cause discomfort</span> is a violation of the Code of Conduct. In order to foster a <span class="rn" data-rn-color="green">positive and professional learning environment</span> we encourage the following kinds of behaviours in all platforms and events:</p>
-<div class="fragment fade-up">
-<ul>
-<li>Use welcoming and inclusive language</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Be respectful of different viewpoints and experiences</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Gracefully accept constructive criticism</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Focus on what is best for the community</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Show courtesy and respect towards other community members</li>
-</ul>
-</div>
-</div>
-</section></section>
-<section>
-<section id="section-2" class="title-slide slide level1 center" data-background-image="images/back002.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h1></h1>
-<p><span class="tit p-span-center">Presentiamoci</span></p>
-<p><span class="icon p-span-center"><i class="fa-solid fa-id-card"></i></span></p>
-</section>
-<section id="section-3" class="slide level2" data-background-image="images/back002.jpg" data-background-size="cover" data-background-opacity="0.3">
-<h2></h2>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start;">
-<p><i class="fa-solid fa-1"></i> Chi sei?</p>
-</div>
-<p><br></p>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start; margin-left: 200px">
-<p><i class="fa-solid fa-2"></i> Cosa hai studiato?</p>
-</div>
-<p><br></p>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start;">
-<p><i class="fa-solid fa-3"></i> Quali sono i tuoi obiettivi?</p>
-</div>
-<p><br></p>
-<div class="fragment fade-down" style="font-size: 100px; text-align: start; margin-left: 200px">
-<p><i class="fa-solid fa-4"></i> Quali sono le aspettative per il corso?</p>
-</div>
-</section></section>
-<section>
-<section id="section-4" class="title-slide slide level1 center" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h1></h1>
-<p><span class="tit p-span-center">Com’è strutturato il corso</span></p>
-</section>
-<section id="section-5" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Website</span></p>
-<div class="fragment fade-down p-img-center">
-<div class="cell quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="M1_intro_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<p><span class="p-span-center" style="font-size: 100px; font-weight: bold;">http://bit.ly/3ZcDcj9</span></p>
-</div>
-</section>
-<section id="section-6" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Agenda</span></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="p-span-center">Primo Giorno</span> <span class="p-span-center">Introduzione all’RNASeq</span></p>
-<p><br></p>
-<div class="fragment fade-rigth" data-fragment-index="1">
-<p><span style="font-weight: bold;">Orari</span><br>
-9:30 : Introduzione al Corso<br>
-10:00: Riepilogo R<br>
-10:45: Pausa<br>
-11:00: Introduzione all’RNASeq</p>
-<p>12:30: Pausa pranzo</p>
-<p>13:30: Software and code<br>
-14:45: Pausa<br>
-15:00: DEMO<br>
-16:30: Considerazioni finali</p>
-</div>
-</div><div class="column" style="width:50%;">
-<p><span class="p-span-center">Secondo Giorno</span> <span class="p-span-center">Espessione Differenziale</span></p>
-<p><br></p>
-<div class="fragment fade-rigth" data-fragment-index="2">
-<p><span style="font-weight: bold;">Orari</span><br>
-9:30 : Introduzione a DESEQ2<br>
-10:45: Pausa<br>
-11:00: Live Code</p>
-<p>12:30: Pausa pranzo</p>
-<p>13:30: Live Code<br>
-14:45: Pausa<br>
-15:00: Capstone exercise<br>
-16:30: Considerazioni finali</p>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="section-7" class="title-slide slide level1 center" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h1></h1>
-<p><span class="tit p-span-center">Teaching system</span></p>
-<p><span class="icon p-span-center"><i class="fa-solid fa-chalkboard-user"></i></span></p>
-</section>
-<section id="section-8" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Approach</span></p>
-<div style="font-size: 70px">
-<ol type="1">
-<li><p>Open source tools</p></li>
-<li><p>Supporting community</p></li>
-<li><p>Your laptop is everything you need</p></li>
-<li><p><span class="rn" data-rn-index="1">Constant feedback</span></p></li>
-<li><p><span class="rn" data-rn-index="1">Ask questions</span></p></li>
-</ol>
-</div>
-</section>
-<section id="section-9" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Feedbacks</span></p>
-<ul>
-<li><p><span style="font-size: 70px">Immediati</span></p>
-<ul>
-<li>Sticky notes</li>
-</ul></li>
-<li><p><span style="font-size: 70px">Formative assessment</span></p>
-<ul>
-<li>Veloci questionari o esercizi</li>
-</ul></li>
-<li><p><span style="font-size: 70px">Alla fine di ogni modulo</span></p>
-<ul>
-<li>Sticky notes</li>
-</ul></li>
-</ul>
-</section>
-<section id="section-10" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Domande</span></p>
-<p><br> <br></p>
-<div style="font-size: 100px; font-family: 'Julius Sans One', sans-serif;">
-<div class="callout callout-tip callout-captioned callout-style-default">
+<section id="diversi-tipi-di-file" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fasta-file">FASTA file</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Don Lorenzo Milani</strong></p>
+<p><strong>Definizione</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Ogni parola che non capisci oggi è un calcio in culo domani</strong></p>
+<p>Il Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “&gt;”</p>
 </div>
+</div>
+</div>
+<p>I file contenenti queste sequenze possono avere varie desinenze: fasta, fna, ffn, faa, fa, frn</p>
+</section>
+<section id="diversi-tipi-di-file-1" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fasta-file-1">FASTA file</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>Il Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “&gt;”</p>
+</div>
+</div>
+</div>
+<pre><code>&gt;NM_001404729.1 Oryza sativa ribulose bisphosphate carboxylase small chain A
+CTCAACAGCACTGCTACTGGACATACTCTACTACTACTAGCCAGTAAGCTAGCTAACTAACTACGTGGCT
+ATGGCCCCCACCGTGATGGCCTCCTCGGCCACCTCCGTGGCTCCATTCCAAGGGCTCAANNNNNNNNNNN</code></pre>
+</section>
+<section id="diversi-tipi-di-file-2" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fasta-file-2">FASTA file</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>Il Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidiche o le sequenze aminoacidiche. Sia i nucleotidi che gli aminoacidi sono rappresentati da una singola lettera. Sulla prima linea antecedente alla sequenza nucleotidica/aminoacidica viene riportato il nome della sequenza, preceduto dal simbolo “&gt;”</p>
+</div>
+</div>
+</div>
+<pre><code>&gt;MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken
+MADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID
+FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA
+DIDGDGQVNYEEFVQMMTAKXXXXXX</code></pre>
+</section>
+<section id="diversi-tipi-di-file-3" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fasta-file-3">FASTA file</h3>
+<p>È possibile creare dei file che contengano più sequenze concatenando singoli FASTA file.</p>
+<pre><code>&gt;MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken
+MADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID
+FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA
+DIDGDGQVNYEEFVQMMTAK
+
+&gt;gi|5524211|gb|AAD44166.1| cytochrome b [Elephas maximus maximus]
+LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
+EWIWGGFSVDKATLNRFFAFHFILPFTMVALAGVHLTFLHETGSNNPLGLTSDSDKIPFHPYYTIKDFLG
+LLILILLLLLLALLSPDMLGDPDNHMPADPLNTPLHIKPEWYFLFAYAILRSVPNKLGGVLALFLSIVIL
+GLMPFLHTSKHRSMMLRPLSQALFWTLTMDLLTLTWIGSQPVEYPYTIIGQMASILYFSIILAFLPIAGX
+IENY*</code></pre>
+</section>
+<section id="diversi-tipi-di-file-4" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fasta-file-4">FASTA file</h3>
+<h4 id="nucleotidi">Nucleotidi</h4>
+
+<img data-src="images/nucl.png" class="r-stretch"></section>
+<section id="diversi-tipi-di-file-5" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fasta-file-5">FASTA file</h3>
+<h4 id="aminoacidi">Aminoacidi</h4>
+
+<img data-src="images/amino.png" class="r-stretch"></section>
+<section id="diversi-tipi-di-file-6" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fasta-file-6">FASTA file</h3>
+<div class="centerI2">
+<p><img data-src="images/questions.png"></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-7" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fastq-format">FASTQ format</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>Il formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="section-11" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Strumenti</span></p>
+<section id="diversi-tipi-di-file-8" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fastq-format-1">FASTQ format</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>Il formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.</p>
+</div>
+</div>
+</div>
+<div class="f20">
+<p>Un file FASTQ è identificato da 4 linee:</p>
 <ul>
-<li><p><span style="font-size: 70px">Website</span></p></li>
-<li><p><span style="font-size: 70px">Slack</span></p>
+<li>Linea 1: inizia con il simbolo “@” ed è seguita dall’identificativo della sequenza (come nelle sequenze FASTA)</li>
+<li>Linea 2: contiene la sequenza nucleotidica</li>
+<li>Linea 3: inizia con un “+” e può contenere descrizioni aggiuntive della sequenza</li>
+<li>Linea 4: contiene i valori di qualità dei singoli nucleotidi</li>
+</ul>
+</div>
+</section>
+<section id="diversi-tipi-di-file-9" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fastq-format-2">FASTQ format</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>Il formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.</p>
+</div>
+</div>
+</div>
+<pre><code>@SEQ_ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
++
+!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF&gt;&gt;&gt;&gt;&gt;&gt;CCCCCCC65</code></pre>
+</section>
+<section id="diversi-tipi-di-file-10" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fastq-format-3">FASTQ format</h3>
+<h4 id="cosa-significa-score-di-qualità">Cosa significa “score di qualità”?</h4>
+<div class="f20">
+<p>Lo score di qualità è usato per identificare la <strong>probabilità di corretta identificazione del corrispondente nucleotide</strong>.</p>
+</div>
+
+<img data-src="images/phred1.png" class="r-stretch"><aside class="notes">
 <ul>
-<li>Strumento di comunicazione</li>
+<li>I numeri da 33 a 126 sono i numeri ASCII corrispondenti alla lettera che indicano</li>
+<li>Score più alto osservato 40, quindi molti si fermano li</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-tipi-di-file-11" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fastq-format-4">FASTQ format</h3>
+<h4 id="cosa-significa-score-di-qualità-1">Cosa significa “score di qualità”?</h4>
+<div class="f20">
+<p>Lo score di qualità è usato per identificare la <strong>probabilità di corretta identificazione del corrispondente nucleotide</strong>.</p>
+</div>
+<div class="centerI">
+<p><img data-src="images/phred2.png"></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-12" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fastq-format-5">FASTQ format</h3>
+<p>I FASTQ file possono avere dimensioni molto grandi, per questo nella maggior parte dei casi non avrete a che fare con ilMioFile.fastq, ma con ilMioFile.fastq.gz.</p>
+<p>Questo significa che il file è compresso, quindi non leggibile da un editor di testa senza prima essere de-compresso.</p>
+</section>
+<section id="diversi-tipi-di-file-13" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="fastq-file">FASTQ file</h3>
+<div class="centerI2">
+<p><img data-src="images/questions.png"></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-14" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="sambam-format">SAM/BAM format</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>I file SAM (Sequence Alignment Map) sono file di testo creati originariamente per contenere le sequenze biologiche allineate ad una sequenza di riferimento (genoma).</p>
+</div>
+</div>
+</div>
+<div class="f30">
+<ul>
+<li>Il formato è stato sviluppato per il progetto 1000 Genome.</li>
+<li>Questo formato è largamente usato per le sequenze nucleotiche generate dalle tecnologie NGS.</li>
+<li>Nella maggior parte dei casi non vi troverete a che fare con un file SAM, ma con un file BAM</li>
+</ul>
+</div>
+</section>
+<section id="diversi-tipi-di-file-15" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="sambam-format-1">SAM/BAM format</h3>
+<h4 id="differenza-tra-sam-e-bam">Differenza tra SAM e BAM?</h4>
+<div class="fragment">
+<ul>
+<li>In realtà nessuna! I due file sono identici nel contenuto</li>
+<li>In pratica il file SAM può essere letto da un editor di testo, mentre il file BAM no.</li>
+<li>Il BAM è un file binary, cioè machine-readable. È più compresso del file human-readable.</li>
+</ul>
+</div>
+</section>
+<section id="diversi-tipi-di-file-16" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="sambam-format-2">SAM/BAM format</h3>
+<div class="f30">
+<p>I file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.</p>
+<ul>
+<li>L’<strong>intestazione</strong>
+<ul>
+<li>(se presente) dev’essere prima dell’allineamento</li>
+<li>Ogni riga dell’intestazione inizia con il simbolo “@”</li>
+<li>Una coppia di lettere che segue il simbolo “@” indica la sezione dell’intestazione</li>
 </ul></li>
 </ul>
-<p><br> <br></p>
-<p><span class="p-span-center rn" style="font-size: 70px">Entrambi rimarranno online per sempre</span></p>
+<div class="code">
+<pre><code>@RG     ID:1    SM:C5926_BM_IonCode_0118
+@PG     ID:samtools     PN:samtools    VN:1.16.1    CL:samtools view -H C5926_BM_IonCode_0118.reassembled.bam</code></pre>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><span class="citation" data-cites="RG">@RG</span> = read group
+<ul>
+<li>ID = Read group identifier</li>
+<li>SM = Sample</li>
+</ul></li>
+<li><span class="citation" data-cites="PG">@PG</span> = Program
+<ul>
+<li>ID = Program record identifier</li>
+<li>PN = Program name</li>
+<li>VN = software version</li>
+<li>Cl = command line</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-tipi-di-file-17" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="sambam-format-3">SAM/BAM format</h3>
+<div class="f30">
+<p>I file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.</p>
+<ul>
+<li>L’<strong>allineamento</strong></li>
+</ul>
+</div>
+<p><img data-src="images/bam2.png" class="absolute" style="top: 400px; left: 0px; width: 700px; height: auto; "></p>
+<p><img data-src="images/bam1.png" class="absolute" style="top: 300px; right: 0px; width: 350px; height: auto; "></p>
+<aside class="notes">
+<ul>
+<li><p>11 campi obbligatori</p></li>
+<li><p>Metadati non obbligatori</p></li>
+<li><p>Concise Idiosyncratic Gapped Alignment Report (CIGAR) string</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-tipi-di-file-18" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="sambam-format-4">SAM/BAM format</h3>
+<h4 id="flags">FLAGS</h4>
+<p><img data-src="images/flags1.png" class="absolute" style="left: 250px; width: 600px; height: auto; "></p>
+<div class="f20">
+<p><a href="https://broadinstitute.github.io/picard/explain-flags.html">Flag calculator</a></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-19" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="sambam-format-5">SAM/BAM format</h3>
+<h4 id="cigar">CIGAR</h4>
+<p><img data-src="images/cigar1.png" class="absolute" style="top: 250px; left: 0px; width: 500px; height: auto; "></p>
+<div class="fragment">
+<p><img data-src="images/cigar2.png" class="absolute" style="top: 300px; right: 0px; width: 400px; height: auto; "></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Concise Idiosyncratic Gapped Alignment Report (CIGAR) string</li>
+<li>Rappresenta l’allineamento di una sequenza al genoma di riferimento</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-tipi-di-file-20" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="sambam-format-6">SAM/BAM format</h3>
+<div class="centerI2">
+<p><img data-src="images/questions.png"></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-21" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="bedgtfgff3-formats">BED/GTF/GFF3 formats</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>Questi sono i tre principali formati di annotazione. Ci sono molte somiglianze ma anche alcune fondamentali differenze.</p>
+</div>
+</div>
+</div>
+<div class="f30">
+<ul>
+<li>BED: permettono un solo livello di complessita, ogni caratteristica può essere divisa in diversi blocchi (linee del file)</li>
+<li>GTF: permettono 2 livelli di complessità, gli esoni possono essere raggruppati in trascritti e i trascritti in geni</li>
+<li>GFF3: permettono un numero arbitrari di livelli</li>
+</ul>
+</div>
+</section>
+<section id="diversi-tipi-di-file-22" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="bed">BED</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>I file BED (Browser Extensible Data) sono file di testo creati per descrivere caratteristiche del genoma.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><img data-src="images/bed1.png" class="absolute" style="top: 350px; left: 20px; width: 1000px; height: auto; "></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-23" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="bed-1">BED</h3>
+<p><img data-src="images/bed2.png" class="absolute" style="top: 150px; left: 30px; width: 1200px; height: auto; "></p>
+</section>
+<section id="diversi-tipi-di-file-24" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="bed-2">BED</h3>
+<div class="centerI2">
+<p><img data-src="images/questions.png"></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-25" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="gtf-format">GTF format</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>GFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><img data-src="images/gtf1.png" class="gft1 absolute" style="top: 360px; left: 20px; width: 1200px; height: auto; "></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-26" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="gtf-format-1">GTF format</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>GFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti.</p>
+</div>
+</div>
+</div>
+<p><img data-src="images/gtf2.png" class="absolute" style="top: 360px; left: 0px; width: 1200px; height: auto; "></p>
+</section>
+<section id="diversi-tipi-di-file-27" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="gtf-format-2">GTF format</h3>
+<div class="centerI2">
+<p><img data-src="images/questions.png"></p>
+</div>
+</section>
+<section id="diversi-tipi-di-file-28" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="gff3-format">GFF3 format</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>GFF3 (General Feature Format) è un file ti testo che contiene informazioni su ogni caratteristica delle sequenze nucleiche o aminiacidiche che descrive. CDS, microRNAs, binding domains, ORFs e molto altro possono essere gestite da questo formato</p>
+</div>
+</div>
+</div>
+<h4 class="center" id="campi">Campi</h4>
+<div class="columns">
+<div class="column f20" style="width:33%;">
+<ul>
+<li>Column 1: “seqid”</li>
+<li>Column 2: “source”</li>
+<li>Column 3: “type”</li>
+</ul>
+</div><div class="column f20" style="width:33%;">
+<ul>
+<li>Column 4:“start”</li>
+<li>Column 5: “end”</li>
+<li>Column 6: “score”</li>
+</ul>
+</div><div class="column f20" style="width:33%;">
+<ul>
+<li>Column 7: “strand”</li>
+<li>Column 8: “phase”</li>
+<li>Column 9: “attributes”</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="diversi-tipi-di-file-29" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="gff3-format-1">GFF3 format</h3>
+<p><img data-src="images/gff31.png" class="absolute" style="top: 240px; left: 0px; width: 490px; height: auto; "></p>
+<p><img data-src="images/gff32.png" class="absolute" style="top: 170px; left: 500px; width: 600px; height: auto; "></p>
+<aside class="notes">
+<ul>
+<li>It encodes three alternatively-spliced transcripts named EDEN.1, EDEN.2 and EDEN.3,</li>
+<li><strong>EDEN.3</strong> has two alternative translational <strong>start sites</strong> leading to the generation of two protein coding sequences.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-tipi-di-file-30" class="slide level2">
+<h2>Diversi tipi di file</h2>
+<h3 id="gff3-format-2">GFF3 format</h3>
+<div class="centerI2">
+<p><img data-src="images/questions.png"></p>
+</div>
 </section></section>
 <section>
-<section id="section-12" class="title-slide slide level1 center" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h1></h1>
-<p><span class="tit p-span-center">Goals</span></p>
-<p><span class="icon p-span-center"><i class="fa-solid fa-bullseye"></i></span></p>
+<section id="software" class="title-slide slide level1 center">
+<h1><span class="tit p-span-center">Software</span></h1>
+
 </section>
-<section id="section-13" class="slide level2" data-background-image="images/website.png" data-background-size="cover" data-background-opacity="0.1">
-<h2></h2>
-<p><span class="p-span-center" style="font-size: 100px">Goals</span></p>
-<div style="font-size: 60px; font-family: 'Julius Sans One', sans-serif;">
-<div class="fragment fade-in" data-fragment-index="1">
-<div class="fragment semi-fade-out" data-fragment-index="2">
+<section id="diversi-software" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="terminal">Terminal</h3>
+<p><br></p>
+<div class="tcenter">
+<p><span class="tit p-spam.center">DEMO</span></p>
+<p><a href="https://swcarpentry.github.io/shell-novice/">material</a></p>
+</div>
+</section>
+<section id="diversi-software-1" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="pre-alignment-qc">Pre-alignment QC</h3>
+<div class="f20">
+<p>Esisto molti solftware di quality control. Uno dei più famosi è <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>.</p>
+</div>
+<div class="fragment">
+<p><img data-src="images/QC1.png"></p>
+</div>
+</section>
+<section id="diversi-software-2" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="trimfilter-reads">Trim/filter reads</h3>
+<p>Questo passaggio è importante per</p>
 <ol type="1">
-<li>Become a better data scientist</li>
+<li><p>rimuovere i primer adapters</p></li>
+<li><p>Filtrare le reads di bassa qualità (se presenti)</p></li>
 </ol>
+<p>La rimozione delle reads di bassa qualità semplifica l’analisi a valle</p>
+</section>
+<section id="diversi-software-3" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="allineamento-al-genoma">Allineamento al genoma</h3>
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Definizione</strong></p>
+</div>
+<div class="callout-content">
+<p>L’allineamenro delle reads al genoma permette di individuare le differenze tra le reads e il genoma di riferimento</p>
 </div>
 </div>
-<div class="fragment fade-in" data-fragment-index="2">
-<div class="fragment semi-fade-out" data-fragment-index="3">
+</div>
+<div class="centerI2">
+<p><img data-src="images/mapping.png"></p>
+</div>
+</section>
+<section id="diversi-software-4" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="allineamento-al-genoma-1">Allineamento al genoma</h3>
+<h4 id="star">STAR</h4>
+</section>
+<section id="diversi-software-5" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="allineamento-al-genoma-2">Allineamento al genoma</h3>
+<h4 id="quasi-mapping">Quasi mapping</h4>
 <ol type="1">
-<li>Leanr best practices for working with R/Bioconductor</li>
+<li><p>Kallisto</p></li>
+<li><p>Salmon</p></li>
 </ol>
-</div>
-</div>
-<div class="fragment fade-in" data-fragment-index="3">
-<div class="fragment semi-fade-out" data-fragment-index="4">
-<ol type="1">
-<li>Understand how to do RNASeq bulk data analysis</li>
-</ol>
-</div>
-</div>
-<div class="fragment fade-in" data-fragment-index="4">
-<div class="fragment semi-fade-out" data-fragment-index="5">
-<ol type="1">
-<li>Develop a lightweight and reusable RNASeq pipeline</li>
-</ol>
-</div>
-</div>
-</div>
+</section>
+<section id="diversi-software-6" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="espressione-differenziale">Espressione differenziale</h3>
 </section></section>
-<section id="section-14" class="title-slide slide level1 center" data-background-image="images/qmark.jpg" data-background-size="cover" data-background-opacity="0.7">
+<section id="section" class="title-slide slide level1 center" data-background-image="images/qmark.jpg" data-background-size="cover" data-background-opacity="0.7">
 <h1></h1>
 <div style="position: absolute; left: 980px; top: 450px;">
 <p><span style="font-size: 130px; font-weight: bold; color: white">Domande?</span></p>
-</div>
-</section>
-
-<section id="section-15" class="title-slide slide level1 center" data-background-image="images/notice001.jpg" data-background-size="cover" data-background-opacity="0.8">
-<h1></h1>
-<div class="fragment fade-in">
-<div style="color: white; font-family: 'Rock Salt', cursive; font-size: 60px">
-<p>Tutto</p>
-<p>in questo corso</p>
-<p>è stato fatto in <span style="font-size: 80px">R</span></p>
-</div>
 </div>
 
 
