@@ -513,12 +513,6 @@ GFF3 (General Feature Format) è un file ti testo che contiene informazioni su o
 :::
 
 
-
-
-## Diversi Software
-
-
-
 ## Diversi Software
 ### Trim/filter reads
 
@@ -544,18 +538,126 @@ L'allineamenro delle reads al genoma permette di individuare le differenze tra l
 ![](images/mapping.png)
 :::
 
+:::{.notes}
+- perform read alignment or mapping to determine where in the genome the reads originated from
+
+- The alignment process consists of choosing an appropriate reference genome to map our reads against
+
+- performing the read alignment using one of several splice-aware alignment tools
+
+- The choice of aligner is often a personal preference and also dependent on the computational resources that are available to you
+
+
+:::
+
 ## Diversi Software
 ### Allineamento al genoma
 #### STAR
+
+- Spliced Transcripts Alignment to a Reference
+
+- STAR is an aligner designed to specifically address many of the challenges of RNA-seq data mapping 
+
+- STAR requires a lot of computational power
+
+:::{.p-img-center}
+![](images/star.png){width=400}
+:::
 
 
 ## Diversi Software
 ### Allineamento al genoma
 #### Quasi mapping
 
-1. Kallisto
+- Common to all of these tools is that base-to-base alignment of the reads is avoided, which is the time-consuming step
 
-1. Salmon
+- These lightweight alignment tools provide quantification estimates much faster than older tools (typically more than 20 times faster) with improvements in accuracy
+
+- These transcript expression estimates, often referred to as ‘pseudocounts’ or ‘abundance estimates’, can be aggregated to the gene level for use with differential gene expression tools like DESeq2
+
+:::{.notes}
+- Salmon
+
+- Kallisto
+:::
+
+## Diversi Software
+### Allineamento al genoma
+#### [Salmon](https://salmon.readthedocs.io/en/latest/salmon.html#using-salmon)
+
+1. Salmon is a tool for wicked-fast transcript quantification from RNA-seq data
+
+1.  All you need are:
+
+       - a FASTA file containing your reference transcripts    
+
+       - a (set of) FASTA/FASTQ file(s) containing your reads  
+
+1. Two strategies:
+
+       - mapping-based mode
+
+       - alignment-based mode
+
+:::{.notes}
+accurately quantify transcripts without having previously aligned the reads
+:::
+
+
+## Diversi Software
+### Allineamento al genoma
+#### [Salmon](https://salmon.readthedocs.io/en/latest/salmon.html#using-salmon)
+
+<hr>
+
+#### mapping-based mode
+
+1. Preparing transcriptome indices
+
+    ```
+    > salmon index -t transcripts.fa.gz -i transcripts_index
+    ```
+
+<br>
+
+2. Quantify
+
+    ```
+    > salmon quant -i transcripts_index -l <LIBTYPE> -1 reads1.fq -2 reads2.fq --validateMappings -o transcripts_quant
+    ```
+
+
+
+:::{.notes}
+- The index is a structure that salmon uses to quasi-map RNA-seq reads during quantification
+
+- The index need only be constructed once per transcriptome, and it can then be reused to quantify many experiments.
+:::
+
+## Diversi Software
+### Allineamento al genoma
+#### [Salmon](https://salmon.readthedocs.io/en/latest/salmon.html#using-salmon)
+
+<hr>
+
+#### alignment-based mode
+
+1. Prepare your alignments using your favorite aligner
+
+1. Quantify using Salmon
+
+    ```
+    > salmon quant -t transcripts.fa.gz -l <LIBTYPE> -a aln.bam -o salmon_quant
+    ```
+
+## Diversi Software
+### Allineamento al genoma
+#### [Salmon](https://salmon.readthedocs.io/en/latest/salmon.html#using-salmon)
+
+<hr>
+
+#### Fragment Library Types
+
 
 
 ## Diversi Software

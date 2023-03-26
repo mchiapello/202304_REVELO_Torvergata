@@ -865,9 +865,6 @@ GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
 </section>
 <section id="diversi-software-2" class="slide level2">
 <h2>Diversi Software</h2>
-</section>
-<section id="diversi-software-3" class="slide level2">
-<h2>Diversi Software</h2>
 <h3 id="trimfilter-reads">Trim/filter reads</h3>
 <p>Questo passaggio è importante per</p>
 <ol type="1">
@@ -876,7 +873,7 @@ GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
 </ol>
 <p>La rimozione delle reads di bassa qualità semplifica l’analisi a valle</p>
 </section>
-<section id="diversi-software-4" class="slide level2">
+<section id="diversi-software-3" class="slide level2">
 <h2>Diversi Software</h2>
 <h3 id="allineamento-al-genoma">Allineamento al genoma</h3>
 <div class="callout callout-important no-icon callout-captioned callout-style-default">
@@ -892,22 +889,127 @@ GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
 <div class="centerI2">
 <p><img data-src="images/mapping.png"></p>
 </div>
+<aside class="notes">
+<ul>
+<li><p>perform read alignment or mapping to determine where in the genome the reads originated from</p></li>
+<li><p>The alignment process consists of choosing an appropriate reference genome to map our reads against</p></li>
+<li><p>performing the read alignment using one of several splice-aware alignment tools</p></li>
+<li><p>The choice of aligner is often a personal preference and also dependent on the computational resources that are available to you</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="diversi-software-5" class="slide level2">
+<section id="diversi-software-4" class="slide level2">
 <h2>Diversi Software</h2>
 <h3 id="allineamento-al-genoma-1">Allineamento al genoma</h3>
 <h4 id="star">STAR</h4>
+<ul>
+<li><p>Spliced Transcripts Alignment to a Reference</p></li>
+<li><p>STAR is an aligner designed to specifically address many of the challenges of RNA-seq data mapping</p></li>
+<li><p>STAR requires a lot of computational power</p></li>
+</ul>
+<div class="p-img-center">
+<p><img data-src="images/star.png" width="400"></p>
+</div>
 </section>
-<section id="diversi-software-6" class="slide level2">
+<section id="diversi-software-5" class="slide level2">
 <h2>Diversi Software</h2>
 <h3 id="allineamento-al-genoma-2">Allineamento al genoma</h3>
 <h4 id="quasi-mapping">Quasi mapping</h4>
-<ol type="1">
-<li><p>Kallisto</p></li>
+<ul>
+<li><p>Common to all of these tools is that base-to-base alignment of the reads is avoided, which is the time-consuming step</p></li>
+<li><p>These lightweight alignment tools provide quantification estimates much faster than older tools (typically more than 20 times faster) with improvements in accuracy</p></li>
+<li><p>These transcript expression estimates, often referred to as ‘pseudocounts’ or ‘abundance estimates’, can be aggregated to the gene level for use with differential gene expression tools like DESeq2</p></li>
+</ul>
+<aside class="notes">
+<ul>
 <li><p>Salmon</p></li>
+<li><p>Kallisto</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-6" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="allineamento-al-genoma-3">Allineamento al genoma</h3>
+<h4 id="salmon"><a href="https://salmon.readthedocs.io/en/latest/salmon.html#using-salmon">Salmon</a></h4>
+<ol type="1">
+<li><p>Salmon is a tool for wicked-fast transcript quantification from RNA-seq data</p></li>
+<li><p>All you need are:</p>
+<ul>
+<li><p>a FASTA file containing your reference transcripts</p></li>
+<li><p>a (set of) FASTA/FASTQ file(s) containing your reads</p></li>
+</ul></li>
+<li><p>Two strategies:</p>
+<pre><code>- mapping-based mode
+
+- alignment-based mode</code></pre></li>
 </ol>
+<aside class="notes">
+<p>accurately quantify transcripts without having previously aligned the reads</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="diversi-software-7" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="allineamento-al-genoma-4">Allineamento al genoma</h3>
+<h4 id="salmon-1"><a href="https://salmon.readthedocs.io/en/latest/salmon.html#using-salmon">Salmon</a></h4>
+<hr>
+<h4 id="mapping-based-mode">mapping-based mode</h4>
+<ol type="1">
+<li><p>Preparing transcriptome indices</p>
+<pre><code>&gt; salmon index -t transcripts.fa.gz -i transcripts_index</code></pre></li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li><p>Quantify</p>
+<pre><code>&gt; salmon quant -i transcripts_index -l &lt;LIBTYPE&gt; -1 reads1.fq -2 reads2.fq --validateMappings -o transcripts_quant</code></pre></li>
+</ol>
+<aside class="notes">
+<ul>
+<li><p>The index is a structure that salmon uses to quasi-map RNA-seq reads during quantification</p></li>
+<li><p>The index need only be constructed once per transcriptome, and it can then be reused to quantify many experiments.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-8" class="slide level2">
 <h2>Diversi Software</h2>
 <h3 id="espressione-differenziale">Espressione differenziale</h3>
 </section></section>

@@ -4855,39 +4855,46 @@
     "href": "materials/M5_software_code.html#diversi-software-2",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi Software",
-    "text": "Diversi Software"
+    "text": "Diversi Software\nTrim/filter reads\nQuesto passaggio è importante per\n\nrimuovere i primer adapters\nFiltrare le reads di bassa qualità (se presenti)\n\nLa rimozione delle reads di bassa qualità semplifica l’analisi a valle"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-software-3",
     "href": "materials/M5_software_code.html#diversi-software-3",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi Software",
-    "text": "Diversi Software\nTrim/filter reads\nQuesto passaggio è importante per\n\nrimuovere i primer adapters\nFiltrare le reads di bassa qualità (se presenti)\n\nLa rimozione delle reads di bassa qualità semplifica l’analisi a valle"
+    "text": "Diversi Software\nAllineamento al genoma\n\n\n\nDefinizione\n\n\nL’allineamenro delle reads al genoma permette di individuare le differenze tra le reads e il genoma di riferimento\n\n\n\n\n\n\n\n\nperform read alignment or mapping to determine where in the genome the reads originated from\nThe alignment process consists of choosing an appropriate reference genome to map our reads against\nperforming the read alignment using one of several splice-aware alignment tools\nThe choice of aligner is often a personal preference and also dependent on the computational resources that are available to you"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-software-4",
     "href": "materials/M5_software_code.html#diversi-software-4",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi Software",
-    "text": "Diversi Software\nAllineamento al genoma\n\n\n\nDefinizione\n\n\nL’allineamenro delle reads al genoma permette di individuare le differenze tra le reads e il genoma di riferimento"
+    "text": "Diversi Software\nAllineamento al genoma\nSTAR\n\nSpliced Transcripts Alignment to a Reference\nSTAR is an aligner designed to specifically address many of the challenges of RNA-seq data mapping\nSTAR requires a lot of computational power"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-software-5",
     "href": "materials/M5_software_code.html#diversi-software-5",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi Software",
-    "text": "Diversi Software\nAllineamento al genoma\nSTAR"
+    "text": "Diversi Software\nAllineamento al genoma\nQuasi mapping\n\nCommon to all of these tools is that base-to-base alignment of the reads is avoided, which is the time-consuming step\nThese lightweight alignment tools provide quantification estimates much faster than older tools (typically more than 20 times faster) with improvements in accuracy\nThese transcript expression estimates, often referred to as ‘pseudocounts’ or ‘abundance estimates’, can be aggregated to the gene level for use with differential gene expression tools like DESeq2\n\n\n\nSalmon\nKallisto"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-software-6",
     "href": "materials/M5_software_code.html#diversi-software-6",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi Software",
-    "text": "Diversi Software\nAllineamento al genoma\nQuasi mapping\n\nKallisto\nSalmon"
+    "text": "Diversi Software\nAllineamento al genoma\nSalmon\n\nSalmon is a tool for wicked-fast transcript quantification from RNA-seq data\nAll you need are:\n\na FASTA file containing your reference transcripts\na (set of) FASTA/FASTQ file(s) containing your reads\n\nTwo strategies:\n- mapping-based mode\n\n- alignment-based mode\n\n\naccurately quantify transcripts without having previously aligned the reads"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-software-7",
     "href": "materials/M5_software_code.html#diversi-software-7",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "Diversi Software",
+    "text": "Diversi Software\nAllineamento al genoma\nSalmon\n\nmapping-based mode\n\nPreparing transcriptome indices\n> salmon index -t transcripts.fa.gz -i transcripts_index\n\n\n\nQuantify\n> salmon quant -i transcripts_index -l <LIBTYPE> -1 reads1.fq -2 reads2.fq --validateMappings -o transcripts_quant\n\n\n\nThe index is a structure that salmon uses to quasi-map RNA-seq reads during quantification\nThe index need only be constructed once per transcriptome, and it can then be reused to quantify many experiments."
+  },
+  {
+    "objectID": "materials/M5_software_code.html#diversi-software-8",
+    "href": "materials/M5_software_code.html#diversi-software-8",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi Software",
     "text": "Diversi Software\nEspressione differenziale"
