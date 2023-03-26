@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduzione all'analisi di RNASeq – day01</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/code-filename-0.0.1/code-filename.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../materials/images/revelo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Introduzione all’analisi di RNASeq</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../materials/M1_intro.html">
+ <span class="dropdown-text">Modulo I: Introduzione al corso</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/02-Day02.html">
+ <span class="dropdown-text">Secondo giorno</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://revelodatalabs.com">
+ <span class="menu-text">Revelo DataLabs</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mchiapello/202304_REVELO_Torvergata"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Corso</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../materials/01-Day01_RiepilogoR.qmd" class="sidebar-item-text sidebar-link">Riepilogo R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../materials/01-Day01.html" class="sidebar-item-text sidebar-link active">Primo giorno</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../materials/02-Day02.html" class="sidebar-item-text sidebar-link">Risorse esterne</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Materiale aggiuntivo</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../materials/test-layout.html" class="sidebar-item-text sidebar-link">Letture</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../materials/02-Day02.html" class="sidebar-item-text sidebar-link">Risorse esterne</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#TitleSlide" id="toc-TitleSlide" class="nav-link active" data-scroll-target="#TitleSlide"></a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a>
+  <ul class="collapse">
+  <li><a href="#we-assume" id="toc-we-assume" class="nav-link" data-scroll-target="#we-assume">We assume</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#workshop-prep" id="toc-workshop-prep" class="nav-link" data-scroll-target="#workshop-prep">Workshop Prep</a></li>
+  </ul></li>
+  <li><a href="#our-turn" id="toc-our-turn" class="nav-link" data-scroll-target="#our-turn"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our Turn</a>
+  <ul class="collapse">
+  <li><a href="#hello-quarto" id="toc-hello-quarto" class="nav-link" data-scroll-target="#hello-quarto">Hello Quarto</a></li>
+  <li><a href="#how-does-rmarkdown-work" id="toc-how-does-rmarkdown-work" class="nav-link" data-scroll-target="#how-does-rmarkdown-work">How does RMarkdown work?</a></li>
+  <li><a href="#quarto-more-than-just-knitr" id="toc-quarto-more-than-just-knitr" class="nav-link" data-scroll-target="#quarto-more-than-just-knitr">Quarto, more than <em>just</em> <code>knitr</code></a></li>
+  <li><a href="#quarto-more-than-just-knitr-1" id="toc-quarto-more-than-just-knitr-1" class="nav-link" data-scroll-target="#quarto-more-than-just-knitr-1">Quarto, more than <em>just</em> <code>knitr</code></a></li>
+  <li><a href="#quarto-more-than-just-knitr-2" id="toc-quarto-more-than-just-knitr-2" class="nav-link" data-scroll-target="#quarto-more-than-just-knitr-2">Quarto, more than <em>just</em> <code>knitr</code></a></li>
+  <li><a href="#quarto-more-internals" id="toc-quarto-more-internals" class="nav-link" data-scroll-target="#quarto-more-internals">Quarto, more internals</a></li>
+  <li><a href="#widgets" id="toc-widgets" class="nav-link" data-scroll-target="#widgets">Widgets</a></li>
+  <li><a href="#quarto-also-with-observable-javascript" id="toc-quarto-also-with-observable-javascript" class="nav-link" data-scroll-target="#quarto-also-with-observable-javascript">Quarto, also with Observable Javascript!</a></li>
+  <li><a href="#observable.js" id="toc-observable.js" class="nav-link" data-scroll-target="#observable.js">Observable.js</a></li>
+  <li><a href="#quarto-is-a-big-universe" id="toc-quarto-is-a-big-universe" class="nav-link" data-scroll-target="#quarto-is-a-big-universe">Quarto is a big universe!</a></li>
+  <li><a href="#so-what-is-quarto" id="toc-so-what-is-quarto" class="nav-link" data-scroll-target="#so-what-is-quarto">So what is Quarto?</a></li>
+  <li><a href="#comfort-of-your-own-workspace" id="toc-comfort-of-your-own-workspace" class="nav-link" data-scroll-target="#comfort-of-your-own-workspace">Comfort of your own workspace</a></li>
+  <li><a href="#rstudio-visual-editor" id="toc-rstudio-visual-editor" class="nav-link" data-scroll-target="#rstudio-visual-editor">RStudio Visual Editor</a></li>
+  </ul></li>
+  <li><a href="#our-turn-1" id="toc-our-turn-1" class="nav-link" data-scroll-target="#our-turn-1"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</a>
+  <ul class="collapse">
+  <li><a href="#vs-code" id="toc-vs-code" class="nav-link" data-scroll-target="#vs-code">VS Code</a></li>
+  <li><a href="#vs-code-yaml" id="toc-vs-code-yaml" class="nav-link" data-scroll-target="#vs-code-yaml">VS Code YAML</a></li>
+  <li><a href="#vs-code-yaml-intelligence" id="toc-vs-code-yaml-intelligence" class="nav-link" data-scroll-target="#vs-code-yaml-intelligence">VS Code, YAML Intelligence</a></li>
+  <li><a href="#jupyterjupyter-lab" id="toc-jupyterjupyter-lab" class="nav-link" data-scroll-target="#jupyterjupyter-lab">Jupyter/Jupyter Lab</a></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter">Jupyter</a></li>
+  <li><a href="#jupyter-yaml" id="toc-jupyter-yaml" class="nav-link" data-scroll-target="#jupyter-yaml">Jupyter YAML</a></li>
+  <li><a href="#quarto-for-collaboration" id="toc-quarto-for-collaboration" class="nav-link" data-scroll-target="#quarto-for-collaboration">Quarto, for collaboration</a></li>
+  <li><a href="#quarto-publish" id="toc-quarto-publish" class="nav-link" data-scroll-target="#quarto-publish">Quarto Publish</a></li>
+  <li><a href="#what-about-for-data-science-at-work" id="toc-what-about-for-data-science-at-work" class="nav-link" data-scroll-target="#what-about-for-data-science-at-work">What about for Data Science at Work?</a></li>
+  <li><a href="#one-install-batteries-included" id="toc-one-install-batteries-included" class="nav-link" data-scroll-target="#one-install-batteries-included">One install, “Batteries included”</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#what-to-do-with-my-existing-.rmd-or-.ipynb" id="toc-what-to-do-with-my-existing-.rmd-or-.ipynb" class="nav-link" data-scroll-target="#what-to-do-with-my-existing-.rmd-or-.ipynb">What to do with my existing <code>.Rmd</code> or <code>.ipynb</code>?</a></li>
+  <li><a href="#why-quarto-instead-of-rmarkdown" id="toc-why-quarto-instead-of-rmarkdown" class="nav-link" data-scroll-target="#why-quarto-instead-of-rmarkdown">Why Quarto, instead of RMarkdown</a></li>
+  <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
+  <li><a href="#change-your-mental-model" id="toc-change-your-mental-model" class="nav-link" data-scroll-target="#change-your-mental-model">Change your mental model</a></li>
+  <li><a href="#change-your-mental-model-1" id="toc-change-your-mental-model-1" class="nav-link" data-scroll-target="#change-your-mental-model-1">Change your mental model</a></li>
+  <li><a href="#a-.qmd-is-a-plain-text-file" id="toc-a-.qmd-is-a-plain-text-file" class="nav-link" data-scroll-target="#a-.qmd-is-a-plain-text-file">A <code>.qmd</code> is a plain text file</a></li>
+  <li><a href="#metadata-yaml" id="toc-metadata-yaml" class="nav-link" data-scroll-target="#metadata-yaml">Metadata: YAML</a></li>
+  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
+  <li><a href="#text-formatting" id="toc-text-formatting" class="nav-link" data-scroll-target="#text-formatting">Text Formatting</a></li>
+  <li><a href="#headings" id="toc-headings" class="nav-link" data-scroll-target="#headings">Headings</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#code-more-than-just-r" id="toc-code-more-than-just-r" class="nav-link" data-scroll-target="#code-more-than-just-r">Code, more than just R</a></li>
+  <li><a href="#what-about-the-cli" id="toc-what-about-the-cli" class="nav-link" data-scroll-target="#what-about-the-cli">What about the CLI?</a></li>
+  <li><a href="#navigating-in-the-terminal" id="toc-navigating-in-the-terminal" class="nav-link" data-scroll-target="#navigating-in-the-terminal">Navigating in the terminal</a></li>
+  </ul></li>
+  <li><a href="#our-turn-2" id="toc-our-turn-2" class="nav-link" data-scroll-target="#our-turn-2"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our Turn</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="TitleSlide" class="level2" data-menu-title="TitleSlide" data-background-color="#303436" data-background-image="images/hamlet-quarto.jpeg" data-background-position="left" data-background-size="contain">
+<h2 data-menu-title="TitleSlide" data-background-color="#303436" data-background-image="images/hamlet-quarto.jpeg" data-background-position="left" data-background-size="contain" class="anchored" data-anchor-id="TitleSlide"></h2>
+<div style="position: absolute; left: 480px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; box-shadow: 15px 15px 0px 0px #a9bcd2; border-radius: 5px;">
+<p><span style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px">Quarto Workshop</span></p>
+<p><br></p>
+<p><span style="font-size: 60px; font-weight: bold;">Tom Mock, RStudio PBC</span></p>
+<p><a href="https://jthomasmock.github.io/quarto-2hr-webinar"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:45px;width:56.25px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg></a>&nbsp;<a href="https://jthomasmock.github.io/quarto-r-medicine" style="font-size: 50px; color: white;">jthomasmock.github.io/quarto-r-medicine</a></p>
+<p><span style="font-size: 50px;font-weight: bold;">2022-08-09</span></p>
+</div>
+<div class="footer">
+<p><span style="color: transparent;">You are sneaky!</span></p>
+</div>
+</section>
+<section id="section" class="level1" data-background-color="#447099">
+<h1 data-background-color="#447099"></h1>
+<p><span class="r-fit-text">Hello Quarto</span></p>
+<section id="we-assume" class="level2">
+<h2 class="anchored" data-anchor-id="we-assume">We assume</h2>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg> You know R</p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M593.8 59.1H46.2C20.7 59.1 0 79.8 0 105.2v301.5c0 25.5 20.7 46.2 46.2 46.2h547.7c25.5 0 46.2-20.7 46.1-46.1V105.2c0-25.4-20.7-46.1-46.2-46.1zM338.5 360.6H277v-120l-61.5 76.9-61.5-76.9v120H92.3V151.4h61.5l61.5 76.9 61.5-76.9h61.5v209.2zm135.3 3.1L381.5 256H443V151.4h61.5V256H566z"></path></svg> You know a little bit of Markdown</p>
+<p><img src="https://raw.githubusercontent.com/quarto-dev/quarto-web/main/favicon.png" style="display: inline-block; margin: 0; margin-bottom: -2px; height: 35px;"> You want to learn about Quarto, the next-generation of RMarkdown</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>qr <span class="ot">&lt;-</span> qrcode<span class="sc">::</span><span class="fu">qr_code</span>(<span class="st">"https://forms.gle/BfLtXGdTy8zPHE1A6"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(qr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="01-Day01_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="incremental">
+<h2 class="anchored">
+We’ll teach you
+</h2>
+<p>Quarto syntax and formats</p>
+<p>More Markdown</p>
+<p>Even more R along the way!</p>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<div style="text-align: right;">
+<p><img src="images/tom-howard.png" height="450"></p>
+<p>Find me at:</p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> <a href="https://twitter.com/thomas_mock">@thomas_mock</a></p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <a href="https://github.com/jthomasmock">@jthomasmock</a></p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg> <a href="https://themockup.blog/">themockup.blog</a></p>
+</div>
+</section>
+<section id="workshop-prep" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-prep">Workshop Prep</h2>
+<ul>
+<li>Content Website: <a href="https://jthomasmock.github.io/quarto-r-medicine/" class="uri">https://jthomasmock.github.io/quarto-r-medicine/</a></li>
+<li>FULL workshop materials: <a href="https://rstd.io/get-started-quarto">rstd.io/get-started-quarto</a> or on <a href="https://rstudio.cloud/content/4332583">RStudio Cloud</a></li>
+<li>Are you on the latest version of RStudio i.e.&nbsp;<a href="https://www.rstudio.com/products/rstudio/download/#download"><code>v2022.07.1</code> or later</a>?</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pkg_list <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyverse"</span>, <span class="st">"gt"</span>, <span class="st">"gtExtras"</span>, <span class="st">"reactable"</span>, <span class="st">"ggiraph"</span>, <span class="st">"here"</span>, <span class="st">"quarto"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rmarkdown"</span>, <span class="st">"gtsummary"</span>, <span class="st">"palmerpenguins"</span>, <span class="st">"fs"</span>, <span class="st">"skimr"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(pkg_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="incremental">
+<p><span class="r-fit-text">Great, let’s get started!</span></p>
+</div>
+</section>
+</section>
+<section id="our-turn" class="level1" data-background-color="#447099" data-transition="slide-in">
+<h1 data-background-color="#447099" data-transition="slide-in"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our Turn</h1>
+<h2 class="anchored" data-anchor-id="our-turn">
+Local
+</h2>
+<ul>
+<li>Install/Open RStudio <a href="https://www.rstudio.com/products/rstudio/download/#download">v2022.07.1</a></li>
+<li>Clone the workshop: <code>https://github.com/jthomasmock/quarto-workshop.git</code> locally</li>
+</ul>
+<h2 class="anchored">
+RStudio Cloud
+</h2>
+<ul>
+<li>Use the pre-built RStudio Cloud with all the workshop materials already installed: <a href="https://rstudio.cloud/content/4332583">https://rstudio.cloud/content/4332583</a></li>
+</ul>
+<section id="hello-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="hello-quarto">Hello Quarto</h2>
+<blockquote class="blockquote">
+<h3 id="quarto-is-an-open-source-scientific-and-technical-publishing-system-built-on-pandoc" class="anchored">Quarto<sup>®</sup> is an open-source scientific and technical publishing system built on <a href="https://pandoc.org/">Pandoc</a></h3>
+</blockquote>
+<div class="incremental">
+<blockquote class="blockquote">
+<p>You can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more.</p>
+</blockquote>
+</div>
+</section>
+<section id="how-does-rmarkdown-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-rmarkdown-work">How does RMarkdown work?</h2>
+<ul>
+<li><code>knitr</code> started in 2011, RMarkdown in 2014</li>
+</ul>
+<p><img src="images/rmd-knitr.png" class="img-fluid" alt="A diagram of how a RMD is turned into output formats via knitr and pandoc"></p>
+</section>
+<section id="quarto-more-than-just-knitr" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-more-than-just-knitr">Quarto, more than <em>just</em> <code>knitr</code></h2>
+<div class="incremental">
+<p>We learned from 10 years of literate programming with <code>knitr</code> + <code>rmarkdown</code></p>
+<p><img src="images/qmd-knitr.jpeg" class="img-fluid"></p>
+</div>
+</section>
+<section id="quarto-more-than-just-knitr-1" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-more-than-just-knitr-1">Quarto, more than <em>just</em> <code>knitr</code></h2>
+<p><img src="images/qmd-jupyter.jpeg" class="img-fluid"></p>
+</section>
+<section id="quarto-more-than-just-knitr-2" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-more-than-just-knitr-2">Quarto, more than <em>just</em> <code>knitr</code></h2>
+<p><img src="images/jupyter-alone.jpeg" class="img-fluid"></p>
+</section>
+<section id="quarto-more-internals" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-more-internals">Quarto, more internals</h2>
+<ul>
+<li>Quarto uses an engine like <code>knitr</code> to execute code and generate a temporary output <code>.md</code></li>
+</ul>
+<div class="incremental">
+<p>The <code>.md</code> file is processed via Pandoc and Quarto’s Lua filters + Bootstrap CSS for HTML or LaTeX for PDF and converted to a final output format</p>
+</div>
+<div class="incremental">
+<p>Lua filters written by R/Python/Julia developers should be interchangeable between formats - typically not language specific!</p>
+</div>
+</section>
+<section id="widgets" class="level2">
+<h2 class="anchored" data-anchor-id="widgets">Widgets</h2>
+<ul>
+<li>Quarto can support both <code>htmlwidgets</code> in R and Jupyter widgets for Python/Julia</li>
+</ul>
+<div class="incremental">
+<blockquote class="blockquote">
+<p>Quarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis.</p>
+</blockquote>
+</div>
+</section>
+<section id="quarto-also-with-observable-javascript" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-also-with-observable-javascript">Quarto, also with Observable Javascript!</h2>
+<div class="incremental">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" data-startfrom="174" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 173;"><span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<p>Converting temperature from ℃ to ℉ <br><br>
+Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <span><span id="ojs-element-id-2"></span>℉.</span></p>
+</div>
+<div class="incremental">
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="vs">Converting temperature from &amp;#x2103; to &amp;#x2109; &lt;br&gt;  </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="vs">Celsius = </span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">format</span>(<span class="st">".0f"</span>)(temp)<span class="sc">}</span><span class="vs">&amp;#x2103; and Fahrenheit = </span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">format</span>(<span class="st">".1f"</span>)(temp <span class="op">*</span> <span class="dv">9</span><span class="op">/</span><span class="dv">5</span> <span class="op">+</span> <span class="dv">32</span>)<span class="sc">}</span><span class="vs">&amp;#x2109;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="observable.js" class="level2">
+<h2 class="anchored" data-anchor-id="observable.js">Observable.js</h2>
+<div class="cell panel-input card bg-light p-2">
+<div class="sourceCode cell-code" id="cb5" data-startfrom="197" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 196;"><span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a>viewof bill_length_min <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">32</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> </span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">35</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bill length (min):"</span>}</span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span><span class="op">,</span> <span class="st">"Dream"</span>]<span class="op">,</span> </span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">value</span><span class="op">:</span> [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span>]<span class="op">,</span> </span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Islands:"</span></span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" data-startfrom="213" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 212;"><span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"body_mass"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">20</span>}</span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>    <span class="dt">facet</span><span class="op">:</span> {</span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>      <span class="dt">data</span><span class="op">:</span> filtered<span class="op">,</span></span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"sex"</span><span class="op">,</span></span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span></span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a>      <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">80</span></span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-startfrom="235" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 234;"><span id="cb7-235"><a href="#cb7-235" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" data-startfrom="241" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 240;"><span id="cb8-241"><a href="#cb8-241" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"palmer-penguins.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" data-startfrom="245" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 244;"><span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(penguin) {</span>
+<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> bill_length_min <span class="op">&lt;</span> penguin<span class="op">.</span><span class="at">bill_length</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a>         islands<span class="op">.</span><span class="fu">includes</span>(penguin<span class="op">.</span><span class="at">island</span>)<span class="op">;</span></span>
+<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</section>
+<section id="quarto-is-a-big-universe" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-is-a-big-universe">Quarto is a big universe!</h2>
+<p><img src="images/horst_quarto_schematic.png" class="img-fluid" alt="A diagram of the R, Python, Julia, Observable icons passed into Quarto to generate HTML, PDF, Word, and more!"></p>
+</section>
+<section id="so-what-is-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="so-what-is-quarto">So what is Quarto?</h2>
+<blockquote class="blockquote">
+<p>Quarto is a command line interface (CLI) that renders plain text formats (<code>.qmd</code>, <code>.rmd</code>, <code>.md</code>) OR mixed formats (<code>.ipynb</code>/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>thomasmock$ quarto <span class="op">--</span><span class="bu">help</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  Usage:   quarto</span>
+<span id="cb10-4"><a href="#cb10-4"></a>  Version: <span class="fl">1.0.36</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a>  Description:</span>
+<span id="cb10-7"><a href="#cb10-7"></a>    Quarto CLI</span>
+<span id="cb10-8"><a href="#cb10-8"></a></span>
+<span id="cb10-9"><a href="#cb10-9"></a>  Options:</span>
+<span id="cb10-10"><a href="#cb10-10"></a>    <span class="op">-</span>h, <span class="op">--</span><span class="bu">help</span>     <span class="op">-</span> Show this <span class="bu">help</span>.                            </span>
+<span id="cb10-11"><a href="#cb10-11"></a>    <span class="op">-</span>V, <span class="op">--</span>version  <span class="op">-</span> Show the version number <span class="cf">for</span> this program.  </span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a>  Commands:</span>
+<span id="cb10-14"><a href="#cb10-14"></a>    render          [<span class="bu">input</span>] [args...]   <span class="op">-</span> Render <span class="bu">input</span> <span class="bu">file</span>(s) to various document types.            </span>
+<span id="cb10-15"><a href="#cb10-15"></a>    preview         [<span class="bu">file</span>] [args...]    <span class="op">-</span> Render <span class="kw">and</span> preview a document <span class="kw">or</span> website project.          </span>
+<span id="cb10-16"><a href="#cb10-16"></a>    serve           [<span class="bu">input</span>]             <span class="op">-</span> Serve a Shiny interactive document.                        </span>
+<span id="cb10-17"><a href="#cb10-17"></a>    create<span class="op">-</span>project  [<span class="bu">dir</span>]               <span class="op">-</span> Create a project <span class="cf">for</span> rendering multiple documents          </span>
+<span id="cb10-18"><a href="#cb10-18"></a>    convert         <span class="op">&lt;</span><span class="bu">input</span><span class="op">&gt;</span>             <span class="op">-</span> Convert documents to alternate representations.            </span>
+<span id="cb10-19"><a href="#cb10-19"></a>    pandoc          [args...]           <span class="op">-</span> Run the version of Pandoc embedded within Quarto.          </span>
+<span id="cb10-20"><a href="#cb10-20"></a>    run             [script] [args...]  <span class="op">-</span> Run a TypeScript, R, Python, <span class="kw">or</span> Lua script.                </span>
+<span id="cb10-21"><a href="#cb10-21"></a>    install         <span class="op">&lt;</span><span class="bu">type</span><span class="op">&gt;</span> [target]     <span class="op">-</span> Installs an extension <span class="kw">or</span> <span class="kw">global</span> dependency.                </span>
+<span id="cb10-22"><a href="#cb10-22"></a>    publish         [provider] [path]   <span class="op">-</span> Publish a document <span class="kw">or</span> project. Available providers include:</span>
+<span id="cb10-23"><a href="#cb10-23"></a>    check           [target]            <span class="op">-</span> Verify correct functioning of Quarto installation.         </span>
+<span id="cb10-24"><a href="#cb10-24"></a>    <span class="bu">help</span>            [command]           <span class="op">-</span> Show this <span class="bu">help</span> <span class="kw">or</span> the <span class="bu">help</span> of a sub<span class="op">-</span>command.    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="comfort-of-your-own-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="comfort-of-your-own-workspace">Comfort of your own workspace</h2>
+<div class="r-stack">
+<p><img src="https://quarto.org/docs/tools/images/rstudio-preview.png" class="fragment img-fluid" alt="A screenshot of a Quarto document rendered inside RStudio" width="1500"></p>
+<p><img src="https://quarto.org/docs/tools/images/jupyterlab-preview.png" class="fragment img-fluid" alt="A screenshot of a Quarto document rendered inside JupyterLab" width="1500"></p>
+<p><img src="https://quarto.org/docs/computations/images/python-vscode.png" class="fragment img-fluid" alt="A screenshot of a Quarto document rendered inside VSCode" width="1500"></p>
+</div>
+</section>
+<section id="rstudio-visual-editor" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-visual-editor">RStudio Visual Editor</h2>
+<p><img src="https://quarto.org/docs/visual-editor/images/visual-editing.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="our-turn-1" class="level1" data-background-color="#447099" data-transition="slide-in">
+<h1 data-background-color="#447099" data-transition="slide-in"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</h1>
+<ul>
+<li>Open <code>quarto-workshop/03-authoring/visual-editor.qmd</code></li>
+<li>Explore the UI elements and visual editor mode</li>
+<li>Turn Visual Editor mode on/off and explore the sections</li>
+<li>Render the document and compare the viewer to Visual Mode!</li>
+</ul>
+<section id="vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code">VS Code</h2>
+<p><img src="https://quarto.org/docs/tools/images/vscode-render.png" class="img-fluid" alt="Screenshot of VSCode with a Quarto document"></p>
+</section>
+<section id="vs-code-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-yaml">VS Code YAML</h2>
+<p><img src="https://quarto.org/docs/tools/images/vscode-raw.png" class="img-fluid" alt="Screenshot of a .ipynb with Quarto YAML edited in VSCode"></p>
+</section>
+<section id="vs-code-yaml-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-yaml-intelligence">VS Code, YAML Intelligence</h2>
+<p><img src="https://quarto.org/docs/tools/images/vscode-yaml-completion.png" class="img-fluid" alt="Screenshot of a .ipynb with Quarto YAML edited in VSCode"></p>
+</section>
+<section id="jupyterjupyter-lab" class="level2">
+<h2 class="anchored" data-anchor-id="jupyterjupyter-lab">Jupyter/Jupyter Lab</h2>
+<p><img src="https://quarto.org/docs/tools/images/jupyter-lab.png" class="img-fluid" alt="Screenshot of a .ipynb with Quarto YAML edited in Jupyter"></p>
+</section>
+<section id="jupyter" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter">Jupyter</h2>
+<p><code>quarto preview notebook.ipynb --to html</code></p>
+<p><img src="https://quarto.org/docs/tools/images/jupyterlab-preview.png" class="img-fluid" alt="Screenshot of a .ipynb with Quarto YAML edited in Jupyter"></p>
+</section>
+<section id="jupyter-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-yaml">Jupyter YAML</h2>
+<p>Treat YAML as a “raw cell” in Jupyter - Jupyter doesn’t care about YAML, but it’s needed/used by Quarto</p>
+<p><img src="https://quarto.org/docs/tools/images/jupyter-lab-yaml.png" class="img-fluid" alt="Screenshot of a .ipynb with Quarto YAML edited inJupyter"></p>
+</section>
+<section id="quarto-for-collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-for-collaboration">Quarto, for collaboration</h2>
+<div style="font-size: 90px;">
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> datalake-extracts-dplyr-aws.rmd</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> data-cleaning-siuba.ipynb</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python-r-handoff.ipynb  </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> computer-vision-r-torch.qmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quarto-publish" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-publish">Quarto Publish</h2>
+<div style="font-size: 50px;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre> <strong>terminal</strong></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish <span class="at">--help</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Usage:</span>   quarto publish [provider] [path]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Version:</span> 1.0.36                          </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                                           </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Description:</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Publish</span> a document or project. Available providers include:</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                                                               </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>     <span class="ex">-</span> Quarto Pub <span class="er">(</span><span class="ex">quarto-pub</span><span class="kw">)</span>                                 </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>     <span class="ex">-</span> GitHub Pages <span class="er">(</span><span class="ex">gh-pages</span><span class="kw">)</span>                                 </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>     <span class="ex">-</span> RStudio Connect <span class="er">(</span><span class="ex">connect</span><span class="kw">)</span>                               </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>     <span class="ex">-</span> Netlify <span class="er">(</span><span class="ex">netlify</span><span class="kw">)</span>                                       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="incremental">
+<div class="quarto-figure quarto-figure-center" style="width: 900px;">
+<figure class="figure">
+<p><img src="images/quartopub.jpeg" class="img-fluid figure-img" alt="Screenshot of the quartopub.com website"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="what-about-for-data-science-at-work" class="level2">
+<h2 class="anchored" data-anchor-id="what-about-for-data-science-at-work">What about for Data Science at Work?</h2>
+<ul>
+<li>Use Quarto in RStudio Workbench (v2022.07.1) and RStudio Connect (v2022.07.0)!</li>
+</ul>
+<div class="incremental">
+<div class="quarto-figure quarto-figure-center" style="width: 1300px;">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/sol-eng/bike_predict/main/img/arrows.drawio.png" class="img-fluid figure-img" alt="diagram of Rendering a complex data science workflow via RStudio Connect - Quarto is used as the rendering mechanism for the notebooks and code"></p>
+<p></p><figcaption class="figure-caption"><a href="https://solutions.rstudio.com/example/bike_predict/" class="uri">https://solutions.rstudio.com/example/bike_predict/</a></figcaption><p></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="one-install-batteries-included" class="level2">
+<h2 class="anchored" data-anchor-id="one-install-batteries-included">One install, “Batteries included”</h2>
+<ul>
+<li>Quarto is bundled and comes pre-installed with RStudio <a href="https://www.rstudio.com/products/rstudio/download/#download">v2022.07.1</a> and beyond!</li>
+</ul>
+<div class="incremental">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/quarto-bundle.png" class="img-fluid figure-img" alt="RStudio 2022.07.1+554 'Spotted Wakerobin', July 25th, 2022 New: Update Quarto to 1.0.36" width="1200"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"></h2>
+<div class="columns" style="margin-top=-20px;">
+<div class="column fragment" style="font-size:30px;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>R Markdown</th>
+<th>Quarto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Basic Formats</td>
+<td><ul>
+<li><p><a href="https://pkgs.rstudio.com/rmarkdown/reference/html_document.html">html_document</a></p></li>
+<li><p><a href="https://pkgs.rstudio.com/rmarkdown/reference/pdf_document.html">pdf_document</a></p></li>
+<li><p><a href="https://pkgs.rstudio.com/rmarkdown/reference/word_document.html">word_document</a></p></li>
+</ul></td>
+<td><ul>
+<li><p><a href="https://quarto.org/docs/output-formats/html-basics.html">html</a></p></li>
+<li><p><a href="https://quarto.org/docs/output-formats/pdf-basics.html">pdf</a></p></li>
+<li><p><a href="https://quarto.org/docs/output-formats/ms-word.html">docx</a></p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Beamer</td>
+<td><ul>
+<li><a href="https://pkgs.rstudio.com/rmarkdown/reference/beamer_presentation.html">beamer_presentation</a></li>
+</ul></td>
+<td><ul>
+<li><a href="https://quarto.org/docs/presentations/beamer.html">beamer</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>PowerPoint</td>
+<td><ul>
+<li><a href="https://pkgs.rstudio.com/rmarkdown/reference/powerpoint_presentation.html">powerpoint_presentation</a></li>
+</ul></td>
+<td><ul>
+<li><a href="https://quarto.org/docs/presentations/powerpoint.html">pptx</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>HTML Slides</td>
+<td><ul>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/xaringan.html">xaringan</a></p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/revealjs.html">revealjs</a></p></li>
+</ul></td>
+<td><ul>
+<li><a href="https://quarto.org/docs/presentations/revealjs/">revealjs</a></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Advanced Layout</td>
+<td><ul>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/tufte-handouts.html">tufte</a></p></li>
+<li><p><a href="https://rstudio.github.io/distill/figures.html">distill</a></p></li>
+</ul></td>
+<td><ul>
+<li><a href="https://quarto.org/docs/authoring/article-layout.html">Quarto Article Layout</a></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div><!-- ## Many Quarto formats --><div class="column fragment" style="font-size:30px;">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>R Markdown</th>
+<th>Quarto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cross References</td>
+<td><ul>
+<li><p><a href="https://bookdown.org/yihui/bookdown/a-single-document.html">html_document2</a></p></li>
+<li><p><a href="https://bookdown.org/yihui/bookdown/a-single-document.html">pdf_document2</a></p></li>
+<li><p><a href="https://bookdown.org/yihui/bookdown/a-single-document.html">word_document2</a></p></li>
+</ul></td>
+<td><ul>
+<li><a href="https://quarto.org/docs/authoring/cross-references.html">Quarto Crossrefs</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Websites &amp; Blogs</td>
+<td><ul>
+<li><p><a href="https://pkgs.rstudio.com/blogdown/">blogdown</a></p></li>
+<li><p><a href="https://pkgs.rstudio.com/distill/">distill</a></p></li>
+</ul></td>
+<td><ul>
+<li><p><a href="https://quarto.org/docs/websites/">Quarto Websites</a></p></li>
+<li><p><a href="https://quarto.org/docs/websites/website-blog.html">Quarto Blogs</a></p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Books</td>
+<td><ul>
+<li><a href="https://pkgs.rstudio.com/bookdown/">bookdown</a></li>
+</ul></td>
+<td><ul>
+<li><a href="https://quarto.org/docs/books/">Quarto Books</a></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Interactivity</td>
+<td><a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">Shiny Documents</a></td>
+<td><a href="https://quarto.org/docs/interactive/shiny/">Quarto Interactive Documents</a></td>
+</tr>
+<tr class="odd">
+<td>Paged HTML</td>
+<td><a href="https://github.com/rstudio/pagedown">pagedown</a></td>
+<td>Summer 2022</td>
+</tr>
+<tr class="even">
+<td>Journal Articles</td>
+<td><a href="https://pkgs.rstudio.com/rticles/">rticles</a></td>
+<td>Summer 2022</td>
+</tr>
+<tr class="odd">
+<td>Dashboards</td>
+<td><a href="https://pkgs.rstudio.com/flexdashboard/">flexdashboard</a></td>
+<td>Fall 2022</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="what-to-do-with-my-existing-.rmd-or-.ipynb" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-do-with-my-existing-.rmd-or-.ipynb">What to do with my existing <code>.Rmd</code> or <code>.ipynb</code>?</h2>
+<p>For some of you - nothing changes! Keep using RMarkdown and Jupyter.</p>
+<p><br></p>
+<div class="incremental">
+<p>However, most existing <code>.rmd</code> or <code>.ipynb</code> can be rendered as-is via Quarto</p>
+<div style="font-size: 80px;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre> <strong>terminal</strong></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my-favorite.rmd <span class="at">--to</span> html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="incremental">
+<p><br></p>
+<p>Since Jupyter notebooks can either be treated as a linear document to be re-executed or an already evaluated document there are additional options like: <code>--execute</code></p>
+<div style="font-size: 80px;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre> <strong>terminal</strong></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my-favorite.ipynb <span class="at">--to</span> html <span class="at">--execute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-quarto-instead-of-rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="why-quarto-instead-of-rmarkdown">Why Quarto, instead of RMarkdown</h2>
+<ul>
+<li>Batteries included, shared syntax</li>
+<li>Choose your own editor and your preferred data science language</li>
+<li>Better accessibility and richer features out of the box</li>
+<li>More enhancements overtime - RMarkdown still maintained, but majority of new features built into Quarto</li>
+</ul>
+<div class="incremental">
+<p>Collaboration with other colleagues in other languages - shared format, choose your editor and your native language</p>
+</div>
+</section>
+<section id="rendering" class="level2">
+<h2 class="anchored" data-anchor-id="rendering">Rendering</h2>
+<p><img src="https://quarto.org/docs/tools/images/rstudio-render.png" class="img-fluid" alt="A screenshot of the render button in RStudio" width="1000"></p>
+<div class="incremental">
+<ol start="2" type="1">
+<li>System shell via <code>quarto render</code></li>
+</ol>
+<div style="font-size: 60px;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre> <strong>terminal</strong></pre>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render document.qmd <span class="co"># defaults to html</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> pdf</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="incremental">
+<ol start="3" type="1">
+<li>R console via <code>quarto</code> R package</li>
+</ol>
+<div style="font-size: 60px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quarto)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quarto_render</span>(<span class="st">"document.qmd"</span>) <span class="co"># defaults to html</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quarto_render</span>(<span class="st">"document.qmd"</span>, <span class="at">output_format =</span> <span class="st">"pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="change-your-mental-model" class="level2">
+<h2 class="anchored" data-anchor-id="change-your-mental-model">Change your mental model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Source</p>
+<p><img src="images/word.png" class="img-fluid" alt="A blank Word document" width="450"></p>
+</div><div class="column" style="width:50%;">
+<p>Output</p>
+<p><img src="images/word.png" class="img-fluid" alt="A blank Word document" width="450"></p>
+</div>
+</div>
+</section>
+<section id="change-your-mental-model-1" class="level2">
+<h2 class="anchored" data-anchor-id="change-your-mental-model-1">Change your mental model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "ggplot2 demo"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Norah Jones"</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "5/22/2021"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-width: 8</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 4</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Air Quality</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>@fig-airquality further explores the impact of temperature </span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  on ozone level.</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><img src="https://quarto.org/images/hello-knitr.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="a-.qmd-is-a-plain-text-file" class="level2">
+<h2 class="anchored" data-anchor-id="a-.qmd-is-a-plain-text-file">A <code>.qmd</code> is a plain text file</h2>
+<div class="incremental">
+<ul>
+<li>Metadata (YAML)</li>
+</ul>
+<div class="columns" style="font-size: 60px;">
+<div class="column" style="width:45%;">
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> knitr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:55%;">
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> jupyter</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="incremental">
+<ul>
+<li>Code</li>
+</ul>
+<div class="columns" style="font-size: 60px;">
+<div class="column" style="width:45%;">
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mpg))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:55%;">
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>(mtcars</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> group_by(_.cyl)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;&gt;</span> summarize(avg_mpg <span class="op">=</span> _.mpg.mean()))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="incremental">
+<ul>
+<li>Text</li>
+</ul>
+<div style="font-size: 70px;">
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>This is a sentence with some **bold text**, *italic text* and an </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="al">![image](image.png)</span>{fig-alt="Alt text for this image"}.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="metadata-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-yaml">Metadata: YAML</h2>
+<p>The <a href="https://yaml.org/">YAML</a> metadata or header is:</p>
+<blockquote class="blockquote">
+<p>processed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and <code>knitr</code>. Along the way, the information that it contains can affect the code, content, and the rendering process.</p>
+</blockquote>
+</section>
+<section id="yaml" class="level2">
+<h2 class="anchored" data-anchor-id="yaml">YAML</h2>
+<div style="font-size: 80px;">
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="markdown" class="level2">
+<h2 class="anchored" data-anchor-id="markdown">Markdown</h2>
+<blockquote class="blockquote">
+<p>Quarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber’s <a href="https://daringfireball.net/projects/markdown/">Markdown</a> syntax.</p>
+</blockquote>
+<div class="incremental">
+<blockquote class="blockquote">
+<p>Markdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read</p>
+</blockquote>
+</div>
+</section>
+<section id="text-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="text-formatting">Text Formatting</h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Markdown Syntax</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre><code>*italics* and **bold**</code></pre></td>
+<td><em>italics</em> and <strong>bold</strong></td>
+</tr>
+<tr class="even">
+<td><pre><code>superscript^2^ / subscript~2~</code></pre></td>
+<td>superscript<sup>2</sup> / subscript<sub>2</sub></td>
+</tr>
+<tr class="odd">
+<td><pre><code>~~strikethrough~~</code></pre></td>
+<td><del>strikethrough</del></td>
+</tr>
+<tr class="even">
+<td><pre><code>`verbatim code`</code></pre></td>
+<td><code>verbatim code</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="headings" class="level2">
+<h2 class="anchored" data-anchor-id="headings">Headings</h2>
+<table class="table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Markdown Syntax</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre><code># Header 1</code></pre></td>
+<td><h1 id="header-1">Header 1</h1></td>
+</tr>
+<tr class="even">
+<td><pre><code>## Header 2</code></pre></td>
+<td><h2 id="header-2" class="anchored">Header 2</h2></td>
+</tr>
+<tr class="odd">
+<td><pre><code>### Header 3</code></pre></td>
+<td><h3 id="header-3" class="anchored">Header 3</h3></td>
+</tr>
+<tr class="even">
+<td><pre><code>#### Header 4</code></pre></td>
+<td><h4 id="header-4" class="anchored">Header 4</h4></td>
+</tr>
+<tr class="odd">
+<td><pre><code>##### Header 5</code></pre></td>
+<td><h5 id="header-5" class="anchored">Header 5</h5></td>
+</tr>
+<tr class="even">
+<td><pre><code>###### Header 6</code></pre></td>
+<td><h6 id="header-6" class="anchored">Header 6</h6></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<div class="cell" data-output-location="column">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| output-location: column</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-airquality" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01-Day01_files/figure-html/fig-airquality-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Temperature and ozone level.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="code-more-than-just-r" class="level2">
+<h2 class="anchored" data-anchor-id="code-more-than-just-r">Code, more than just R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-polar</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/polar-axis.png" class="img-fluid" width="650"></p>
+</div>
+</div>
+</section>
+<section id="what-about-the-cli" class="level2">
+<h2 class="anchored" data-anchor-id="what-about-the-cli">What about the CLI?</h2>
+<blockquote class="blockquote">
+<p>Quarto is a command line interface (CLI) that renders plain text formats (<code>.qmd</code>, <code>.rmd</code>, <code>.md</code>) OR mixed formats (<code>.ipynb</code>/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>thomasmock$ quarto <span class="op">--</span><span class="bu">help</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a></span>
+<span id="cb36-3"><a href="#cb36-3"></a>  Usage:   quarto</span>
+<span id="cb36-4"><a href="#cb36-4"></a>  Version: <span class="fl">1.0.36</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a></span>
+<span id="cb36-6"><a href="#cb36-6"></a>  Description:</span>
+<span id="cb36-7"><a href="#cb36-7"></a>    Quarto CLI</span>
+<span id="cb36-8"><a href="#cb36-8"></a></span>
+<span id="cb36-9"><a href="#cb36-9"></a>  Options:</span>
+<span id="cb36-10"><a href="#cb36-10"></a>    <span class="op">-</span>h, <span class="op">--</span><span class="bu">help</span>     <span class="op">-</span> Show this <span class="bu">help</span>.                            </span>
+<span id="cb36-11"><a href="#cb36-11"></a>    <span class="op">-</span>V, <span class="op">--</span>version  <span class="op">-</span> Show the version number <span class="cf">for</span> this program.  </span>
+<span id="cb36-12"><a href="#cb36-12"></a></span>
+<span id="cb36-13"><a href="#cb36-13"></a>  Commands:</span>
+<span id="cb36-14"><a href="#cb36-14"></a>    render          [<span class="bu">input</span>] [args...]   <span class="op">-</span> Render <span class="bu">input</span> <span class="bu">file</span>(s) to various document types.            </span>
+<span id="cb36-15"><a href="#cb36-15"></a>    preview         [<span class="bu">file</span>] [args...]    <span class="op">-</span> Render <span class="kw">and</span> preview a document <span class="kw">or</span> website project.          </span>
+<span id="cb36-16"><a href="#cb36-16"></a>    serve           [<span class="bu">input</span>]             <span class="op">-</span> Serve a Shiny interactive document.                        </span>
+<span id="cb36-17"><a href="#cb36-17"></a>    create<span class="op">-</span>project  [<span class="bu">dir</span>]               <span class="op">-</span> Create a project <span class="cf">for</span> rendering multiple documents          </span>
+<span id="cb36-18"><a href="#cb36-18"></a>    convert         <span class="op">&lt;</span><span class="bu">input</span><span class="op">&gt;</span>             <span class="op">-</span> Convert documents to alternate representations.            </span>
+<span id="cb36-19"><a href="#cb36-19"></a>    pandoc          [args...]           <span class="op">-</span> Run the version of Pandoc embedded within Quarto.          </span>
+<span id="cb36-20"><a href="#cb36-20"></a>    run             [script] [args...]  <span class="op">-</span> Run a TypeScript, R, Python, <span class="kw">or</span> Lua script.                </span>
+<span id="cb36-21"><a href="#cb36-21"></a>    install         <span class="op">&lt;</span><span class="bu">type</span><span class="op">&gt;</span> [target]     <span class="op">-</span> Installs an extension <span class="kw">or</span> <span class="kw">global</span> dependency.                </span>
+<span id="cb36-22"><a href="#cb36-22"></a>    publish         [provider] [path]   <span class="op">-</span> Publish a document <span class="kw">or</span> project. Available providers include:</span>
+<span id="cb36-23"><a href="#cb36-23"></a>    check           [target]            <span class="op">-</span> Verify correct functioning of Quarto installation.         </span>
+<span id="cb36-24"><a href="#cb36-24"></a>    <span class="bu">help</span>            [command]           <span class="op">-</span> Show this <span class="bu">help</span> <span class="kw">or</span> the <span class="bu">help</span> of a sub<span class="op">-</span>command.    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="navigating-in-the-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-in-the-terminal">Navigating in the terminal</h2>
+<p>Because Quarto is a command line interface (CLI), there are times you’ll need to use it via the terminal. A great overview of using the command line and navigating files/directories is available via the <a href="https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html">Data Carpentries</a> or a great interactive tool for understanding commands: <a href="https://tldr.ostera.io" class="uri">https://tldr.ostera.io</a></p>
+<div class="incremental">
+<table class="table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>Print name of current working directory</td>
+</tr>
+<tr class="even">
+<td><code>cd</code></td>
+<td>Change current working directory</td>
+</tr>
+<tr class="odd">
+<td><code>ls</code></td>
+<td>List directory contents</td>
+</tr>
+<tr class="even">
+<td><code>quarto --help</code></td>
+<td>Return <code>quarto</code> help docs</td>
+</tr>
+<tr class="odd">
+<td><code>mkdir howdy</code></td>
+<td>Make a new folder/directory called “howdy”</td>
+</tr>
+<tr class="even">
+<td><code>rm folder-name/some-file.qmd</code></td>
+<td>Delete <code>some-file.qmd</code> in the <code>folder-name</code> directory</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="our-turn-2" class="level1" data-background-color="#447099" data-transition="slide-in">
+<h1 data-background-color="#447099" data-transition="slide-in"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our Turn</h1>
+<ul>
+<li>In RStudio, open <code>quarto-workshop/01-intro/history.qmd</code></li>
+<li>Render with the RStudio <code>Render -&gt;</code> button</li>
+<li>Look at it and compare to <a href="https://en.wikipedia.org/wiki/Boston_Terrier">Wikipedia source</a></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Move to the integrated terminal and execute:</p></li>
+<li><p>Render via terminal with <code>quarto render history.qmd --to pdf</code></p></li>
+<li><p>Compare to the HTML version</p></li>
+</ul>
+
+
+<script type="ojs-module-contents">
+{"contents":[
+  {"methodName":"interpret","inline":"true","source":"htl.html`<span>${d3.format(\".0f\")(temp)}</span>`", "cellName":"ojs-element-id-1"}
+,
+  {"methodName":"interpret","inline":"true","source":"htl.html`<span>${d3.format(\".1f\")(temp * 9/5 + 32)}</span>`", "cellName":"ojs-element-id-2"}
+]}
+</script>
+</section>
+
+</main> <!-- /main -->
+
+<script type="ojs-module-contents">
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"viewof bill_length_min = Inputs.range(\n  [32, 50], \n  {value: 35, step: 1, label: \"Bill length (min):\"}\n)\nviewof islands = Inputs.checkbox(\n  [\"Torgersen\", \"Biscoe\", \"Dream\"], \n  { value: [\"Torgersen\", \"Biscoe\"], \n    label: \"Islands:\"\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"Plot.rectY(filtered, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"body_mass\", fill: \"species\", thresholds: 20}\n  ))\n  .plot({\n    facet: {\n      data: filtered,\n      x: \"sex\",\n      y: \"species\",\n      marginRight: 80\n    },\n    marks: [\n      Plot.frame(),\n    ]\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"Inputs.table(filtered)\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"data = FileAttachment(\"palmer-penguins.csv\").csv({ typed: true })\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"filtered = data.filter(function(penguin) {\n  return bill_length_min < penguin.bill_length &&\n         islands.includes(penguin.island);\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('temp')"},{"methodName":"interpretQuiet","source":"shinyInput('bill_length_min')"},{"methodName":"interpretQuiet","source":"shinyInput('islands')"}]}
+</script>
+<script type="module">
+window._ojs.paths.runtimeToDoc = "../../materials";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This page was built with ❤️, <a href="https://cran.r-project.org">R</a> and <a href="https://quarto.org/">Quarto</a> by Marco Chiapello.</div>   
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -24,7 +24,9 @@ website:
             text: "Modulo II: Riepilogo di R"
           - href: materials/M3_RNASeq_Intro.qmd
             text: "Modulo III: Introduzione all'RNASeq"
-          - href: materials/02-Day02.qmd
+          - href: https://phd-toolbox-course.github.io/2022_PhD_Toolbox_course/M4_RicercaRiproducibile.html#1
+            text: "Modulo IV: Ricerca Riproducibile"
+          - href: https://phd-toolbox-course.github.io/2022_PhD_Toolbox_course/01-RR.html#1
             text: "Secondo giorno"
       - href: materials/risorse.qmd
         text: "Materiale aggiuntivo"

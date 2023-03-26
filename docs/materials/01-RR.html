@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reproducible Research</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Marco Chiapello" />
+    <meta name="date" content="2020-06-08" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="scrollable.css" type="text/css" />
+    <link rel="stylesheet" href="mtheme_max.css" type="text/css" />
+    <link rel="stylesheet" href="fonts_mtheme_max.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide   
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+# .font200[Data science in Unix and R]
+## .font180[Reproducible Research]
+
+&lt;br&gt;
+.marco[
+Marco Chiapello
+&lt;br&gt;
+January, 10th 2022
+]
+
+---
+
+# PhDToolbox Course
+
+&lt;img src="images/environmental-data-science-r4ds-general.png" width="1100px" style="display: block; margin: auto;" /&gt;
+
+---
+# What reproducible research is
+
+&lt;img src="images/001.jpg" width="750px" style="display: block; margin: auto;" /&gt;
+
+???
+thunderstruck
+---
+# What reproducible research is
+
+&lt;img src="images/thenamiracleoccurs.jpg" width="750px" style="display: block; margin: auto;" /&gt;
+
+This is exactly how it seems when you try to figure out how authors got from a large and complex data set to a dense paper with lots of busy figures.
+Without access to the data and the analysis code, a miracle occurred.
+
+.content-box-title[
+.white[
+.center[
+.font120[There should be no miracles in science (Markowetz, 2015)]
+]
+]
+]
+
+---
+# What reproducible research is
+.center[
+.font200[DATA + ANALYSIS <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:black;overflow:visible;position:relative;"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg> RESULTS
+]
+]
+
+--
+.center[
+.font200[BUT not like this
+]
+]
+
+---
+
+# What reproducible research is
+
+&lt;img src="images/motivatedReasoning.png" width="1200px" style="display: block; margin: auto;" /&gt;
+
+---
+# What reproducible research is
+.center[
+.font200[DATA + ANALYSIS <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:black;overflow:visible;position:relative;"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg> RESULTS
+]
+]
+
+## Common practice of writing statistical reports:
+.font150[
+- We import a dataset into .red[Excel]
+- Run a procedure to get all results
+- .blue[Copy and paste] selected pieces into a typesetting program (usually .red[Word])
+- Add a few descriptions
+- Finish a report
+]
+
+---
+# What reproducible research is
+
+## There are obvious dangers and disadvantages in this process:
+.font160[
+1. It is .bold[error-prone] due to too much manual work;
+2. It requires lots of human effort to do .bold[tedious jobs];
+3. The workflow is barely recordable, therefore it is .bold[difficult to reproduce];
+4. A .bold[tiny change] of the data source in the future will require the author(s) to go through the same procedure again;
+5. The analysis and writing are separate, so close attention has to be paid to the .bold[synchronization of the two parts].
+]
+
+---
+# What reproducible research is
+
+.center[.font200[What is Reproducible Research?]]
+&lt;br&gt;
+.center[.content-box-red[.font150[.bold[The ability to reproduce someone else results]]]]
+&lt;br&gt;
+
+--
+
+----
+
+### What do you need?
+
+--
+- .font140[Data]
+
+--
+- .font140[Code]
+
+--
+- .font140[Documentation for data and code]
+
+---
+# What reproducible research is
+## Reproducible vs Replicable
+
+
+&lt;img src="images/Screenshot 2020-05-19 at 06.49.21.png" width="1200px" style="display: block; margin: auto;" /&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.marco[
+Ref: https://github.com/KirstieJane/ReproducibleResearch
+]
+---
+# What reproducible research is
+.font120[
+.bold[Reproducibility/reproduce]   
+A study is reproducible if there is a specific set of computational functions/analyses (usually specified in terms of code) that .red[exactly reproduce all of the numbers in a published paper from raw data].
+
+.bold[Replication/replicate]    
+A study is only replicable if you perform the exact same experiment (at least) twice, collect data in the same way both times, perform the same data analysis, and .red[arrive at the same conclusions].
+
+----
+
+.bold[Reproducibility] is, to some extent, a .red[technical challenge], while   
+.bold[Replication] .red[gives to the results scientific validity].]
+
+.marco[
+Ref: https://github.com/lgatto/TeachingMaterial/tree/master/open-rr-bioinfo-best-practice]
+
+---
+
+class: inverse
+
+&lt;br&gt;&lt;br&gt;
+.center[.font200[.white[
+Reproducible Research Rules
+]]]
+
+----
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.marco[
+.white[– based on (Sandve, Nekrutenko, Taylor, and Hovig, 2013)]
+]
+
+---
+class: large
+
+# Rule 1
+
+## For Every Result, Keep Track of How It Was Produced
+
+--
+
+- The **full sequence** of pre- and post-processing steps are often critical in order to reach the achieved result
+
+- **Every detail** that may influence the execution of the step **should be recorded**
+
+- Include the name and **version of the program**, as well as the exact parameters and inputs
+
+.content-box-gray[As a minimum, you should at least **record sufficient details** on **programs, parameters, and manual procedures** to allow yourself, in a year or so,   
+to approximately reproduce the results]
+
+---
+# Rule 2
+
+## Avoid Manual Data Manipulation Steps
+
+--
+
+.font120[
+- .red[Manual procedures are not only **inefficient and error-prone**, they are also **difficult to reproduce**]
+- .red[Manual operations like the use of **copy and paste** between documents **should also be avoided**]
+- Manual modification of files can usually be replaced by the use of standard **UNIX commands** or scripts
+- Manual tweaking of data files to attain format compatibility should be replaced by **format converters** that can be reenacted and **included into executable workflows**
+]
+
+.content-box-gray[If manual operations cannot be avoided, you should as
+a minimum    
+**note down which data files were modified or moved, and for what purpose**]
+
+---
+# Rule 3
+
+## Archive the Exact Versions of All External Programs Used
+
+--
+.font120[
+- In order to exactly reproduce a given result, it may be necessary to use programs in the **exact versions used originally**
+- It is **not always trivial to get hold of a program** in anything but the current version
+]
+&lt;br&gt;&lt;br&gt;
+.content-box-gray[As a minimum, you should note
+the **exact names** and **versions** of the main programs you use]
+
+---
+# Rule 4
+
+## Version Control All Custom Scripts
+
+--
+
+.font120[
+- Only that **exact state of the script** may be able to produce that **exact output**, even **given the same input data and parameters**
+- The standard solution to **track evolution of code** is to use a version control system
+  - .font70[A version control system is a **repository of files** with monitored access.]
+  - .font70[**Every change** made to the source **is tracked**, along with who made the change, why they made it]
+]
+
+&lt;br&gt;
+.content-box-gray[As a minimum, you should **archive copies 
+of your scripts** from time to time]
+
+---
+# Rule 5
+
+## Record All Intermediate Results, When Possible in Standardized Formats
+
+--
+
+.font120[
+- In principle, as long as the **full process** used to produce a given result **is tracked**, all **intermediate data can also be regenerated**
+- In practice, having easily accessible intermediate results may be of great value (eg, to **spot errors**)
+- When the full process is not readily executable, it allows parts of the process to be rerun
+- **It allows critical examination** of the full process behind a result
+]
+
+&lt;br&gt;
+.content-box-gray[As a minimum, **archive any intermediate result files** that are produced when running an analysis]
+
+---
+# Rule 6
+
+## For Analyses That Include Randomness, Note Underlying Random Seeds
+
+--
+.font120[
+- Many analyses and predictions include some **element of randomness**, meaning the same program will typically give **slightly different results every time it is executed**
+- **Given the same initial seed**, all random numbers used in an analysis will be equal, thus giving identical results every time it is run
+]
+&lt;br&gt;
+
+.content-box-gray[As a minimum, you should **note which analysis steps involve randomness**, so that a certain level of discrepancy can be anticipated when reproducing the results]
+
+---
+# Rule 7
+
+## Always Store Raw Data
+
+--
+&lt;br&gt;&lt;br&gt;
+.content-box-gray[
+.font150[
+.f500[
+Always store in a safe place the raw data
+]
+]
+]
+&lt;br&gt;
+.content-box-gray[
+.font150[
+.f500[
+Never touch or mofidy the raw data
+]
+]
+]
+
+---
+# Rule 8
+
+## Generate Hierarchical Analysis Output, Allowing Layers of Increasing Detail to Be Inspected (test units)
+
+.font120[
+- The **final results** that make it to an article, be it plots or tables, often represent **highly summarized data**
+- In order to validate and fully understand the main result, it is often useful to **inspect the detailed values** underlying the summaries
+]
+
+&lt;br&gt;
+
+.content-box-gray[
+When working with summarized results, you should as a minimum at least once   
+**generate, inspect, and validate the detailed values** underlying the summaries
+]
+
+---
+# Rule 9
+
+## Connect Textual Statements to Underlying Results
+
+--
+
+.font120[
+- The results of analyses and their corresponding textual interpretations are clearly interconnected but **often lie in different places**
+- Results usually live on a personal computer, while interpretations live in text documents
+- To allow efficient retrieval of details behind textual statements, we suggest that **statements are connected to underlying results already from the time the statements are initially formulated**
+]
+
+.content-box-gray[
+**Integrate reproducible analyses directly into textual documents**    
+.font120[**RMarkdown**]
+]
+
+---
+# Rule 10
+
+## Provide Public Access to Scripts, Runs, and Results
+
+--
+
+.font120[
+- All input data, scripts, versions, parameters, and inter-mediate results should be made **publicly and easily accessible**
+- Making reproducibility of your work by peers a realistic possibility sends a **strong signal of quality, trustworthiness, and transparency**
+]
+
+---
+
+class: inverse
+
+&lt;br&gt;&lt;br&gt;
+.center[.font200[.white[
+Reproducible research Tools
+]]]
+
+----
+
+&lt;br&gt;
+.marco[
+.font90[
+.white[
+Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to humans what we want the computer to do.
+]
+]
+]
+.marco[
+.white[– Donald E. Knuth Literate Programming, 1984]
+]
+
+---
+# Tools
+
+&lt;br&gt;&lt;br&gt;
+.font120[
+.font160[**Literate programming**] is a methodology that combines a programming language with a documentation language
+
+&lt;br&gt;
+- Write program code
+
+
+- Write narratives to explain what is being done by the program code
+]
+---
+# Tools
+
+## RMarkdown
+
+&lt;img src="images/RMarkdownOutputFormats.png" width="420px" style="display: block; margin: auto;" /&gt;
+
+.center[Ref: http://rmarkdown.rstudio.com/index.html]
+---
+
+class: title-slide
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.center[.font200[.f500[DEMO]]]
+
+---
+# Tools
+
+## Project organization 
+
+We strongly advise to split your project in folder and not dumpo everything on the desktop.
+
+1. **README file**: explain the purpose of the project and describe the folder/files in it
+
+1. **RAWDATA folder**: contains the rawdata. We advise to have it with "read only permission"
+
+1. **SCRIPT folder**: contains the script used for your analysis
+
+1. **ANALYSIS folder**: contains the results of your analysis
+
+---
+# Tools
+
+## Version Control
+
+.pull-left[
+&lt;img src="images/versionControl.jpg" width="350px" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-rigth[
+&lt;br&gt;&lt;br&gt;
+.font120[
+**Version control software** keeps track of every modification to the code in a special kind of database. If a mistake is made, developers can **turn back the clock** and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.
+]
+]
+
+---
+class: inverse
+
+&lt;br&gt;&lt;br&gt;
+.center[.font200[.white[
+Conclusion
+]]]
+
+----
+
+---
+# Conclusion
+
+.font120[
+- Learning to use these tools will **require commitment and a massive investment of your time and energy**
+
+- **A priori** it is not clear why the benefits of working reproducibly outweigh its costs.
+
+- Does reproducibility sound like **extra work**?
+
+- It can be, particularly when one is first trying to do it, that is, to **break one’s own previous nonreproducible habits**
+]
+
+---
+# Conclusion
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.center[.f500[.font200[My advice is:]]]
+&lt;br&gt;
+.center[.font160[Learn the tools of reproducibility as quickly as possible    
+Use them in every project.]]
+---
+# References
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+Markowetz, F. (2015). "Five selfish reasons to work reproducibly". In:
+_Genome Biology_ 16.1, p. 274. DOI:
+[10.1186/s13059-015-0850-7](https://doi.org/10.1186%2Fs13059-015-0850-7).
+
+Sandve, G. K., A. Nekrutenko, J. Taylor, et al. (2013). "Ten Simple
+Rules for Reproducible Computational Research". In: _PLOS Computational
+Biology_ 9.10, pp. 1-4. DOI:
+[10.1371/journal.pcbi.1003285](https://doi.org/10.1371%2Fjournal.pcbi.1003285).
+URL:
+[https://doi.org/10.1371/journal.pcbi.1003285](https://doi.org/10.1371/journal.pcbi.1003285).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
