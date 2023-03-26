@@ -501,6 +501,9 @@ GFF3 (General Feature Format) è un file ti testo che contiene informazioni su o
 
 :::{.tcenter}
 [FastQC]{.tit .p-spam.center}
+
+<br>
+
 [[https://www.bioinformatics.babraham.ac.uk/projects/fastqc/](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)]{.p-spam.center}
 
 <br>
