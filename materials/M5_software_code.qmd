@@ -499,14 +499,21 @@ GFF3 (General Feature Format) è un file ti testo che contiene informazioni su o
 ## Diversi Software
 ### Pre-alignment QC
 
-:::{.f20}
-Esisto molti solftware di quality control. Uno dei più famosi è [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/).
+:::{.tcenter}
+[FastQC]{.tit .p-spam.center}
+[[https://www.bioinformatics.babraham.ac.uk/projects/fastqc/](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)]{.p-spam.center}
+
+<br>
+
+[material](https://mchiapello.github.io/202010_VirusDetection/Pres/M5_FastQC.html#2)
 
 :::
 
-:::{.fragment}
-![](images/QC1.png)
-:::
+
+
+
+## Diversi Software
+
 
 
 ## Diversi Software
