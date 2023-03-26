@@ -32,9 +32,9 @@ Via Montpellier 1
 |10:45| Pausa                   |
 |11:00| [Introduzione all'RNASeq](materials/M3_RNASeq_Intro.qmd)|
 |12:30| Pausa pranzo            |
-|13:30| [Software and code](materials/M4_software_code.qmd)       |
+|13:30| [Ricerca Riproducibile](https://phd-toolbox-course.github.io/2022_PhD_Toolbox_course/M4_RicercaRiproducibile.html#1)       |
 |14:45| Pausa                   |
-|15:00| DEMO                    |
+|15:00| [Software and code](materials/M5_software_code.qmd)       |
 |16:30| Considerazioni finali   | 
 
 
