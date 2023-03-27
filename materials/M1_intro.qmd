@@ -139,7 +139,7 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 ::: columns
 ::: {.column width="50%"}
 [Primo Giorno]{.p-span-center}
-[Introduzione all'RNASeq]{.p-span-center}
+[Teoria]{.p-span-center}
 
 <br>
 
@@ -155,9 +155,9 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 12:30: Pausa pranzo            
 
 
-13:30: Software and code       
+13:30: Ricerca Riproducibile       
 14:45: Pausa                   
-15:00: DEMO                    
+15:00: Software and code       
 16:30: Considerazioni finali   
 
 :::
@@ -165,21 +165,21 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 
 ::: {.column width="50%"}
 [Secondo Giorno]{.p-span-center}
-[Espessione Differenziale]{.p-span-center}
+[Pratica]{.p-span-center}
 
 <br>
 
 :::{.fragment .fade-rigth fragment-index=2}
 [Orari]{style="font-weight: bold;"}    
-9:30 : Introduzione a DESEQ2   
+9:30 : Live Code (quantification)   
 10:45: Pausa                   
-11:00: Live Code
+11:00: Live Code (DGE)
 
 
 12:30: Pausa pranzo            
 
 
-13:30: Live Code       
+13:30: Live Code (DGE)      
 14:45: Pausa                   
 15:00: Capstone exercise                    
 16:30: Considerazioni finali   

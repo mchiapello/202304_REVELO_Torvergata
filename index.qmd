@@ -67,49 +67,13 @@ Per installare R cliccate sul seguente [link](https://cran.r-project.org) e segu
 
 Per installare RStudio cliccate sul seguente [link](https://posit.co/download/rstudio-desktop/) e seguite le istruzioni per il vostro sistema operativo.
 
-#### Conda
+#### Docker
 
-##### Mac OS
+Per installare Docker cliccate sul seguente [link](https://docs.docker.com/get-docker/) e seguite le istruzioni per il vostro sistema operativo.
 
-Scaricare lo script miniconda dal seguente [link](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh)
-
-Dopo aver aperto il terminale, incollate i seguenti comandi
-
-```
-cd ~/Downloads
-bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda
-source $HOME/miniconda/bin/activate
-conda init zsh
-```
-
-#### Windows OS
-
-We will first install Miniconda and then add three new locations to your system environment path for conda to be recognized as a command in your Command Prompt. 
-
-Installeremo Miniconda e poi faremo delle piccole modifiche per permettere al Command prompt di riconoscere conda.
-
-1. Download the Miniconda executable (.exe) from here and double click the .exe to run the setup guide
-1. Click "Next >" to continue
-1. Click "I Agree"
-1. Verify that the installation type "Just Me (recommended)" is selected and then click "Next >"
-1. Use the default destination folder which should resemble C:\Users\yourname\Miniconda3. We will need the path to this destination folder soon so copy it to your clipboard and then click "Next >"
-1. Check "Register Miniconda3 as my default Python 3.9" and then click "Install"
-1. Using the search box in the toolbar at the bottom of your screen, search for "environment variables" and then click on "Edit the system environment variables"
-1. Click "Environment Variables..."
-1. Under "System variables" click on "Path" so that row is highlighted in blue and click "Edit..."
-1. Click "New"
-1. In the box that appears, paste the file path that you copied in step 5. It should look like C:\Users\yourname\Miniconda3\
-1. Click "New"
-1. Paste the file path that you copied in step 5 but modify it so that it looks like C:\Users\yourname\Miniconda3\Scripts\
-1. Click "New"
-1. Paste the file path that you copied in step 5 but modify it so that it looks like C:\Users\yourname\Miniconda3\Library\bin\
-1. Click "OK" to close the "Edit environment variable" window
-1. Click "OK" to close the "Environment Variables" window
-1. Click "OK" to close the "System Properties" window
-    
     
 #### Slack
-Seguire il [link](https://join.slack.com/t/2023-rnaseq-course1/shared_invite/zt-1qbyk926t-ReFgoXM3CN4EKfzE50IKpQ) per iscriversi al canale Slack del corso
+Seguire il [link](https://revelotraining.slack.com/archives/C05070Z7ET0) per iscriversi al canale Slack del corso
 
 ### Docente
 
