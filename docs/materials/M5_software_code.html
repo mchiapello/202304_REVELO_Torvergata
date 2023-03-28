@@ -1238,6 +1238,377 @@ GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
 <p>From: https://en.wikipedia.org/wiki/List_of_RNA-Seq_bioinformatics_tools</p>
 </div>
 </div>
+</section>
+<section id="diversi-software-14" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-1">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<p>The count data used for DGE represents the number of sequence reads that originated from a particular gene.</p>
+<div class="p-img-center">
+<p><img data-src="images/count.png" width="1200"></p>
+</div>
+</section>
+<section id="diversi-software-15" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-2">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<h4 id="normalization">Normalization</h4>
+<p>The count data needs to be normalized to account for differences in <strong>library sizes</strong> and <strong>RNA composition</strong> between samples</p>
+<div class="fragment">
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Normalization is essential for <strong>differential expression analyses</strong>, and also for <strong>exploratory data analysis</strong>, <strong>visualization of data</strong>, and whenever you are exploring or comparing counts between or within samples</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="diversi-software-16" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-3">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<h4 id="normalization-1">Normalization</h4>
+<div class="f25">
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Normalization method</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Accounted factors</strong></td>
+<td><strong>Recommendations for use</strong></td>
+</tr>
+<tr class="even">
+<td><strong>CPM</strong> (counts per million)</td>
+<td>counts scaled by total number of reads</td>
+<td>sequencing depth</td>
+<td>gene count comparisons between replicates of the same samplegroup; <strong>NOT for within sample comparisons or DE analysis</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>TPM</strong> (transcripts per kilobase million)</td>
+<td>counts per length of transcript (kb) per million reads mapped</td>
+<td>sequencing depth and gene length</td>
+<td>gene count comparisons within a sample or between samples of the same sample group; <strong>NOT for DE analysis</strong></td>
+</tr>
+<tr class="even">
+<td><strong>RPKM/FPKM</strong> (reads/fragments per kilobase of exon per million reads/fragments mapped)</td>
+<td>similar to TPM</td>
+<td>sequencing depth and gene length</td>
+<td>gene count comparisons between genes within a sample; <strong>NOT for between sample comparisons or DE analysis</strong></td>
+</tr>
+<tr class="odd">
+<td>DESeq2’s <strong>median of ratios</strong> [<a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-10-r106">1</a>]</td>
+<td>counts divided by sample-specific size factors determined by median ratio of gene counts relative to geometric mean per gene</td>
+<td>sequencing depth and RNA composition</td>
+<td>gene count comparisons between samples and for <strong>DE analysis</strong>; <strong>NOT for within sample comparisons</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="diversi-software-17" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-4">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<h4 id="quality-control-at-sample-level">Quality Control at SAMPLE level</h4>
+<div class="{incremental}">
+<ul>
+<li><p>Which samples are similar to each other, which are different?</p></li>
+<li><p>Does this fit to the expectation from the experiment’s design?</p></li>
+<li><p>What are the major sources of variation in the dataset?</p></li>
+</ul>
+</div>
+<aside class="notes">
+<ul>
+<li><p>ensure that the samples/replicates look good</p></li>
+<li><p>Sample-level QC allows us to see how well our replicates cluster together</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-18" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-5">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<h4 id="quality-control-at-sample-level-1">Quality Control at SAMPLE level</h4>
+<ul>
+<li><p>Log2-transformed normalized counts are used to assess similarity between samples using:</p>
+<ul>
+<li>Principal Component Analysis (PCA)<br>
+</li>
+<li>Hierarchical clustering</li>
+</ul></li>
+</ul>
+<div class="p-img-center">
+<p><img data-src="images/pcahc.png" width="1000"></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Using log2 transformation, tools aim to moderate the variance across the mean</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-19" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-6">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<h4 id="quality-control-at-gene-level">Quality Control at GENE level</h4>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Genes with zero counts in all samples</p></li>
+<li><p>Genes with an extreme count outlier</p></li>
+<li><p>Genes with a low mean normalized counts</p></li>
+</ul>
+</div>
+</section>
+<section id="diversi-software-20" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-7">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<h4 id="quality-control-at-gene-level-1">Quality Control at GENE level</h4>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed</p>
+</div>
+</div>
+</div>
+<div class="p-img-center">
+<p><img data-src="images/gele.png" width="1200"></p>
+</div>
+</section>
+<section id="diversi-software-21" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-8">Differential Gene Expression (DGE)</h3>
+<p><br></p>
+<h4 id="quality-control-at-gene-level-2">Quality Control at GENE level</h4>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed</p>
+</div>
+</div>
+</div>
+<p><br> <br></p>
+<div class="f60 tcenter">
+<p><strong>DESeq2</strong> will perform this filtering by default,</p>
+<p>however other DE tools will not</p>
+</div>
+</section>
+<section id="diversi-software-22" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-9">Differential Gene Expression (DGE)</h3>
+<h4 id="deseq2"><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">DESeq2</a></h4>
+<p><br></p>
+<h4 id="modeling-raw-count-for-each-gene">Modeling raw count for each gene</h4>
+<div class="p-img-center">
+<p><img data-src="images/rawc.png" width="700"></p>
+</div>
+<aside class="notes">
+<p>These images illustrate some common features of RNA-seq count data:</p>
+<ul>
+<li><p>a low number of counts associated with a large proportion of genes</p></li>
+<li><p>a long right tail due to the lack of any upper limit for expression</p></li>
+<li><p>large dynamic range</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-23" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-10">Differential Gene Expression (DGE)</h3>
+<h4 id="deseq2-1"><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">DESeq2</a></h4>
+<p><br></p>
+<h4 id="modeling-raw-count-for-each-gene-1">Modeling raw count for each gene</h4>
+<div class="p-img-center">
+<p><img data-src="images/AH-noNorm.png" width="900"></p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>RNASeq data are non-normally distributed data</p></li>
+<li><p>the normal distribution does not accurately model RNA-seq counts</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-24" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-11">Differential Gene Expression (DGE)</h3>
+<h4 id="deseq2-2"><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">DESeq2</a></h4>
+<p><br></p>
+<h4 id="modeling-raw-count-for-each-gene-2">Modeling raw count for each gene</h4>
+<p><br> <br></p>
+<div class="f60 tcenter">
+<p>So what do we use for RNA-seq count data?</p>
+</div>
+<aside class="notes">
+<p>Count data in general can be modeled with various distributions:</p>
+<ul>
+<li><p><strong>Binomial distribution</strong>: Gives you the probability of getting a number of heads upon tossing a coin a number of times. Based on discrete events and used in situations when you have a certain number of cases.</p></li>
+<li><p><strong>Poisson distribution</strong>: For use, when the number of cases is very large (i.e.&nbsp;people who buy lottery tickets), but the probability of an event is very small (probability of winning). The Poisson is similar to the binomial, but is based on continuous events. Appropriate for data where mean == variance.</p></li>
+<li><p><strong>Negative binomial distribution</strong>: An approximation of the Poisson, but has an additional parameter that adjusts the variance independently from the mean.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-25" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-12">Differential Gene Expression (DGE)</h3>
+<h4 id="deseq2-3"><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">DESeq2</a></h4>
+<p><br></p>
+<h4 id="modeling-raw-count-for-each-gene-3">Modeling raw count for each gene</h4>
+<p><br> <br></p>
+<div class="f60 tcenter">
+<p><strong>DESeq2</strong> uses the negative binomial model</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="tit">
+<p>“All models are wrong, but some are useful”.</p>
+</div>
+<div style="font-size: 30px; text-align: right">
+<p>George E. P. Box</p>
+</div>
+</section>
+<section id="diversi-software-26" class="slide level2">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-13">Differential Gene Expression (DGE)</h3>
+<h4 id="deseq2-4"><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">DESeq2</a></h4>
+<p><br></p>
+<h4 id="the-deseqdataset">The DESeqDataSet</h4>
+<div class="p-img-center">
+<p><img data-src="images/sexp.png" width="650"></p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>DESeqDataSet class extends the RangedSummarizedExperiment class of the SummarizedExperiment package</p></li>
+<li><p>The “Ranged” part refers to the fact that the rows of the assay data (here, the counts) can be associated with genomic ranges</p></li>
+</ul>
+<hr>
+<ul>
+<li><p>A DESeqDataSet object must have an associated design formula</p></li>
+<li><p>The design formula expresses the variables which will be used in modeling</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diversi-software-27" class="slide level2 scrollable">
+<h2>Diversi Software</h2>
+<h3 id="differential-gene-expression-dge-14">Differential Gene Expression (DGE)</h3>
+<h4 id="deseq2-5"><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">DESeq2</a></h4>
+<p><br></p>
+<h4 id="summarisedexperiment">SummarisedExperiment</h4>
+<pre><code>nrows &lt;- 200
+ncols &lt;- 6
+counts &lt;- matrix(runif(nrows * ncols, 1, 1e4), nrows)
+rowRanges &lt;- GRanges(rep(c("chr1", "chr2"), c(50, 150)),
+                     IRanges(floor(runif(200, 1e5, 1e6)), width=100),
+                     strand=sample(c("+", "-"), 200, TRUE),
+                     feature_id=sprintf("ID%03d", 1:200))
+colData &lt;- DataFrame(Treatment=rep(c("ChIP", "Input"), 3),
+                     row.names=LETTERS[1:6])
+
+se &lt;- SummarizedExperiment(assays=list(counts=counts),
+                     rowRanges=rowRanges, colData=colData)
+
+assay(se)
+rowData(se)
+rowRanges(se)
+colData(se)
+
+rowData(se)$marco &lt;- FALSE
+rowData(se)$marco[c(1,2,5,200)] &lt;- TRUE
+assay(se[rowData(se)$marco == TRUE, ])
+colData(se[,colData(se)$Treatment == "Input"])
+
+se[rowData(se)$marco == TRUE, colData(se)$Treatment == "Input"]</code></pre>
 </section></section>
 <section id="section" class="title-slide slide level1 center" data-background-image="images/qmark.jpg" data-background-size="cover" data-background-opacity="0.7">
 <h1></h1>

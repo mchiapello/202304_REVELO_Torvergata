@@ -40,6 +40,14 @@ p span.p-span-center{
   font-size: 100px;
 }
 
+.f60 {
+  font-size: 60px;
+}
+
+.f50 {
+  font-size: 50px;
+}
+
 .f40 {
   font-size: 40px;
 }
@@ -54,6 +62,10 @@ p span.p-span-center{
 
 .f20 {
   font-size: 20px;
+}
+
+.f25 {
+  font-size: 25px;
 }
 
 .red {

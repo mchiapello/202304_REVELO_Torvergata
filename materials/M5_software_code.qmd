@@ -856,7 +856,313 @@ From: https://en.wikipedia.org/wiki/List_of_RNA-Seq_bioinformatics_tools
 :::
 
 
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
 
+<br>
+
+The count data used for DGE represents the number of sequence reads that originated from a particular gene.
+
+:::{.p-img-center}
+![](images/count.png){width=1200}
+:::
+
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
+
+<br>
+
+#### Normalization
+
+The count data needs to be normalized to account for differences in **library sizes** and **RNA composition** between samples
+
+
+:::{.fragment}
+
+:::{.callout-important}
+Normalization is essential for **differential expression analyses**, and also for **exploratory data analysis**, **visualization of data**, and whenever you are exploring or comparing counts between or within samples
+:::
+
+:::
+
+
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
+
+<br>
+
+#### Normalization
+
+:::{.f25}
+|                                                                                                                    |                                                                                                                              |                                      |                                                                                                                         |
+|------------------|--------------------|----------------|-------------------|
+| **Normalization method**                                                                                           | **Description**                                                                                                              | **Accounted factors**                | **Recommendations for use**                                                                                             |
+| **CPM** (counts per million)                                                                                       | counts scaled by total number of reads                                                                                       | sequencing depth                     | gene count comparisons between replicates of the same samplegroup; **NOT for within sample comparisons or DE analysis** |
+| **TPM** (transcripts per kilobase million)                                                                         | counts per length of transcript (kb) per million reads mapped                                                                | sequencing depth and gene length     | gene count comparisons within a sample or between samples of the same sample group; **NOT for DE analysis**             |
+| **RPKM/FPKM** (reads/fragments per kilobase of exon per million reads/fragments mapped)                            | similar to TPM                                                                                                               | sequencing depth and gene length     | gene count comparisons between genes within a sample; **NOT for between sample comparisons or DE analysis**             |
+| DESeq2's **median of ratios** \[[1](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-10-r106)\] | counts divided by sample-specific size factors determined by median ratio of gene counts relative to geometric mean per gene | sequencing depth and RNA composition | gene count comparisons between samples and for **DE analysis**; **NOT for within sample comparisons**                   |
+
+
+:::
+
+
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
+
+<br>
+
+#### Quality Control at SAMPLE level
+
+:::{incremental}
+
+- Which samples are similar to each other, which are different?
+
+- Does this fit to the expectation from the experiment’s design?
+
+- What are the major sources of variation in the dataset?
+
+:::
+
+:::{.notes}
+- ensure that the samples/replicates look good
+
+- Sample-level QC allows us to see how well our replicates cluster together
+:::
+
+
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
+
+<br>
+
+#### Quality Control at SAMPLE level
+
+- Log2-transformed normalized counts are used to assess similarity between samples using:
+  
+    - Principal Component Analysis (PCA)     
+    - Hierarchical clustering
+
+:::{.p-img-center}
+![](images/pcahc.png){width=1000}
+:::
+
+
+:::{.notes}
+- Using log2 transformation, tools aim to moderate the variance across the mean
+:::
+
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
+
+<br>
+
+#### Quality Control at GENE level
+
+:::{.callout-important}
+Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed
+:::
+
+:::{.fragment}
+- Genes with zero counts in all samples
+
+- Genes with an extreme count outlier
+
+- Genes with a low mean normalized counts
+:::
+
+
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
+
+<br>
+
+#### Quality Control at GENE level
+
+:::{.callout-important}
+Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed
+:::
+
+:::{.p-img-center}
+![](images/gele.png){width=1200}
+:::
+
+
+## Diversi Software {.scrollable}
+### Differential Gene Expression (DGE)
+
+<br>
+
+#### Quality Control at GENE level
+
+:::{.callout-important}
+Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed
+:::
+
+<br>
+<br>
+
+:::{.f60 .tcenter}
+
+**DESeq2** will perform this filtering by default, 
+
+however other DE tools will not
+
+:::
+
+## Diversi Software
+### Differential Gene Expression (DGE)
+#### [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+
+<br>
+
+#### Modeling raw count for each gene
+
+:::{.p-img-center}
+![](images/rawc.png){width=700}
+:::
+
+:::{.notes}
+These images illustrate some common features of RNA-seq count data:
+
+- a low number of counts associated with a large proportion of genes
+
+- a long right tail due to the lack of any upper limit for expression
+
+- large dynamic range
+:::
+
+## Diversi Software
+### Differential Gene Expression (DGE)
+#### [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+
+<br>
+
+#### Modeling raw count for each gene
+
+
+:::{.p-img-center}
+![](images/AH-noNorm.png ){width=900}
+:::
+
+:::{.notes}
+- RNASeq data are non-normally distributed data 
+  
+- the normal distribution does not accurately model RNA-seq counts
+:::
+
+
+## Diversi Software
+### Differential Gene Expression (DGE)
+#### [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+
+<br>
+
+#### Modeling raw count for each gene
+
+<br>
+<br>
+
+:::{.f60 .tcenter}
+So what do we use for RNA-seq count data?
+:::
+
+:::{.notes}
+Count data in general can be modeled with various distributions:
+
+- **Binomial distribution**: Gives you the probability of getting a number of heads upon tossing a coin a number of times. Based on discrete events and used in situations when you have a certain number of cases.
+
+- **Poisson distribution**: For use, when the number of cases is very large (i.e. people who buy lottery tickets), but the probability of an event is very small (probability of winning). The Poisson is similar to the binomial, but is based on continuous events. Appropriate for data where mean == variance.
+
+- **Negative binomial distribution**: An approximation of the Poisson, but has an additional parameter that adjusts the variance independently from the mean.
+:::
+
+## Diversi Software
+### Differential Gene Expression (DGE)
+#### [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+
+<br>
+
+#### Modeling raw count for each gene
+
+<br>
+<br>
+
+:::{.f60 .tcenter}
+**DESeq2** uses the negative binomial model
+:::
+
+---
+
+:::{.tit}
+“All models are wrong, but some are useful”. 
+:::
+
+:::{style="font-size: 30px; text-align: right"}
+George E. P. Box
+:::
+
+
+## Diversi Software
+### Differential Gene Expression (DGE)
+#### [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+
+<br>
+
+#### The DESeqDataSet
+
+
+:::{.p-img-center}
+![](images/sexp.png){width=650}
+:::
+
+
+
+:::{.notes}
+- DESeqDataSet class extends the RangedSummarizedExperiment class of the SummarizedExperiment package
+
+- The “Ranged” part refers to the fact that the rows of the assay data (here, the counts) can be associated with genomic ranges
+
+----
+
+- A DESeqDataSet object must have an associated design formula
+  
+- The design formula expresses the variables which will be used in modeling
+:::
+
+## Diversi Software{.scrollable}
+### Differential Gene Expression (DGE)
+#### [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+
+<br>
+
+#### SummarisedExperiment
+
+```
+nrows <- 200
+ncols <- 6
+counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
+rowRanges <- GRanges(rep(c("chr1", "chr2"), c(50, 150)),
+                     IRanges(floor(runif(200, 1e5, 1e6)), width=100),
+                     strand=sample(c("+", "-"), 200, TRUE),
+                     feature_id=sprintf("ID%03d", 1:200))
+colData <- DataFrame(Treatment=rep(c("ChIP", "Input"), 3),
+                     row.names=LETTERS[1:6])
+
+se <- SummarizedExperiment(assays=list(counts=counts),
+                     rowRanges=rowRanges, colData=colData)
+
+assay(se)
+rowData(se)
+rowRanges(se)
+colData(se)
+
+rowData(se)$marco <- FALSE
+rowData(se)$marco[c(1,2,5,200)] <- TRUE
+assay(se[rowData(se)$marco == TRUE, ])
+colData(se[,colData(se)$Treatment == "Input"])
+
+se[rowData(se)$marco == TRUE, colData(se)$Treatment == "Input"]
+```
 
 
 #  {background-image="images/qmark.jpg" background-size="cover" background-opacity="0.7"}

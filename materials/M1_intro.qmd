@@ -171,7 +171,7 @@ plot(qrcode::qr_code("https://mchiapello.github.io/202304_REVELO_Torvergata/"))
 
 :::{.fragment .fade-rigth fragment-index=2}
 [Orari]{style="font-weight: bold;"}    
-9:30 : Live Code (quantification)   
+9:30 : Live Code (QC and quantification)   
 10:45: Pausa                   
 11:00: Live Code (DGE)
 
