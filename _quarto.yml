@@ -30,7 +30,7 @@ website:
             text: "Modulo V: Files and Software"
       - href: materials/risorse.qmd
         text: "Materiale aggiuntivo"
-      - href: https://2023-rnaseq-course1.slack.com
+      - href: https://revelotraining.slack.com
         text: "Slack chat"
       - href: https://drive.google.com/drive/folders/1rfrM639jZcpSzGWYVPXALyWFbHOk92qX?usp=sharing
         text: "Cartella condivisa"
