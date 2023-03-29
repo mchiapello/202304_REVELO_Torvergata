@@ -43,13 +43,13 @@ Via Montpellier 1
 
 | Orario     | Tema                  |
 |------------|-----------------------|
-|9:30  | Introduzione a DESEQ2  | 
+|9:30  | Live code (QC and quantification)  | 
 |10:45 | Pausa                  | 
-|11:00 | Live Code|
+|11:00 | Live Code (Summarized Experiment)|
 |12:30 | Pausa pranzo           | 
-|13:30 | Live Code       |
+|13:30 | Live Code (DEG)      |
 |14:45 | Pausa                  | 
-|15:00 | Capstone exercise      |              
+|15:00 | Live Code (DEG)      |              
 |16:30 | Considerazioni finali  |
 
 
