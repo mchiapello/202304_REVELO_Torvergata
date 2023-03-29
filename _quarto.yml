@@ -27,7 +27,7 @@ website:
           - href: https://phd-toolbox-course.github.io/2022_PhD_Toolbox_course/M4_RicercaRiproducibile.html#1
             text: "Modulo IV: Ricerca Riproducibile"
           - href: materials/M5_software_code.qmd
-            text: "Midulo V: Files and Software"
+            text: "Modulo V: Files and Software"
       - href: materials/risorse.qmd
         text: "Materiale aggiuntivo"
       - href: https://2023-rnaseq-course1.slack.com
