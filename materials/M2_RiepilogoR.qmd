@@ -6,7 +6,7 @@ format:
     width: 1600
     height: 900
     logo: "images/revelo.png"
-    footer: "[home page](https://mchiapello.github.io/20.104_REVELO_Torvergata/)"
+    footer: "[home page](https://mchiapello.github.io/202304_REVELO_Torvergata/)"
     css: ["css/theme.css", "css/custom.css"]
     theme: simple
     controls: true

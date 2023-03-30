@@ -805,15 +805,6 @@ Third-generation NGS platforms:
 {{< video https://www.youtube.com/embed/CGWZvHIi3i0 width="100%" height="85%" >}}
 
 
-##  {background-image="images/pant.jpg" background-size="cover" background-opacity="0.1"}
-
-[Combining sequencing technologies]{.subtit}
-
-Long-read sequencing vs short-read sequencing
-
-https://frontlinegenomics.com/long-read-sequencing-vs-short-read-sequencing
-
-
 #  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
 [RNASeq pipeline]{.tit .p-span-center}
