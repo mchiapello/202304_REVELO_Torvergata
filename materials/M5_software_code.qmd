@@ -131,13 +131,6 @@ Il Formato FASTA è un formato di testo per rappresentare le sequenze nucleotidi
 
 ![](images/amino.png)
 
-## Diversi tipi di file
-
-### FASTA file
-
-::: centerI2
-![](images/questions.png)
-:::
 
 ## Diversi tipi di file
 
@@ -222,13 +215,6 @@ I FASTQ file possono avere dimensioni molto grandi, per questo nella maggior par
 
 Questo significa che il file è compresso, quindi non leggibile da un editor di testa senza prima essere de-compresso.
 
-## Diversi tipi di file
-
-### FASTQ file
-
-::: centerI2
-![](images/questions.png)
-:::
 
 ## Diversi tipi di file
 
@@ -338,14 +324,6 @@ I file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento
 -   Rappresenta l'allineamento di una sequenza al genoma di riferimento
 :::
 
-## Diversi tipi di file
-
-### SAM/BAM format
-
-::: centerI2
-![](images/questions.png)
-:::
-
 
 ## Diversi tipi di file
 
@@ -383,13 +361,6 @@ I file BED (Browser Extensible Data) sono file di testo creati per descrivere ca
 
 ![](images/bed2.png){.absolute top="150" left="30" width="1200" height="auto"}
 
-## Diversi tipi di file
-
-### BED
-
-::: centerI2
-![](images/questions.png)
-:::
 
 ## Diversi tipi di file
 
@@ -417,12 +388,6 @@ GFF2 or GTF (General Transfer Format) è un formato usato per descrivere due liv
 
 ![](images/gtf2.png){.absolute top="360" left="0" width="1200" height="auto"}
 
-## Diversi tipi di file
-
-### GTF format
-::: centerI2
-![](images/questions.png)
-:::
 
 ## Diversi tipi di file
 
@@ -473,13 +438,6 @@ GFF3 (General Feature Format) è un file ti testo che contiene informazioni su o
 :::{.notes}
 -   It encodes three alternatively-spliced transcripts named EDEN.1, EDEN.2 and EDEN.3,
 -   **EDEN.3** has two alternative translational **start sites** leading to the generation of two protein coding sequences.
-:::
-
-## Diversi tipi di file
-
-### GFF3 format
-::: centerI2
-![](images/questions.png)
 :::
 
 # [Software]{.tit .p-span-center}

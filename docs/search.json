@@ -4666,133 +4666,133 @@
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-6",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTA file"
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-7",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-7",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità."
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n\nUn file FASTQ è identificato da 4 linee:\n\nLinea 1: inizia con il simbolo “@” ed è seguita dall’identificativo della sequenza (come nelle sequenze FASTA)\nLinea 2: contiene la sequenza nucleotidica\nLinea 3: inizia con un “+” e può contenere descrizioni aggiuntive della sequenza\nLinea 4: contiene i valori di qualità dei singoli nucleotidi"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-8",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-8",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n\nUn file FASTQ è identificato da 4 linee:\n\nLinea 1: inizia con il simbolo “@” ed è seguita dall’identificativo della sequenza (come nelle sequenze FASTA)\nLinea 2: contiene la sequenza nucleotidica\nLinea 3: inizia con un “+” e può contenere descrizioni aggiuntive della sequenza\nLinea 4: contiene i valori di qualità dei singoli nucleotidi"
+    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n@SEQ_ID\nGATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT\n+\n!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-9",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-9",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTQ format\n\n\n\nDefinizione\n\n\nIl formato FASTQ è un formato di testo per rappresentare sia le sequenze biologiche (normalmente nucleotidiche) sia il corrispettivo valore di qualità. Sia le sequenze che lo score di qualità sono codificati da una singola lettera (carattere ASCII) per brevità.\n\n\n\n@SEQ_ID\nGATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT\n+\n!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65"
+    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide.\n\n\n\n\nI numeri da 33 a 126 sono i numeri ASCII corrispondenti alla lettera che indicano\nScore più alto osservato 40, quindi molti si fermano li"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-10",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-10",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide.\n\n\n\n\nI numeri da 33 a 126 sono i numeri ASCII corrispondenti alla lettera che indicano\nScore più alto osservato 40, quindi molti si fermano li"
+    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-11",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-11",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTQ format\nCosa significa “score di qualità”?\n\nLo score di qualità è usato per identificare la probabilità di corretta identificazione del corrispondente nucleotide."
+    "text": "Diversi tipi di file\nFASTQ format\nI FASTQ file possono avere dimensioni molto grandi, per questo nella maggior parte dei casi non avrete a che fare con ilMioFile.fastq, ma con ilMioFile.fastq.gz.\nQuesto significa che il file è compresso, quindi non leggibile da un editor di testa senza prima essere de-compresso."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-12",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-12",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTQ format\nI FASTQ file possono avere dimensioni molto grandi, per questo nella maggior parte dei casi non avrete a che fare con ilMioFile.fastq, ma con ilMioFile.fastq.gz.\nQuesto significa che il file è compresso, quindi non leggibile da un editor di testa senza prima essere de-compresso."
+    "text": "Diversi tipi di file\nSAM/BAM format\n\n\n\nDefinizione\n\n\nI file SAM (Sequence Alignment Map) sono file di testo creati originariamente per contenere le sequenze biologiche allineate ad una sequenza di riferimento (genoma).\n\n\n\n\n\nIl formato è stato sviluppato per il progetto 1000 Genome.\nQuesto formato è largamente usato per le sequenze nucleotiche generate dalle tecnologie NGS.\nNella maggior parte dei casi non vi troverete a che fare con un file SAM, ma con un file BAM"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-13",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-13",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nFASTQ file"
+    "text": "Diversi tipi di file\nSAM/BAM format\nDifferenza tra SAM e BAM?\n\n\nIn realtà nessuna! I due file sono identici nel contenuto\nIn pratica il file SAM può essere letto da un editor di testo, mentre il file BAM no.\nIl BAM è un file binary, cioè machine-readable. È più compresso del file human-readable."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-14",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-14",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nSAM/BAM format\n\n\n\nDefinizione\n\n\nI file SAM (Sequence Alignment Map) sono file di testo creati originariamente per contenere le sequenze biologiche allineate ad una sequenza di riferimento (genoma).\n\n\n\n\n\nIl formato è stato sviluppato per il progetto 1000 Genome.\nQuesto formato è largamente usato per le sequenze nucleotiche generate dalle tecnologie NGS.\nNella maggior parte dei casi non vi troverete a che fare con un file SAM, ma con un file BAM"
+    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’intestazione\n\n(se presente) dev’essere prima dell’allineamento\nOgni riga dell’intestazione inizia con il simbolo “@”\nUna coppia di lettere che segue il simbolo “@” indica la sezione dell’intestazione\n\n\n\n@RG     ID:1    SM:C5926_BM_IonCode_0118\n@PG     ID:samtools     PN:samtools    VN:1.16.1    CL:samtools view -H C5926_BM_IonCode_0118.reassembled.bam\n\n\n\n\n@RG = read group\n\nID = Read group identifier\nSM = Sample\n\n@PG = Program\n\nID = Program record identifier\nPN = Program name\nVN = software version\nCl = command line"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-15",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-15",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nSAM/BAM format\nDifferenza tra SAM e BAM?\n\n\nIn realtà nessuna! I due file sono identici nel contenuto\nIn pratica il file SAM può essere letto da un editor di testo, mentre il file BAM no.\nIl BAM è un file binary, cioè machine-readable. È più compresso del file human-readable."
+    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’allineamento\n\n\n\n\n\n\n11 campi obbligatori\nMetadati non obbligatori\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-16",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-16",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’intestazione\n\n(se presente) dev’essere prima dell’allineamento\nOgni riga dell’intestazione inizia con il simbolo “@”\nUna coppia di lettere che segue il simbolo “@” indica la sezione dell’intestazione\n\n\n\n@RG     ID:1    SM:C5926_BM_IonCode_0118\n@PG     ID:samtools     PN:samtools    VN:1.16.1    CL:samtools view -H C5926_BM_IonCode_0118.reassembled.bam\n\n\n\n\n@RG = read group\n\nID = Read group identifier\nSM = Sample\n\n@PG = Program\n\nID = Program record identifier\nPN = Program name\nVN = software version\nCl = command line"
+    "text": "Diversi tipi di file\nSAM/BAM format\nFLAGS\n\n\nFlag calculator"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-17",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-17",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nSAM/BAM format\n\nI file SAM/BAM consistono in 2 parti una intestazione (header) e un allineamento.\n\nL’allineamento\n\n\n\n\n\n\n11 campi obbligatori\nMetadati non obbligatori\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string"
+    "text": "Diversi tipi di file\nSAM/BAM format\nCIGAR\n\n\n\n\n\n\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string\nRappresenta l’allineamento di una sequenza al genoma di riferimento"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-18",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-18",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nSAM/BAM format\nFLAGS\n\n\nFlag calculator"
+    "text": "Diversi tipi di file\nBED/GTF/GFF3 formats\n\n\n\nDefinizione\n\n\nQuesti sono i tre principali formati di annotazione. Ci sono molte somiglianze ma anche alcune fondamentali differenze.\n\n\n\n\n\nBED: permettono un solo livello di complessita, ogni caratteristica può essere divisa in diversi blocchi (linee del file)\nGTF: permettono 2 livelli di complessità, gli esoni possono essere raggruppati in trascritti e i trascritti in geni\nGFF3: permettono un numero arbitrari di livelli"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-19",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-19",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nSAM/BAM format\nCIGAR\n\n\n\n\n\n\nConcise Idiosyncratic Gapped Alignment Report (CIGAR) string\nRappresenta l’allineamento di una sequenza al genoma di riferimento"
+    "text": "Diversi tipi di file\nBED\n\n\n\nDefinizione\n\n\nI file BED (Browser Extensible Data) sono file di testo creati per descrivere caratteristiche del genoma."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-20",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-20",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nSAM/BAM format"
+    "text": "Diversi tipi di file\nBED"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-21",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-21",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nBED/GTF/GFF3 formats\n\n\n\nDefinizione\n\n\nQuesti sono i tre principali formati di annotazione. Ci sono molte somiglianze ma anche alcune fondamentali differenze.\n\n\n\n\n\nBED: permettono un solo livello di complessita, ogni caratteristica può essere divisa in diversi blocchi (linee del file)\nGTF: permettono 2 livelli di complessità, gli esoni possono essere raggruppati in trascritti e i trascritti in geni\nGFF3: permettono un numero arbitrari di livelli"
+    "text": "Diversi tipi di file\nGTF format\n\n\n\nDefinizione\n\n\nGFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-22",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-22",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nBED\n\n\n\nDefinizione\n\n\nI file BED (Browser Extensible Data) sono file di testo creati per descrivere caratteristiche del genoma."
+    "text": "Diversi tipi di file\nGTF format\n\n\n\nDefinizione\n\n\nGFF2 or GTF (General Transfer Format) è un formato usato per descrivere due livelli di annotazione: geni e trascritti."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-23",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-23",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nBED"
+    "text": "Diversi tipi di file\nGFF3 format\n\n\n\nDefinizione\n\n\nGFF3 (General Feature Format) è un file ti testo che contiene informazioni su ogni caratteristica delle sequenze nucleiche o aminiacidiche che descrive. CDS, microRNAs, binding domains, ORFs e molto altro possono essere gestite da questo formato\n\n\n\nCampi\n\n\n\nColumn 1: “seqid”\nColumn 2: “source”\nColumn 3: “type”\n\n\n\nColumn 4:“start”\nColumn 5: “end”\nColumn 6: “score”\n\n\n\nColumn 7: “strand”\nColumn 8: “phase”\nColumn 9: “attributes”"
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-24",
     "href": "materials/M5_software_code.html#diversi-tipi-di-file-24",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi tipi di file",
-    "text": "Diversi tipi di file\nBED"
+    "text": "Diversi tipi di file\nGFF3 format\n\n\n\n\nIt encodes three alternatively-spliced transcripts named EDEN.1, EDEN.2 and EDEN.3,\nEDEN.3 has two alternative translational start sites leading to the generation of two protein coding sequences."
   },
   {
     "objectID": "materials/M5_software_code.html#diversi-tipi-di-file-25",
