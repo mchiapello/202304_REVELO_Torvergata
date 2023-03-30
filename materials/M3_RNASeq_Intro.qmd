@@ -1459,50 +1459,6 @@ flowchart TB
 We are not exploring the *De Novo* option in this course
 :::
 
-##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
-
-::::{.columns}
-
-:::{.column width="35%"}
-```{mermaid}
-flowchart TB
-  subgraph vitro [In vitro]
-    direction TB
-      A(<font size=3>Isolate total RNA) --> B(<font size=3>Enrich a specific type of RNA)
-      B --> C(<font size=3>Prepare the RNA sequencing library)
-  end
-  subgraph silico [In silico]
-    direction TB
-      D(<font size=3>Sequencing) --> E(<font size=3>Quantify expression)
-      E --> F(<font size=3>Differential Expression analysis)
-      F --> G(<font size=3>Biological conclusions)
-  end
-  vitro --> silico
-  classDef className fill:#D1D1D1,stroke:#333,stroke-width:1px
-  classDef classHigh fill:#E3BE34,stroke:#333,stroke-width:4px
-  class A,B,C,E,F,G className;
-  class D classHigh;
-```
-:::
-
-:::{.column width="65%"}
-[Sequencing]{.p-span-center}
-[Step 4]{.p-span-center .f20}
-
-<br>
-<br>
-
-::: {.p-img-center}
-```{r}
-#| echo: false
-#| layout-ncol: 1
-plot(qrcode::qr_code("https://forms.gle/fcGodxqoZqkwgm7p8"))
-```
-:::
-
-
-:::
-::::
 
 ##  {background-image="images/stat001.jpg" background-size="cover" background-opacity="0.1"}
 
