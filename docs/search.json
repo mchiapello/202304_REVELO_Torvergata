@@ -2895,7 +2895,7 @@
     "href": "materials/M1_intro.html#section-3",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Chi sei?\n\n\n\n Cosa hai studiato?\n\n\n\n Quali sono i tuoi obiettivi?\n\n\n\n Quali sono le aspettative per il corso?"
+    "text": "Chi sei?\n\n\n\n Cosa hai studiato?\n\n\n\n Quali sono i tuoi obiettivi?\n\n\n\n Quali sono le aspettative per il corso?\n\n\n\nMarco - datemi del tu - Agilent - 2 figli, una quasi moglie - Pallavolo\nLaurea - Dottorato - Bioinformatica\nPortare un po di open sourse nel mondo company\nChe andiate a casa con qualche idea"
   },
   {
     "objectID": "materials/M1_intro.html#section-5",
@@ -2909,7 +2909,7 @@
     "href": "materials/M1_intro.html#section-6",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Agenda\n\n\nPrimo Giorno Teoria\n\n\nOrari\n9:30 : Introduzione al Corso\n10:00: Riepilogo R\n10:45: Pausa\n11:00: Introduzione all’RNASeq\n12:30: Pausa pranzo\n13:30: Ricerca Riproducibile\n14:45: Pausa\n15:00: Software and code\n16:30: Considerazioni finali\n\n\nSecondo Giorno Pratica\n\n\nOrari\n9:30 : Live Code (quantification)\n10:45: Pausa\n11:00: Live Code (DGE)\n12:30: Pausa pranzo\n13:30: Live Code (DGE)\n14:45: Pausa\n15:00: Capstone exercise\n16:30: Considerazioni finali"
+    "text": "Agenda\n\n\nPrimo Giorno Teoria\n\n\nOrari\n9:30 : Introduzione al Corso\n10:00: Riepilogo R\n10:45: Pausa\n11:00: Introduzione all’RNASeq\n12:30: Pausa pranzo\n13:30: Ricerca Riproducibile\n14:45: Pausa\n15:00: Software and code\n16:30: Considerazioni finali\n\n\nSecondo Giorno Pratica\n\n\nOrari\n9:30 : Live Code (QC and quantification)\n10:45: Pausa\n11:00: Live Code (DGE)\n12:30: Pausa pranzo\n13:30: Live Code (DGE)\n14:45: Pausa\n15:00: Capstone exercise\n16:30: Considerazioni finali"
   },
   {
     "objectID": "materials/M1_intro.html#section-7",
