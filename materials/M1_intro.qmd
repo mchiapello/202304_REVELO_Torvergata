@@ -114,6 +114,16 @@ Any form of behaviour to [exclude]{.rn rn-color="orange"}, [intimidate]{.rn rn-c
 {{< fa 4 >}} Quali sono le aspettative per il corso?
 :::
 
+:::{.notes}
+1. Marco - datemi del tu - Agilent - 2 figli, una quasi moglie - Pallavolo
+
+1. Laurea - Dottorato - Bioinformatica
+
+1. Portare un po di open sourse nel mondo company
+
+1. Che andiate a casa con qualche idea
+:::
+
 #  {background-image="images/website.png" background-size="cover" background-opacity="0.1"}
 
 [Com'è strutturato il corso]{.tit .p-span-center}

@@ -4,6 +4,7 @@
 
 # Load libraries
 library(tximeta)
+library(DESeq2)
 
 ################################################################################
 # Only the teacher
