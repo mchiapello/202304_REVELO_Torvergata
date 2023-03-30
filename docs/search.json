@@ -3686,7 +3686,7 @@
     "href": "materials/M2_RiepilogoR.html#TitleSlide",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "R recall\nIntroduzione all’analisi RNASeq in R\nDipartimento di Biomedicina e Prevenzione\n \nMarco Chiapello, Revelo Datalab\n20.1-03-31"
+    "text": "R recall\nIntroduzione all’analisi RNASeq in R\nDipartimento di Biomedicina e Prevenzione\n \nMarco Chiapello, Revelo Datalab\n2023-03-31"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-1",
@@ -3700,28 +3700,28 @@
     "href": "materials/M2_RiepilogoR.html#section-3",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Variable\n\n\nYou want your object names to be explicit and not too long.\nThey cannot start with a number (2x is not valid, but x2 is).\nR is case sensitive, so for example, weight_kg is different from Weight_kg.\nThere are some names that cannot be used because they are the names of fundamental functions in R (e.g., if, else, for, see here for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., c, T, mean, data, df, weights).\nIt’s best to avoid dots (.) within names. Many function names in R itself have them and dots also have a special meaning (methods) in R.\nIt is recommended to use nouns for object names and verbs for function names.\nBe consistent in the styling of your code, such as where you put spaces, how you name objects, etc."
+    "text": "Variable\n\n\n\n\n\n\n\nDefinition\n\n\n\nVariables are used to store information to be referenced and manipulated in a computer program.\nThey also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves.\nIt is helpful to think of variables as containers that hold information.\nTheir sole purpose is to label and store data in memory"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-5",
     "href": "materials/M2_RiepilogoR.html#section-5",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Assignment operator\n\n\n4 + 5\nx <- 4 + 5\nx + 2\nx <- 2 + 1\nx <- x + 2\n\nx = x + 2\nx + 2 -> x"
+    "text": "Variable"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-6",
     "href": "materials/M2_RiepilogoR.html#section-6",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Data Structures\nThe most essential data structures used in R include:\n\n\nVectors: A vector is an ordered collection of basic data types of a given length\nLists: A list is a generic object consisting of an ordered collection of objects. Lists are heterogeneous data structures\nDataframes: Dataframes are generic data objects of R which are used to store the tabular data. Dataframes are the foremost popular data objects in R\nMatrices: A matrix is a rectangular arrangement of numbers in rows and columns. Matrices are two-dimensional, homogeneous data structures.\nArrays: Arrays are the R data objects which store the data in more than two dimensions.\nFactors: Factors are the data objects which are used to categorize the data and store it as levels. They are useful for storing categorical data.\n\n\n\nA vector is the most common and basic data type in R, and is pretty much the workhorse of R\nR is vectorized program"
+    "text": "Assignment operator\n\n\n4 + 5\nx <- 4 + 5\nx + 2\nx <- 2 + 1\nx <- x + 2\n\nx = x + 2\nx + 2 -> x"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-7",
     "href": "materials/M2_RiepilogoR.html#section-7",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "tidyverse.org"
+    "text": "Data Structures\nThe most essential data structures used in R include:\n\n\nVectors: A vector is an ordered collection of basic data types of a given length\nLists: A list is a generic object consisting of an ordered collection of objects. Lists are heterogeneous data structures\nDataframes: Dataframes are generic data objects of R which are used to store the tabular data. Dataframes are the foremost popular data objects in R\nMatrices: A matrix is a rectangular arrangement of numbers in rows and columns. Matrices are two-dimensional, homogeneous data structures.\nArrays: Arrays are the R data objects which store the data in more than two dimensions.\nFactors: Factors are the data objects which are used to categorize the data and store it as levels. They are useful for storing categorical data.\n\n\n\nA vector is the most common and basic data type in R, and is pretty much the workhorse of R\nR is vectorized program"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-8",
@@ -3742,7 +3742,7 @@
     "href": "materials/M2_RiepilogoR.html#section-4",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Variable"
+    "text": "Variable\n\n\nYou want your object names to be explicit and not too long.\nThey cannot start with a number (2x is not valid, but x2 is).\nR is case sensitive, so for example, weight_kg is different from Weight_kg.\nThere are some names that cannot be used because they are the names of fundamental functions in R (e.g., if, else, for, see here for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., c, T, mean, data, df, weights).\nIt’s best to avoid dots (.) within names. Many function names in R itself have them and dots also have a special meaning (methods) in R.\nIt is recommended to use nouns for object names and verbs for function names.\nBe consistent in the styling of your code, such as where you put spaces, how you name objects, etc."
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-9",
@@ -3756,7 +3756,7 @@
     "href": "materials/M2_RiepilogoR.html#section-10",
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
-    "text": "Project Goals:\n\n\nTo provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.\nTo facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.\nTo provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.\nTo further scientific understanding by producing high-quality documentation and reproducible research.\nTo train researchers on computational and statistical methods for the analysis of genomic data.\n\n\n\nbioconductor.org"
+    "text": "tidyverse.org"
   },
   {
     "objectID": "materials/M2_RiepilogoR.html#section-11",
@@ -5031,5 +5031,12 @@
     "title": "Analisi di dati di trascrittomica con R",
     "section": "Diversi Software",
     "text": "Diversi Software\nDifferential Gene Expression (DGE)\nDESeq2\n\nSummarisedExperiment\nnrows <- 200\nncols <- 6\ncounts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)\nrowRanges <- GRanges(rep(c(\"chr1\", \"chr2\"), c(50, 150)),\n                     IRanges(floor(runif(200, 1e5, 1e6)), width=100),\n                     strand=sample(c(\"+\", \"-\"), 200, TRUE),\n                     feature_id=sprintf(\"ID%03d\", 1:200))\ncolData <- DataFrame(Treatment=rep(c(\"ChIP\", \"Input\"), 3),\n                     row.names=LETTERS[1:6])\n\nse <- SummarizedExperiment(assays=list(counts=counts),\n                     rowRanges=rowRanges, colData=colData)\n\nassay(se)\nrowData(se)\nrowRanges(se)\ncolData(se)\n\nrowData(se)$marco <- FALSE\nrowData(se)$marco[c(1,2,5,200)] <- TRUE\nassay(se[rowData(se)$marco == TRUE, ])\ncolData(se[,colData(se)$Treatment == \"Input\"])\n\nse[rowData(se)$marco == TRUE, colData(se)$Treatment == \"Input\"]"
+  },
+  {
+    "objectID": "materials/M2_RiepilogoR.html#section-12",
+    "href": "materials/M2_RiepilogoR.html#section-12",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Project Goals:\n\n\nTo provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.\nTo facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.\nTo provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.\nTo further scientific understanding by producing high-quality documentation and reproducible research.\nTo train researchers on computational and statistical methods for the analysis of genomic data.\n\n\n\nbioconductor.org"
   }
 ]

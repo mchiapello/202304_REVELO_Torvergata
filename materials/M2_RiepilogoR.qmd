@@ -22,7 +22,6 @@ editor_options:
 ```{r setup, include=FALSE}
 library(fontawesome)
 library(tidyverse)
-library(quarto)
 library(gt)
 library(gtExtras)
 library(gtsummary)
@@ -46,6 +45,20 @@ library(gtsummary)
 [2023-03-31]{style="font-size: 30px;font-weight: bold;"}
 :::
 
+#  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
+
+<br>
+<br>
+
+::: {.p-img-center}
+
+```{r}
+#| echo: false
+#| layout-ncol: 1
+plot(qrcode::qr_code("https://forms.gle/FLNWvLGbAwu7gAh89"))
+```
+
+:::
 
 #  {background-image="images/coding-g4ae00ad60_1920.jpg" background-size="cover" background-opacity="0.1"}
 
