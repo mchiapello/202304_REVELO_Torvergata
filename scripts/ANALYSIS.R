@@ -14,16 +14,18 @@ library(DESeq2)
 coldata <- read.csv("sample_table.csv", row.names=1, stringsAsFactors=FALSE)
 ## Modify sample table to fit the data
 coldata$names <- coldata$Run
-files <- fs::dir_ls("quants_ensembl/", recurse = TRUE, regexp = "quant.sf")
+files <- fs::dir_ls("quants_Gencode/", recurse = TRUE, regexp = "quant.sf")
 coldata$files <- files
 rownames(coldata) <- coldata$Run
 ## Check the presence of the files
 file.exists(coldata$files)
-## Read the data in
-se <- tximeta(coldata)
+## Read the data in (transcript-level)
+setr <- tximeta(coldata)
+# summarize the transcript-level quantifications to the gene level 
+sege <- summarizeToGene(setr)
 ## Explore the RangedSummarizedExperiment
-rowRanges(se)
-rowData(se)
+rowRanges(setr)
+rowData(setr)
 assay(se)
 colData(se)
 metadata(se)
