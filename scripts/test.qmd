@@ -1,0 +1,16 @@
+---
+title: "Untitled"
+editor: visual
+format: docx
+---
+
+jihgfksdhg sgo;sjd;g sdo;ug'psd
+
+```{r}
+#| echo: false
+suppressPackageStartupMessages(library(tidyverse))
+
+mtcars <- mtcars[1:10, ]
+```
+
+Nella tabella ci sono `r nrow(mtcars)`.

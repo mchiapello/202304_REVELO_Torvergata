@@ -5038,5 +5038,26 @@
     "title": "Analisi di dati di trascrittomica con R",
     "section": "",
     "text": "Project Goals:\n\n\nTo provide widespread access to a broad range of powerful statistical and graphical methods for the analysis of genomic data.\nTo facilitate the inclusion of biological metadata in the analysis of genomic data, e.g. literature data from PubMed, annotation data from Entrez genes.\nTo provide a common software platform that enables the rapid development and deployment of extensible, scalable, and interoperable software.\nTo further scientific understanding by producing high-quality documentation and reproducible research.\nTo train researchers on computational and statistical methods for the analysis of biological data.\n\n\n\nbioconductor.org\n\n\n\nDare l’accesso a innumerevoli pacchetti per l’analisi statistica e la visualizzazione di dati genomici\nFacilitare l’inclusione dei metadati! insieme di informazioni sui dati\nSviluppare una base comune di classi di R che permettano di sviluppare altri pacchetti che possano operare insieme: vedi SummarizedExperiment\nMettere l’accento sulla Ricerca riproducibile\nCreare corsi per insegnare l;analisi di dati biologici"
+  },
+  {
+    "objectID": "scripts/test.html",
+    "href": "scripts/test.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "jihgfksdhg sgo;sjd;g sdo;ug’psd\n\n\n\nNella tabella ci sono 10."
+  },
+  {
+    "objectID": "materials/M6_exercises.html#TitleSlide",
+    "href": "materials/M6_exercises.html#TitleSlide",
+    "title": "Analisi di dati di trascrittomica con R",
+    "section": "",
+    "text": "Esercizi\nIntroduzione all’analisi RNASeq in R\nDipartimento di Biomedicina e Prevenzione\n \nMarco Chiapello, Revelo Datalab\n2023-03-31"
+  },
+  {
+    "objectID": "spese/resoconto.html",
+    "href": "spese/resoconto.html",
+    "title": "Spese corso RNASeq",
+    "section": "",
+    "text": "Spesa\n      Costo\n    \n  \n  \n    \n      Trasporti\n    \n    \nTreno\n€115.30\n    \nTaxi\n€29.70\n    \nPullman\n€7.80\n    \n      Vitto\n    \n    \nPranzo Venerdì\n€4.22\n    \nCena Venerdì\n€15.00\n    \nPranzo Sabato\n€6.20\n    \nCena Sabato\n€13.10\n    \n      Alloggio\n    \n    \nB&B\n€177.00\n    total\n—\n368.32\n  \n  \n  \n\n\n\n\nLe pezze giustificative possono essere scaricate a questo link"
   }
 ]

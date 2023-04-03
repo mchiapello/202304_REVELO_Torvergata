@@ -1,0 +1,144 @@
+---
+format: 
+  revealjs:
+    navigation-mode: vertical
+    slide-number: false
+    width: 1600
+    height: 900
+    logo: "images/revelo.png"
+    footer: "[home page](https://mchiapello.github.io/202304_REVELO_Torvergata/)"
+    css: ["css/theme.css", "css/custom.css"]
+    theme: simple
+    controls: true
+editor: source
+filters:
+  - roughnotation
+editor_options: 
+
+  chunk_output_type: inline
+---
+
+##  {#TitleSlide data-menu-title="TitleSlide" background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+```{r setup, include=FALSE}
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+```
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Julius+Sans+One&family=Montserrat:wght@300&family=Rock+Salt&display=swap');
+</style>
+
+::: {style="position: absolute; left: 180px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; border-radius: 5px;"}
+[Esercizi]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px; font-family: 'Architects Daughter', cursive;"}
+
+[Introduzione all'analisi RNASeq in R]{style="font-size: 40px;font-weight: bold;"}
+
+[Dipartimento di Biomedicina e Prevenzione]{style="font-size: 40px;font-weight: bold;"}
+
+<br> <br>
+
+[Marco Chiapello, Revelo Datalab]{style="font-size: 40px; font-weight: bold;"}
+
+[2023-03-31]{style="font-size: 30px;font-weight: bold;"}
+:::
+
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Quanti geni contiene il nostro dataset?
+
+- Quanti campioni contiene il nostro dataset?
+
+- Quanti assays?
+
+- Il dataset contiene metadati?
+
+:::
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Fare il grafico (istogramma) delle conte grezze per il campione SRR1039508
+
+:::
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Trasforma la varianza usando: regularized-logarithm transformation [rlog]
+:::
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Esplora le opzioni della funzione pheatmap e prova a creare un grafico in cui le righe vengano separate in base ai clusters
+
+```{r}
+library(pheatmap)
+test = matrix(rnorm(200), 20, 10)
+test[1:10, seq(1, 10, 2)] = test[1:10, seq(1, 10, 2)] + 3
+test[11:20, seq(2, 10, 2)] = test[11:20, seq(2, 10, 2)] + 2
+test[15:20, seq(2, 10, 2)] = test[15:20, seq(2, 10, 2)] + 4
+colnames(test) = paste("Test", 1:10, sep = "")
+rownames(test) = paste("Gene", 1:20, sep = "")
+pheatmap(test, cutree_rows = 2)
+```
+
+:::
+
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Disegna il grafico PCA
+    - colorando i punti rispetto al trattamento
+    - la forma dei punti rispetto alla cellula di appartenenza
+    - Varianza percentuale sugli assi
+    - Dare un titolo al grafico in posizione centrale
+:::
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Disegna il Volcano Plot
+    - Sulla x metti Fold change
+    - Sulla y metti il negativo del logaritmo in base 10 dell'adjusted p-value
+    - colora i punti in base alla loro regolazione genica
+:::
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Prepara il dataset
+- Disegna il Volcano Plot
+:::
+
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Plottare il topGene down-regolato
+:::
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Plottare il topGene up-regolato
+:::
+
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Plottare i 5 topGenes up-regolato (AVANZATO)
+:::
+#  {background-image="images/back001.jpg" background-size="cover" background-opacity="0.3"}
+
+:::{.f60}
+- Disegna MA-plot per resLFC1
+:::

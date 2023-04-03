@@ -40,10 +40,10 @@ library(airway)
 library(RColorBrewer)
 library(pheatmap)
 library(ggrepel)
-library(DESeq2)
 # Load data
-data(airway)
 data(gse)
+
+############ ESERCIZIO
 
 # RangedSummarizedExperiment modifications
 gse$cell <- gse$donor
@@ -58,11 +58,15 @@ nrow(dds)
 
 # have a look at the distribution of raw read counts
 data <- data.frame(assay(dds))
+
+################## ESERCIZIO
+
 ggplot(data) +
   geom_histogram(aes(x = SRR1039508), stat = "bin", bins = 200) +
   xlab("Raw expression counts") +
   ylab("Number of genes")
 
+# E se volessimo tutti i campioni?
 data |> 
   tidyr::pivot_longer(cols = everything(),
                       names_to = "Sample",
@@ -77,9 +81,12 @@ data |>
 # The variance stabilizing transformation and the rlog
 
 # variance stabilizing transformation (VST) for negative binomial data
+# blind=FALSE should be used for transforming data for downstream analysis, where the full use of the design information should be made
 vsd <- vst(dds, blind = FALSE)
 head(assay(dds), 3)
 head(assay(vsd), 3)
+
+################## ESERCIZIO
 
 # regularized-logarithm transformation
 rld <- rlog(dds, blind = FALSE)
@@ -90,25 +97,31 @@ head(assay(rld), 3)
 #' and treatment (the variables in the design) will not contribute to the 
 #' expected variance-mean trend of the experiment
 
-df <- bind_rows(
-  as_tibble(assay(dds)[, 1:2]) |> 
-    mutate(transformation = "original"),
-  as_tibble(log2(counts(dds, normalized=TRUE)[, 1:2]+1)) %>%
-    mutate(transformation = "log2(x + 1)"),
-  as_tibble(assay(vsd)[, 1:2]) %>% mutate(transformation = "vst"),
-  as_tibble(assay(rld)[, 1:2]) %>% mutate(transformation = "rlog"))
-
-colnames(df)[1:2] <- c("x", "y")  
-
-lvls <- c("original", "log2(x + 1)", "vst", "rlog")
-df$transformation <- factor(df$transformation, levels=lvls)
-
-df |> 
-  filter(transformation != "original") |> 
-ggplot(aes(x = x, y = y)) + 
-  geom_hex(bins = 80) +
-  # coord_fixed() + 
-  facet_grid( . ~ transformation)  
+# FARE SOLO SE C'È TEMPO
+# df <- bind_rows(
+#  
+#    as_tibble(assay(dds)[, 1:2]) |> 
+#     #ricordarsi di aggiungere dplyr:: prima di mutate
+#     mutate(transformation = "original"),
+#   
+#    as_tibble(log2(counts(dds, normalized=TRUE)[, 1:2]+1)) %>%
+#     mutate(transformation = "log2(x + 1)"),
+#  
+#     as_tibble(assay(vsd)[, 1:2]) %>% mutate(transformation = "vst"),
+#  
+#     as_tibble(assay(rld)[, 1:2]) %>% mutate(transformation = "rlog"))
+# 
+# colnames(df)[1:2] <- c("x", "y")  
+# 
+# lvls <- c("original", "log2(x + 1)", "vst", "rlog")
+# df$transformation <- factor(df$transformation, levels=lvls)
+# 
+# df |> 
+#   filter(transformation != "original") |> 
+# ggplot(aes(x = x, y = y)) + 
+#   geom_hex(bins = 80) +
+#   # coord_fixed() + 
+#   facet_grid( . ~ transformation)  
 
 ################################################################################
 # Sample distances
@@ -128,23 +141,33 @@ pheatmap(sampleDistMatrix,
          clustering_distance_cols = sampleDists,
          col = colors)
 
+
+################## ESERCIZIO
+pheatmap(sampleDistMatrix,
+         clustering_distance_rows = sampleDists,
+         clustering_distance_cols = sampleDists,
+         col = colors, cutree_rows = 2)
+
 ## Plot PCA
-plotPCA(vsd, intgroup = c("cell"))
-plotPCA(vsd, intgroup = c("dex"))
 plotPCA(vsd, intgroup = c( "dex", "cell"))
+plotPCA(vsd, intgroup = c("dex"))
+plotPCA(vsd, intgroup = c("cell"))
 
 ## Optional
 pcaData <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData = TRUE)
 pcaData
+str(pcaData)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
 
+################## ESERCIZIO
 pcaData |> 
   ggplot(aes(x = PC1, y = PC2, color = dex, shape = cell)) +
     geom_point(size =3) +
     xlab(paste0("PC1: ", percentVar[1], "% variance")) +
     ylab(paste0("PC2: ", percentVar[2], "% variance")) +
     coord_fixed() +
-    ggtitle("PCA with VST data")
+    ggtitle("PCA with VST data") +
+    theme(plot.title = element_text(hjust = .5))
 
 ################################################################################
 # Differential expression analysis
@@ -160,9 +183,9 @@ mcols(res, use.names = TRUE)
 summary(res)
 
 table(res$padj < 0.1)
+2373+1949
 table(res$padj < 0.1 & res$log2FoldChange > 0)
 table(res$padj < 0.1 & res$log2FoldChange < 0)
-2373+1949
 
 ## Volcano plot
 resDF <- res %>%
@@ -175,6 +198,7 @@ resDF <- res %>%
 
 resDF |> count(reg)
 
+################## ESERCIZIO
 ggplot(resDF) +
   geom_point(aes(x = log2FoldChange, y = -log10(padj), color = reg)) +
   ggtitle("Volcano Plot") +
@@ -193,6 +217,7 @@ ggplot(resDF) +
 res.a1 <- results(dds, alpha = 0.0001)
 table(res.a1$padj < 0.0001)
 
+################## ESERCIZIO
 resDF.a1 <- res.a1 %>%
   data.frame() %>%
   tibble::rownames_to_column(var="gene") %>% 
@@ -215,6 +240,7 @@ ggplot(resDF.a1) +
 resLFC1 <- results(dds, lfcThreshold=1)
 table(resLFC1$padj < 0.1)
 
+################## ESERCIZIO
 resDF.lfc1 <- resLFC1 %>%
   data.frame() %>%
   tibble::rownames_to_column(var="gene") %>% 
@@ -247,6 +273,7 @@ geneCounts <- plotCounts(dds, gene = topGene, intgroup = c("dex","cell"),
 ggplot(geneCounts, aes(x = dex, y = count, color = cell)) +
   geom_point()
 
+################## ESERCIZIO
 # Count down 
 topGenesD <- resDF |> 
   filter(reg == "down") |> 
@@ -260,17 +287,18 @@ ggplot(geneCounts, aes(x = dex, y = count, color = cell)) +
   geom_point()
 
 # Count top 
-topGenesD <- resDF |> 
+topGenesU <- resDF |> 
   filter(reg == "up") |> 
   arrange(padj) |> 
   slice(1) |> 
   pull(gene)
 
-geneCounts <- plotCounts(dds, gene = topGenesD, intgroup = c("dex","cell"),
+geneCounts <- plotCounts(dds, gene = topGenesU, intgroup = c("dex","cell"),
                          returnData = TRUE)
 ggplot(geneCounts, aes(x = dex, y = count, color = cell)) +
   geom_point()
 
+################## ESERCIZIO (Bonus)
 # More then one
 topGene <- resDF |> 
   # filter(reg == "down") |> 
@@ -299,24 +327,28 @@ as.data.frame(assay(vsd)[topGene,]) |>
 plotMA(res, ylim = c(-5, 5))
 plotMA(resLFC1, ylim = c(-5, 5))
 
+## removing the noise and preserving large differences ##
 #' We need to use the lfcShrink function to shrink the log2 fold changes 
 #' for the comparison of dex treated vs untreated samples
-#' Shrinking the log2 fold changes will not change the total number of genes that are identified as significantly differentially expressed. The shrinkage of fold change is to help with downstream assessment of results. For example, if you wanted to subset your significant genes based on fold change for further evaluation, you may want to use shruken values. Additionally, for functional analysis tools such as GSEA which require fold change values as input you would want to provide shrunken values.
+#' Shrinking the log2 fold changes will not change the total number of genes that are identified as significantly differentially expressed. The shrinkage of fold change is to help with downstream assessment of results. For example, if you wanted to subset your significant genes based on fold change for further evaluation, you may want to use shruken values. Additionally, for functional analysis tools such as Gene Set Enrichment Analysis (GSEA) which require fold change values as input you would want to provide shrunken values.
 library("apeglm")
 resultsNames(dds)
 resS <- lfcShrink(dds, coef="dex_Dexamethasone_vs_Untreated", type="apeglm",
                   res = res)
 plotMA(resS, ylim = c(-5, 5))
 
+################## ESERCIZIO 
 resL <- lfcShrink(dds, coef="dex_Dexamethasone_vs_Untreated", type="apeglm",
                   res = resLFC1)
 plotMA(resL, ylim = c(-5, 5))
 
 # Gene clustering
+# only cluster a subset of the most highly variable genes (vsd)
 library("genefilter")
 topVarGenes <- head(order(rowVars(assay(vsd)), decreasing = TRUE), 20)
 
 mat  <- assay(vsd)[ topVarGenes, ]
+# The heatmap becomes more interesting if we do not look at absolute expression strength but rather at the amount by which each gene deviates in a specific sample from the gene’s average across all samples
 mat  <- mat - rowMeans(mat)
 anno <- as.data.frame(colData(vsd)[, c("cell","dex")])
 pheatmap(mat, annotation_col = anno)
@@ -337,12 +369,34 @@ pheatmap(mat, annotation_col = anno)
 # Exporting results
 write.csv(resDF, file = "results.csv")
 
+
+library("AnnotationDbi")
+library("org.Hs.eg.db")
+columns(org.Hs.eg.db)
+resDF$gene <- substr(resDF$gene, 1, 15)
+resDF$symbol <- mapIds(org.Hs.eg.db,
+                     keys=resDF$gene,
+                     column="SYMBOL",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+resDF$entrezid <- mapIds(org.Hs.eg.db,
+                     keys=resDF$gene,
+                     column="ENTREZID",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+
+res$gene <- rownames(res)
+res$entrezid[is.na(res$entrezid)] <- 00000
+rownames(res) <- res$entrezid
+
+
 library("ReportingTools")
-htmlRep <- HTMLReport(shortName="report", title="My report",
+htmlRep <- HTMLReport(shortName="report", title="RNA-seq analysis of differential expression using DESeq2",
                       reportDirectory="./report")
-publish(resDF, htmlRep)
+publish(res,  htmlRep,  annotation.db="org.Hs.eg.db", make.plot = FALSE)
 url <- finish(htmlRep)
 browseURL(url)
+# glutathione peroxidase
 
 ################################################################################
 # Session information
